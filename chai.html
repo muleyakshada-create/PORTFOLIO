@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshada Muley — Raman's Chai</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.aw*{box-sizing:border-box;margin:0;padding:0;}
+.aw{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#F8F7F5;color:#141414;width:100%;padding-bottom:96px;font-size:14px;line-height:1.5;}
+.aw-eyebrow{font-size:.56rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:#999;margin-bottom:16px;display:flex;align-items:center;gap:14px;}
+.aw-eyebrow::after{content:'';flex:1;max-width:60px;height:1px;background:#D8D5D0;}
+.aw-body{font-size:.82rem;font-weight:300;color:#555;line-height:1.85;}
+.aw-body p{margin-bottom:14px;}
+.aw-body p:last-child{margin-bottom:0;}
+.aw-section{max-width:1040px;margin:0 auto;padding:64px 48px 0;}
+.aw-hero{max-width:1040px;margin:0 auto;padding:72px 48px 64px;border-bottom:1px solid #E0DDD8;}
+.aw-title{font-size:clamp(2rem,5vw,3.6rem);font-weight:700;letter-spacing:-.03em;line-height:.95;color:#141414;margin-bottom:10px;}
+.aw-sub{font-size:.76rem;font-weight:300;color:#999;letter-spacing:.06em;text-transform:uppercase;margin-bottom:36px;}
+.aw-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;padding-top:32px;border-top:1px solid #E0DDD8;align-items:start;}
+.aw-lead{font-size:clamp(.88rem,1.6vw,1rem);font-weight:300;color:#777;line-height:1.8;margin-bottom:16px;font-style:italic;padding-left:16px;border-left:1px solid #D0CDC8;}
+.aw-meta-stack{display:flex;flex-direction:column;gap:18px;}
+.aw-meta-lbl{font-size:.54rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#bbb;margin-bottom:4px;}
+.aw-meta-val{font-size:.78rem;font-weight:300;color:#555;line-height:1.55;}
+.aw-meta-val strong{color:#141414;font-weight:600;}
+.aw-img-slot{position:relative;overflow:hidden;background:#EDECEA;}
+.aw-img-slot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease;}
+.aw-img-slot:hover img{transform:scale(1.025);}
+.aw-img-slot.wide{aspect-ratio:16/9;}
+.aw-img-slot.plan{aspect-ratio:3/2;}
+.aw-img-slot.sq{aspect-ratio:1/1;}
+.aw-img-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.45));padding:28px 14px 12px;font-size:.6rem;color:rgba(255,255,255,.75);opacity:0;transition:opacity .3s;line-height:1.4;}
+.aw-img-slot:hover .aw-img-cap{opacity:1;}
+.aw-placeholder{width:100%;height:100%;min-height:200px;display:flex;align-items:center;justify-content:center;background:#EDECEA;}
+.aw-placeholder span{font-size:.56rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#C0BDB8;text-align:center;padding:0 14px;line-height:1.7;}
+.aw-g2{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;}
+.aw-g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-bottom:2px;}
+.aw-g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:2px;margin-bottom:2px;}
+.aw-gf{width:100%;margin-bottom:2px;}
+.aw-act{display:flex;align-items:baseline;gap:14px;margin-bottom:18px;}
+.aw-act-num{font-size:.54rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#bbb;}
+.aw-act-name{font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#555;}
+.aw-act-rule{flex:1;height:1px;background:#E0DDD8;}
+.aw-closing{max-width:1040px;margin:80px auto 0;padding:48px 48px 0;border-top:1px solid #E0DDD8;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.aw-cq{font-size:clamp(.9rem,1.8vw,1.1rem);font-weight:300;color:#777;line-height:1.8;font-style:italic;}
+.aw-cq strong{color:#141414;font-weight:500;font-style:normal;}
+.aw-cm{display:flex;flex-direction:column;gap:12px;}
+.aw-cr{border-top:1px solid #E0DDD8;padding-top:11px;}
+.aw-cl{font-size:.52rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#bbb;margin-bottom:3px;}
+.aw-cv{font-size:.74rem;font-weight:300;color:#555;line-height:1.5;}
+@media(max-width:720px){
+  .aw-hero,.aw-section,.aw-closing{padding-left:20px;padding-right:20px;}
+  .aw-grid,.aw-closing{grid-template-columns:1fr;gap:32px;}
+  .aw-g2,.aw-g4{grid-template-columns:1fr;}
+  .aw-g3{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+<script>
+if (sessionStorage.getItem('work_access') !== 'granted') {
+  window.location.replace('work-gate.html');
+}
+</script>
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Akshada Muley</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="work-gate.html" class="nav-link active">Work 🔒</a>
+    <a href="projects.html" class="nav-link">Projects</a>
+  </div>
+</nav>
+<a href="work.html" style="display:block;padding:20px 48px 0;max-width:1040px;margin:0 auto;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#999;text-decoration:none;">← Work</a>
+<div class="aw">
+<div class="aw-hero">
+  <div class="aw-eyebrow">Akarstudios · Branding &amp; Graphics · Logo Design</div>
+  <h1 class="aw-title">Raman's Chai</h1>
+  <div class="aw-sub">Half Moon Bay, CA · Brand Identity · Visual Storytelling</div>
+  <div class="aw-grid">
+    <div><p class="aw-lead">A brand identity rooted in the late founder's love for nature, his celebration of the human spirit, and the deep emotional connection he built with customers through his former tea shop.</p><div class="aw-body"><p>Designed and developed a brand identity for a new wholesale startup specializing in brewed teas. The logo combines distinctive typography with hand-drawn tea leaf illustrations, translating a poetic and organic vision into a visual identity that feels authentic, expressive, and rooted in the brand's natural inspiration.</p><p>The project was inspired by the late founder's celebration of the human spirit and his love for nature — a deeply personal brief that required visual storytelling as much as graphic design.</p></div></div>
+    <div class="aw-meta-stack"><div><div class="aw-meta-lbl">Location</div><div class="aw-meta-val">Half Moon Bay, California</div></div><div><div class="aw-meta-lbl">Firm</div><div class="aw-meta-val"><strong>Akarstudios</strong></div></div><div><div class="aw-meta-lbl">Project Type</div><div class="aw-meta-val">Branding &amp; Graphics · Logo Design</div></div><div><div class="aw-meta-lbl">Role</div><div class="aw-meta-val">Designer</div></div><div><div class="aw-meta-lbl">Skills</div><div class="aw-meta-val">Hand-Drawn Illustration · Visual Storytelling · Concept Development · Brand Positioning</div></div></div>
+  </div>
+</div>
+<div class="aw-section">
+  <div class="aw-act"><div class="aw-act-num">Brand Identity</div><div class="aw-act-name">Logo &amp; Merchandising</div><div class="aw-act-rule"></div></div>
+  <div class="aw-g2">
+    <div class="aw-img-slot wide"><img src="REPLACE_WITH_IMAGE_URL_CHAI_1" alt="Raman's Chai — Logo Design" onerror="this.parentElement.innerHTML='<div class=\'aw-placeholder\'><span>Raman's Chai — Logo Design<br>Replace src with image URL</span></div>'"><div class="aw-img-cap">Raman's Chai — Logo Design</div></div>
+    <div class="aw-img-slot wide"><img src="REPLACE_WITH_IMAGE_URL_CHAI_2" alt="Merchandising for brand" onerror="this.parentElement.innerHTML='<div class=\'aw-placeholder\'><span>Merchandising for brand<br>Replace src with image URL</span></div>'"><div class="aw-img-cap">Merchandising for brand</div></div>
+  </div>
+</div>
+<div class="aw-closing"><div class="aw-cq">"Design as tribute — translating a founder's <strong>love for nature and human connection</strong> into a visual language that carries his legacy forward."</div><div class="aw-cm"><div class="aw-cr"><div class="aw-cl">Project</div><div class="aw-cv">Raman's Chai</div></div><div class="aw-cr"><div class="aw-cl">Location</div><div class="aw-cv">Half Moon Bay, CA</div></div><div class="aw-cr"><div class="aw-cl">Firm</div><div class="aw-cv">Akarstudios</div></div><div class="aw-cr"><div class="aw-cl">Scope</div><div class="aw-cv">Brand Identity · Logo Design · Merchandising</div></div></div></div>
+</div>
+<footer class="site-footer">
+  <div class="footer-copy">© 2020–2026 by Akshada Muley</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/akshada-muley-assoc-aia-25b37b153" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+    <a href="https://drive.google.com/uc?export=download&id=1GJ8jZrhRk_v8KWGUJh4Qr4XcrbVuQSlw" target="_blank" rel="noopener" class="footer-link">Resume</a>
+  </div>
+</footer>
+</body>
+</html>

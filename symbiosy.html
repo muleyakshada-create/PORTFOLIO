@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshada Muley — Symbiosy</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+.sy * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.sy {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #0D0D0D;
+  color: #E8E6E2;
+  width: 100%;
+  padding-bottom: 96px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── UTILITIES ── */
+.sy-rule { border: none; border-top: 1px solid #1E1E1E; }
+.sy-eyebrow {
+  font-size: .56rem; font-weight: 600; letter-spacing: .26em;
+  text-transform: uppercase; color: #444; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.sy-eyebrow::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: #222; }
+.sy-section-label {
+  font-size: .54rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: #3A3A3A; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.sy-section-label::after { content: ''; flex: 1; height: 1px; background: #1A1A1A; }
+.sy-body {
+  font-size: .82rem; font-weight: 300; color: #666; line-height: 1.85;
+}
+.sy-body p { margin-bottom: 14px; }
+.sy-body p:last-child { margin-bottom: 0; }
+
+/* ── SECTION ── */
+.sy-section { max-width: 1040px; margin: 0 auto; padding: 64px 48px 0; }
+
+/* ── HERO ── */
+.sy-hero {
+  max-width: 1040px; margin: 0 auto;
+  padding: 80px 48px 72px;
+  border-bottom: 1px solid #1A1A1A;
+}
+.sy-title {
+  font-size: clamp(3rem, 9vw, 6.4rem); font-weight: 700;
+  letter-spacing: -.04em; line-height: .88; color: #E8E6E2;
+  margin-bottom: 12px;
+}
+.sy-title-sub {
+  font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 300;
+  color: #2E2E2E; letter-spacing: .02em; margin-bottom: 36px;
+}
+.sy-hero-grid {
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px;
+  padding-top: 32px; border-top: 1px solid #1A1A1A; align-items: start;
+}
+.sy-lead {
+  font-size: clamp(.92rem, 1.8vw, 1.08rem); font-weight: 300;
+  color: #999; line-height: 1.75; margin-bottom: 20px;
+  font-style: italic; padding-left: 16px; border-left: 1px solid #333;
+}
+.sy-meta-stack { display: flex; flex-direction: column; gap: 18px; }
+.sy-meta-lbl {
+  font-size: .54rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #333; margin-bottom: 4px;
+}
+.sy-meta-val { font-size: .78rem; font-weight: 300; color: #666; line-height: 1.55; }
+.sy-meta-val strong { color: #bbb; font-weight: 500; }
+
+/* ── CONCEPT GRID ── */
+.sy-concept-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.sy-pull {
+  font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 300;
+  color: #bbb; line-height: 1.65; margin-bottom: 22px; letter-spacing: -.01em;
+}
+.sy-pull strong { color: #E8E6E2; font-weight: 500; }
+
+/* ── IDEA BLOCKS ── */
+.sy-ideas {
+  display: flex; flex-direction: column; gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.sy-idea {
+  background: #0D0D0D; padding: 18px 18px;
+  display: flex; align-items: flex-start; gap: 14px;
+  transition: background .2s;
+}
+.sy-idea:hover { background: #111; }
+.sy-idea-num {
+  font-size: .56rem; font-weight: 700; letter-spacing: .1em;
+  color: #2A2A2A; flex-shrink: 0; padding-top: 2px; width: 18px;
+}
+.sy-idea-name {
+  font-size: .78rem; font-weight: 600; color: #aaa;
+  letter-spacing: .04em; text-transform: uppercase; margin-bottom: 3px;
+}
+.sy-idea-desc { font-size: .73rem; font-weight: 300; color: #484848; line-height: 1.6; }
+
+/* ── ANALOGY DIAGRAM ── */
+.sy-analogy {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 0;
+  background: #111; border: 1px solid #1E1E1E; margin-bottom: 0;
+  align-items: stretch;
+}
+.sy-analogy-col {
+  padding: 24px 20px 28px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.sy-analogy-col:first-child { border-right: 1px solid #1E1E1E; }
+.sy-analogy-col:last-child { border-left: 1px solid #1E1E1E; }
+.sy-analogy-center {
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 16px; flex-shrink: 0;
+}
+.sy-analogy-eq {
+  font-size: .62rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: #2A2A2A; writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+.sy-analogy-head {
+  font-size: .56rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #333; margin-bottom: 8px;
+  padding-bottom: 8px; border-bottom: 1px solid #1A1A1A;
+}
+.sy-analogy-item {
+  font-size: .75rem; font-weight: 300; color: #555; line-height: 1.5;
+  padding-left: 10px; border-left: 1px solid #222; margin-bottom: 4px;
+}
+.sy-analogy-item strong { color: #888; font-weight: 500; }
+
+/* ── WORLD DESCRIPTION ── */
+.sy-world-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.sy-world-cell {
+  background: #0D0D0D; padding: 22px 18px 26px;
+  transition: background .2s;
+}
+.sy-world-cell:hover { background: #111; }
+.sy-world-cell-lbl {
+  font-size: .54rem; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: #2E2E2E; margin-bottom: 10px;
+  padding-bottom: 8px; border-bottom: 1px solid #1A1A1A;
+}
+.sy-world-cell-text {
+  font-size: .76rem; font-weight: 300; color: #555; line-height: 1.7;
+}
+
+/* ── IMAGE SYSTEM ── */
+.sy-img-slot {
+  position: relative; overflow: hidden; background: #111;
+}
+.sy-img-slot img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+.sy-img-slot:hover img { transform: scale(1.025); }
+.sy-img-slot.wide  { aspect-ratio: 16/9; }
+.sy-img-slot.cinema { aspect-ratio: 21/9; }
+.sy-img-slot.sq    { aspect-ratio: 1/1; }
+.sy-img-slot.tall  { aspect-ratio: 3/4; }
+.sy-img-slot.med   { aspect-ratio: 4/3; }
+
+.sy-img-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.82));
+  padding: 28px 14px 12px;
+  font-size: .6rem; font-weight: 400; color: rgba(255,255,255,.45);
+  opacity: 0; transition: opacity .3s; line-height: 1.4;
+}
+.sy-img-slot:hover .sy-img-cap { opacity: 1; }
+
+.sy-placeholder {
+  width: 100%; height: 100%; min-height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  background: #0F0F0F;
+}
+.sy-placeholder span {
+  font-size: .56rem; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: #1E1E1E; text-align: center;
+  padding: 0 14px; line-height: 1.7;
+}
+
+.sy-grid-full  { width: 100%; margin-bottom: 2px; }
+.sy-grid-2     { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.sy-grid-3     { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.sy-grid-asym  { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2px; margin-bottom: 2px; }
+
+.sy-act {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px;
+}
+.sy-act-num  { font-size: .54rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #2A2A2A; }
+.sy-act-name { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #555; }
+.sy-act-rule { flex: 1; height: 1px; background: #1A1A1A; }
+
+/* ── CLOSING ── */
+.sy-closing {
+  max-width: 1040px; margin: 80px auto 0;
+  padding: 48px 48px 0;
+  border-top: 1px solid #1A1A1A;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.sy-closing-quote {
+  font-size: clamp(.95rem, 1.8vw, 1.15rem); font-weight: 300;
+  color: #444; line-height: 1.75; font-style: italic; letter-spacing: -.01em;
+}
+.sy-closing-quote strong { color: #888; font-weight: 400; font-style: normal; }
+.sy-closing-meta { display: flex; flex-direction: column; gap: 12px; }
+.sy-closing-row { border-top: 1px solid #1A1A1A; padding-top: 11px; }
+.sy-closing-lbl { font-size: .52rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #2E2E2E; margin-bottom: 3px; }
+.sy-closing-val { font-size: .74rem; font-weight: 300; color: #555; line-height: 1.5; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .sy-hero, .sy-section, .sy-closing { padding-left: 20px; padding-right: 20px; }
+  .sy-title { font-size: clamp(2.6rem, 12vw, 4rem); }
+  .sy-hero-grid, .sy-concept-grid, .sy-closing { grid-template-columns: 1fr; gap: 32px; }
+  .sy-analogy { grid-template-columns: 1fr; }
+  .sy-analogy-col:first-child, .sy-analogy-col:last-child { border: none; }
+  .sy-analogy-center { display: none; }
+  .sy-world-grid { grid-template-columns: 1fr; }
+  .sy-grid-2, .sy-grid-asym { grid-template-columns: 1fr; }
+  .sy-grid-3 { grid-template-columns: 1fr 1fr; }
+}
+
+
+    /* Light theme override */
+    .fvr,.pp,.sy,.tr,.ei,.cr { background:#F8F7F5 !important; color:#141414 !important; }
+    .fvr-hero,.fvr-section,.fvr-gallery,.fvr-process,.fvr-closing,
+    .fvr-concept,.fvr-contribution,.pp-hero,.pp-section,.pp-closing,
+    .sy-hero,.sy-section,.sy-closing,.tr-hero,.tr-section,.tr-closing,
+    .ei-hero,.ei-section,.ei-closing,.cr-hero,.cr-section,.cr-closing { background:#F8F7F5 !important; }
+    .fvr-title,.pp-title,.sy-title,.tr-title,.ei-title,.cr-title { color:#141414 !important; }
+    .fvr-title span,.fvr-title em,.pp-title em,.tr-title em { color:#C8C5C0 !important; }
+    .fvr-title-sub,.pp-title-sub,.sy-title-sub,.tr-title-sub,.ei-title-sub,.cr-title-sub { color:#888 !important; }
+    .fvr-eyebrow,.pp-eyebrow,.sy-eyebrow,.tr-eyebrow,.ei-eyebrow,.cr-eyebrow { color:#999 !important; }
+    .fvr-eyebrow::after,.pp-eyebrow::after,.sy-eyebrow::after,.tr-eyebrow::after,.ei-eyebrow::after,.cr-eyebrow::after { background:#D8D5D0 !important; }
+    .fvr-section-label,.pp-section-label,.sy-section-label,.tr-section-label,.ei-section-label,.cr-section-label { color:#999 !important; }
+    .fvr-section-label::after,.pp-section-label::after,.sy-section-label::after,.tr-section-label::after,.ei-section-label::after,.cr-section-label::after { background:#E0DDD8 !important; }
+    .fvr-body,.pp-body,.sy-body,.tr-body { color:#555 !important; }
+    .fvr-lead,.pp-lead,.sy-lead,.tr-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-tagline { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-concept-pull,.pp-pull,.sy-pull,.tr-pull { color:#555 !important; }
+    .fvr-concept-pull strong,.pp-pull strong,.sy-pull strong,.tr-pull strong { color:#141414 !important; }
+    .fvr-meta-lbl,.pp-meta-lbl,.sy-meta-lbl,.tr-meta-lbl,.ei-meta-lbl,.cr-meta-lbl { color:#bbb !important; }
+    .fvr-meta-val,.pp-meta-val,.sy-meta-val,.tr-meta-val,.ei-meta-val,.cr-meta-val { color:#555 !important; }
+    .fvr-meta-val strong,.pp-meta-val strong { color:#141414 !important; }
+    .fvr-scales,.pp-themes,.sy-ideas,.tr-surfaces,.tr-strat-grid,.tr-tech-grid,
+    .ei-principles,.ei-program,.ei-sensory,.ei-edu-grid,.cr-interventions { background:#E0DDD8 !important; }
+    .fvr-scale,.pp-theme,.sy-idea,.tr-surface,.tr-strat-cell,.tr-tech-cell,
+    .ei-principle,.ei-program-group,.ei-sensory-cell,.ei-edu-cell,.cr-intervention,
+    .cr-principle,.cr-int-desc-block { background:#fff !important; border-color:#E0DDD8 !important; }
+    .fvr-scale-num,.pp-theme-num,.sy-idea-num,.tr-surface-num { color:#C8C5C0 !important; }
+    .fvr-scale-name,.pp-theme-name,.sy-idea-name,.tr-surface-name { color:#141414 !important; }
+    .fvr-scale-desc,.pp-theme-desc,.sy-idea-desc,.tr-surface-desc { color:#666 !important; }
+    .fvr-act-num,.pp-act-num,.sy-act-num,.tr-act-num,.ei-act-num,.cr-act-num { color:#bbb !important; }
+    .fvr-act-name,.pp-act-name,.sy-act-name,.tr-act-name,.ei-act-name,.cr-act-name { color:#555 !important; }
+    .fvr-act-rule,.pp-act-rule,.sy-act-rule,.tr-act-rule,.ei-act-rule,.cr-act-rule { background:#E0DDD8 !important; }
+    .fvr-img-slot,.pp-img-slot,.sy-img-slot,.tr-img-slot,.ei-img-slot,.cr-img-slot { background:#EDECEA !important; }
+    .fvr-placeholder,.pp-placeholder,.sy-placeholder,.tr-placeholder,.ei-placeholder,.cr-placeholder { background:#EDECEA !important; }
+    .fvr-placeholder span,.pp-placeholder span,.sy-placeholder span,.tr-placeholder span,.ei-placeholder span,.cr-placeholder span { color:#C0BDB8 !important; }
+    .fvr-img-cap,.pp-img-cap,.sy-img-cap,.tr-img-cap,.ei-img-cap,.cr-img-cap { background:linear-gradient(transparent,rgba(0,0,0,.45)) !important; }
+    .fvr-closing-quote,.pp-closing-quote,.sy-closing-quote,.tr-closing-quote { color:#777 !important; }
+    .fvr-closing-quote strong,.pp-closing-quote strong,.sy-closing-quote strong,.tr-closing-quote strong { color:#141414 !important; font-weight:500 !important; }
+    .fvr-closing-row,.pp-closing-row,.sy-closing-row,.tr-closing-row,.ei-closing-row,.cr-closing-row { border-top-color:#E0DDD8 !important; }
+    .fvr-closing-lbl,.pp-closing-lbl,.sy-closing-lbl,.tr-closing-lbl,.ei-closing-lbl,.cr-closing-lbl { color:#bbb !important; }
+    .fvr-closing-val,.pp-closing-val,.sy-closing-val,.tr-closing-val,.ei-closing-val,.cr-closing-val { color:#555 !important; }
+    .fvr-world-grid,.sy-world-grid { background:#E0DDD8 !important; }
+    .fvr-world-cell,.sy-world-cell { background:#fff !important; }
+    .fvr-world-cell-lbl,.sy-world-cell-lbl { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .fvr-world-cell-text,.sy-world-cell-text { color:#555 !important; }
+    .fvr-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-col { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-head { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .sy-analogy-item { color:#555 !important; border-left-color:#D0CDC8 !important; }
+    .sy-analogy-item strong { color:#141414 !important; }
+    .sy-analogy-eq { color:#C8C5C0 !important; }
+    .fvr-pipeline { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .tr-pipeline-step { background:#fff !important; }
+    .tr-step-num { color:#C8C5C0 !important; }
+    .tr-step-text { color:#555 !important; }
+    .tr-step-text strong { color:#141414 !important; }
+    .tr-pipeline-step::after { color:#C8C5C0 !important; }
+    .fvr-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique-label { color:#999 !important; }
+    .pp-step-num { color:#C8C5C0 !important; }
+    .pp-step-text { color:#555 !important; }
+    .pp-step-text strong { color:#888 !important; }
+    .fvr-flow-svg line,.fvr-flow-svg polygon,.pp-flow-svg line,.pp-flow-svg polygon { stroke:#C8C5C0 !important; fill:#C8C5C0 !important; }
+    .pp-flow-sub .pp-fch { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .pp-fchip { border-color:#D0CDC8 !important; color:#555 !important; background:#F8F7F5 !important; }
+    .pp-fchip:hover { background:#F2F0EC !important; }
+    .pp-fpivot { border-color:#D0CDC8 !important; color:#888 !important; background:#F8F7F5 !important; }
+    .ei-stat { background:#fff !important; }
+    .ei-stat-val { color:#141414 !important; }
+    .ei-stat-lbl { color:#888 !important; }
+    .ei-stats { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .cr-approach-grid .cr-principles { background:#E0DDD8 !important; }
+    .cr-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .cr-banner-num { color:#bbb !important; }
+    .cr-banner-title { color:#141414 !important; }
+    .cr-banner-phases { color:#999 !important; }
+    .cr-int-header-num { color:#bbb !important; }
+    .cr-int-header-name { color:#555 !important; }
+    .cr-int-header-rule { background:#E0DDD8 !important; }
+    .cr-int-desc-block { background:#F2F0EC !important; border-color:#E0DDD8 !important; color:#555 !important; }
+    .cr-int-num { color:#bbb !important; }
+    .cr-int-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .cr-int-desc { color:#555 !important; }
+    .cr-location-tag { color:#bbb !important; }
+    .cr-location-name { color:#141414 !important; }
+    .cr-location-phases { color:#999 !important; }
+    .cr-location-desc { color:#555 !important; }
+    .cr-principle-text { color:#555 !important; }
+    .cr-principle-text strong { color:#141414 !important; }
+    .jp,.ftf { background:#F8F7F5 !important; color:#141414 !important; }
+    .jp-hero,.jp-section,.jp-closing,.ftf-hero,.ftf-section,.ftf-close { background:#F8F7F5 !important; }
+    .jp-title,.ftf-hero-title { color:#141414 !important; }
+    .jp-title-sub,.ftf-header-eyebrow { color:#999 !important; }
+    .jp-meta-lbl,.ftf-meta-label { color:#bbb !important; }
+    .jp-meta-val,.ftf-meta-val { color:#555 !important; }
+    .jp-meta-val strong { color:#141414 !important; }
+    .jp-contrib,.jp-locations,.jp-design-els,
+    .ftf-cards-grid,.ftf-stats,.ftf-3col { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .jp-contrib-cell,.jp-location-cell,.jp-design-el,
+    .ftf-card,.ftf-stat,.ftf-3col-cell { background:#fff !important; }
+    .jp-contrib-cell:hover,.jp-location-cell:hover,.jp-design-el:hover { background:#FAFAF8 !important; }
+    .jp-contrib-num,.jp-location-tag { color:#bbb !important; }
+    .jp-contrib-name,.jp-location-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .jp-contrib-desc,.jp-location-desc { color:#555 !important; }
+    .jp-act-num { color:#bbb !important; }
+    .jp-act-name { color:#555 !important; }
+    .jp-act-rule { background:#E0DDD8 !important; }
+    .jp-img-slot { background:#EDECEA !important; }
+    .jp-placeholder { background:#EDECEA !important; }
+    .jp-placeholder span { color:#C0BDB8 !important; }
+    .jp-closing-quote { color:#777 !important; }
+    .jp-closing-quote strong { color:#141414 !important; }
+    .jp-closing-row { border-top-color:#E0DDD8 !important; }
+    .jp-closing-lbl { color:#bbb !important; }
+    .jp-closing-val { color:#555 !important; }
+    .jp-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .jp-pull { color:#555 !important; }
+    .jp-pull strong { color:#141414 !important; }
+    .jp-design-el-dot { background:#C8C5C0 !important; }
+    .jp-design-el-text { color:#555 !important; }
+    .jp-design-el-text strong { color:#141414 !important; }
+    .jp-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .jp-banner-num { color:#bbb !important; }
+    .jp-banner-title { color:#141414 !important; }
+    .jp-banner-phases { color:#999 !important; }
+    /* Finance the future extra */
+    .ftf-label { color:#bbb !important; }
+    .ftf-body { color:#555 !important; }
+    .ftf-cta { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .ftf-cta svg path { stroke:#141414 !important; }
+    
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Akshada Muley</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link ">About</a>
+    <a href="work.html" class="nav-link ">Work</a>
+    <a href="projects.html" class="nav-link active">Projects</a>
+  </div>
+</nav>
+<a href="projects.html" class="back-link" style="display:block;padding:20px 48px 0;max-width:1040px;margin:0 auto;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#999;text-decoration:none;">← Projects</a>
+<div class="detail-wrap">
+
+
+<div class="sy">
+
+<!-- ══ HERO ══ -->
+<div class="sy-hero">
+  <div class="sy-eyebrow">UCLA Entertainment Studio · Winter Technology Seminar · 2020</div>
+  <h1 class="sy-title">Symbiosy</h1>
+  <div class="sy-title-sub">A supermarket of crowd-sourced labor</div>
+
+  <div class="sy-hero-grid">
+    <div>
+      <p class="sy-lead">
+        "The 'flattened' nature of the internet compresses the notion of journey into a split-second click. How can we rethink the navigation of information by reorganizing it spatially?"
+      </p>
+      <div class="sy-body">
+        <p>Symbiosy is a speculative metaverse — a unique supermarket, a collective of human services, an enormous bank of labor opportunities in a single wholesome world. It asks what happens when we apply the spatial logic of a supermarket to the crowd-sourced economy of the internet.</p>
+        <p>The project proposes a world of thousands of people — novice skill, intelligence, and talent at every nook and corner — made by us, for us, where every person is of equal importance owing to the work they do.</p>
+      </div>
+    </div>
+
+    <div class="sy-meta-stack">
+      <div>
+        <div class="sy-meta-lbl">Medium</div>
+        <div class="sy-meta-val">Concept Art · Speculative World-building · 3D Visualization</div>
+      </div>
+      <div>
+        <div class="sy-meta-lbl">Studio</div>
+        <div class="sy-meta-val">UCLA Architecture &amp; Urban Design<br>Winter Technology Seminar</div>
+      </div>
+      <div>
+        <div class="sy-meta-lbl">Instructor</div>
+        <div class="sy-meta-val">Nathan Su</div>
+      </div>
+      <div>
+        <div class="sy-meta-lbl">Team</div>
+        <div class="sy-meta-val">Neha Oswal · <strong>Akshada Muley</strong></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONCEPT ══ -->
+<div class="sy-section">
+  <div class="sy-section-label">The Concept</div>
+  <div class="sy-concept-grid">
+    <div>
+      <p class="sy-pull">What if the <strong>gig economy had a physical form</strong> — a supermarket you could walk through, aisle by aisle, choosing the labor you need?</p>
+      <div class="sy-body">
+        <p>The supermarket and crowd-sourcing share one thing in common: the Compartment. Compartmentalization as a unit — this is the structural logic of Symbiosy. In this metaverse, an unending number of micro-tasks and their micro-worlds (essentially workplaces) come together to build a macro world of multiple opportunities.</p>
+        <p>The market has aisles — endlessly long and ever rising in height, because it keeps adding new resources by the second. Every cell in an aisle looks different; it's hard to understand why two adjacent units are next to each other. Only when you arrive with a purpose will the world make sense, because the units and their arrangement fall into place based on the context you are looking for.</p>
+      </div>
+    </div>
+
+    <div class="sy-ideas">
+      <div class="sy-idea">
+        <div class="sy-idea-num">01</div>
+        <div>
+          <div class="sy-idea-name">The Flattened Internet</div>
+          <div class="sy-idea-desc">Navigation today collapses journey into a click. Symbiosy restores the spatial in-between — the threshold, the aisle, the act of wandering with purpose.</div>
+        </div>
+      </div>
+      <div class="sy-idea">
+        <div class="sy-idea-num">02</div>
+        <div>
+          <div class="sy-idea-name">Compartmentalization</div>
+          <div class="sy-idea-desc">The unit cell — shared logic between the supermarket shelf and the gig economy task. Each micro-world is self-contained yet arranged within a larger system.</div>
+        </div>
+      </div>
+      <div class="sy-idea">
+        <div class="sy-idea-num">03</div>
+        <div>
+          <div class="sy-idea-name">Day &amp; Night Horizon</div>
+          <div class="sy-idea-desc">In this world there is day at one end of the horizon and night at the other — a spatial metaphor for the always-on, time-zone-agnostic nature of crowd-sourced labor.</div>
+        </div>
+      </div>
+      <div class="sy-idea">
+        <div class="sy-idea-num">04</div>
+        <div>
+          <div class="sy-idea-name">Identity &amp; Purpose</div>
+          <div class="sy-idea-desc">The world is defined by singular identities — workplaces of multiple natures — yet willing to collaborate. One customizes their purpose through the micro-identities of the workforce.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ANALOGY DIAGRAM ══ -->
+<div class="sy-section" style="padding-top:48px">
+  <div class="sy-section-label">The Analogy</div>
+  <div class="sy-analogy">
+    <div class="sy-analogy-col">
+      <div class="sy-analogy-head">Supermarket</div>
+      <div class="sy-analogy-item"><strong>Aisles</strong> — categories of goods organized for navigation</div>
+      <div class="sy-analogy-item"><strong>Shelf unit</strong> — individual product, self-contained</div>
+      <div class="sy-analogy-item"><strong>Departments</strong> — distinct zones by type</div>
+      <div class="sy-analogy-item"><strong>Checkout</strong> — transaction and exchange</div>
+      <div class="sy-analogy-item"><strong>Window shopping</strong> — browsing without purpose or context</div>
+    </div>
+    <div class="sy-analogy-center">
+      <div class="sy-analogy-eq">The Compartment</div>
+    </div>
+    <div class="sy-analogy-col">
+      <div class="sy-analogy-head">Crowd-sourced Labor</div>
+      <div class="sy-analogy-item"><strong>Categories</strong> — types of micro-tasks organized spatially</div>
+      <div class="sy-analogy-item"><strong>Micro-world</strong> — individual worker, individual workplace</div>
+      <div class="sy-analogy-item"><strong>Skill domains</strong> — distinct zones by expertise</div>
+      <div class="sy-analogy-item"><strong>Contract</strong> — task accepted and completed</div>
+      <div class="sy-analogy-item"><strong>Browsing</strong> — exploring labor without a defined need</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ THE WORLD ══ -->
+<div class="sy-section" style="padding-top:48px">
+  <div class="sy-section-label">The World of Symbiosy</div>
+  <div class="sy-world-grid">
+    <div class="sy-world-cell">
+      <div class="sy-world-cell-lbl">Structure</div>
+      <div class="sy-world-cell-text">Aisles that are endlessly long and ever-rising in height — because the market keeps adding new resources by the second. Every cell looks different; arrangement only makes sense with context.</div>
+    </div>
+    <div class="sy-world-cell">
+      <div class="sy-world-cell-lbl">Atmosphere</div>
+      <div class="sy-world-cell-text">Day at one end of the horizon, night at the other. The world never sleeps. Every form of labor is unique yet fits into its aisle — a play of singular identities within a collaborative whole.</div>
+    </div>
+    <div class="sy-world-cell">
+      <div class="sy-world-cell-lbl">Experience</div>
+      <div class="sy-world-cell-text">Walk through every aisle, through every category. You choose what suits you. Only when you arrive with a purpose do the units and their arrangement fall into place — the market is legible only through intent.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONCEPT ART — HERO IMAGE ══ -->
+<div class="sy-section" style="padding-top:48px">
+  <div class="sy-act">
+    <div class="sy-act-num">Concept Art</div>
+    <div class="sy-act-name">A Supermarket of Crowd-sourced Labor</div>
+    <div class="sy-act-rule"></div>
+  </div>
+
+  <!-- Hero image — full width -->
+  <div class="sy-grid-full">
+    <div class="sy-img-slot cinema">
+      <!--
+        REPLACE src with actual CDN URL.
+        Caption: "Concept Art — A supermarket of crowd-sourced labor"
+      -->
+      <img src="REPLACE_WITH_IMAGE_URL_1"
+        alt="Concept Art — A supermarket of crowd-sourced labor"
+        onerror="this.parentElement.innerHTML='<div class=\'sy-placeholder\'><span>Concept Art — Supermarket of crowd-sourced labor<br>Replace src with CDN URL</span></div>'">
+      <div class="sy-img-cap">Concept Art — A supermarket of crowd-sourced labor. Navigating through a world where compartmentalization is both structure and meaning.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LABOR CELLS — THE AISLES ══ -->
+<div class="sy-section" style="padding-top:48px">
+  <div class="sy-act">
+    <div class="sy-act-num">The Aisles</div>
+    <div class="sy-act-name">Labor Cells — Micro-worlds of the Gig Economy</div>
+    <div class="sy-act-rule"></div>
+  </div>
+
+  <!-- 3-up: delivery, airbnb, wfh -->
+  <div class="sy-grid-3">
+    <div class="sy-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_2"
+        alt="Delivery cars"
+        onerror="this.parentElement.innerHTML='<div class=\'sy-placeholder\'><span>Delivery Cars<br>Replace src with CDN URL</span></div>'">
+      <div class="sy-img-cap">Delivery Cars — the logistics labor cell</div>
+    </div>
+    <div class="sy-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_3"
+        alt="Airbnb apartments"
+        onerror="this.parentElement.innerHTML='<div class=\'sy-placeholder\'><span>Airbnb Apartments<br>Replace src with CDN URL</span></div>'">
+      <div class="sy-img-cap">Airbnb Apartments — the hospitality labor cell</div>
+    </div>
+    <div class="sy-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_4"
+        alt="Bedroom — Work from home"
+        onerror="this.parentElement.innerHTML='<div class=\'sy-placeholder\'><span>Bedroom — Work from Home<br>Replace src with CDN URL</span></div>'">
+      <div class="sy-img-cap">Bedroom — Work from Home — the remote labor cell</div>
+    </div>
+  </div>
+
+  <!-- 2-up + asymmetric -->
+  <div class="sy-grid-asym">
+    <div class="sy-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_5"
+        alt="Parcel Pending — Mail room"
+        onerror="this.parentElement.innerHTML='<div class=\'sy-placeholder\'><span>Parcel Pending / Mail Room<br>Replace src with CDN URL</span></div>'">
+      <div class="sy-img-cap">Parcel Pending / Mail Room — the distribution labor cell</div>
+    </div>
+    <div class="sy-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_6"
+        alt="Delivery cars — Amazon"
+        onerror="this.parentElement.innerHTML='<div class=\'sy-placeholder\'><span>Delivery Cars — Amazon<br>Replace src with CDN URL</span></div>'">
+      <div class="sy-img-cap">Delivery Cars — Amazon — platform labor cell</div>
+    </div>
+  </div>
+
+  <!-- Additional delivery / labor cell -->
+  <div class="sy-grid-full">
+    <div class="sy-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_7"
+        alt="Delivery cars — labor cell"
+        onerror="this.parentElement.innerHTML='<div class=\'sy-placeholder\'><span>Delivery Cars — Additional View<br>Replace src with CDN URL</span></div>'">
+      <div class="sy-img-cap">Delivery Cars — each unit self-contained yet part of the larger aisle structure</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FILM STILL ══ -->
+<div class="sy-section" style="padding-top:48px">
+  <div class="sy-act">
+    <div class="sy-act-num">Film</div>
+    <div class="sy-act-name">Still from the Film</div>
+    <div class="sy-act-rule"></div>
+  </div>
+
+  <div class="sy-grid-full">
+    <div class="sy-img-slot cinema">
+      <img src="REPLACE_WITH_IMAGE_URL_8"
+        alt="Still from the Symbiosy film"
+        onerror="this.parentElement.innerHTML='<div class=\'sy-placeholder\'><span>Still from the Film<br>Replace src with CDN URL</span></div>'">
+      <div class="sy-img-cap">Still from the film — the Symbiosy world in motion</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CLOSING ══ -->
+<div class="sy-closing">
+  <div class="sy-closing-quote">
+    "A world made by us, for us — where every person is of equal importance owing to the work they do. <strong>Only when you arrive with a purpose will the world make sense.</strong>"
+  </div>
+  <div class="sy-closing-meta">
+    <div class="sy-closing-row">
+      <div class="sy-closing-lbl">Project</div>
+      <div class="sy-closing-val">Symbiosy</div>
+    </div>
+    <div class="sy-closing-row">
+      <div class="sy-closing-lbl">Institution</div>
+      <div class="sy-closing-val">UCLA Architecture &amp; Urban Design</div>
+    </div>
+    <div class="sy-closing-row">
+      <div class="sy-closing-lbl">Seminar</div>
+      <div class="sy-closing-val">Winter Technology Seminar</div>
+    </div>
+    <div class="sy-closing-row">
+      <div class="sy-closing-lbl">Year</div>
+      <div class="sy-closing-val">2020</div>
+    </div>
+    <div class="sy-closing-row">
+      <div class="sy-closing-lbl">Team</div>
+      <div class="sy-closing-val">Neha Oswal · Akshada Muley</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

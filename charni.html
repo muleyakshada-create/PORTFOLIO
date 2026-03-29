@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshada Muley — Charni Road to Khotachiwadi</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+.cr * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.cr {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #0D0D0D;
+  color: #E8E6E2;
+  width: 100%;
+  padding-bottom: 96px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── UTILITIES ── */
+.cr-rule { border: none; border-top: 1px solid #1E1E1E; }
+.cr-eyebrow {
+  font-size: .56rem; font-weight: 600; letter-spacing: .26em;
+  text-transform: uppercase; color: #444; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.cr-eyebrow::after { content:''; flex:1; max-width:60px; height:1px; background:#222; }
+.cr-section-label {
+  font-size: .54rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: #3A3A3A; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.cr-section-label::after { content:''; flex:1; height:1px; background:#1A1A1A; }
+.cr-body {
+  font-size: .82rem; font-weight: 300; color: #666; line-height: 1.85;
+}
+.cr-body p { margin-bottom: 14px; }
+.cr-body p:last-child { margin-bottom: 0; }
+
+/* ── SECTION ── */
+.cr-section { max-width: 1040px; margin: 0 auto; padding: 64px 48px 0; }
+
+/* ── HERO ── */
+.cr-hero {
+  max-width: 1040px; margin: 0 auto;
+  padding: 80px 48px 72px;
+  border-bottom: 1px solid #1A1A1A;
+}
+.cr-title {
+  font-size: clamp(1.9rem, 5vw, 3.8rem); font-weight: 700;
+  letter-spacing: -.03em; line-height: .92; color: #E8E6E2;
+  margin-bottom: 10px;
+}
+.cr-title-arrow { color: #2A2A2A; font-weight: 300; }
+.cr-title-sub {
+  font-size: .76rem; font-weight: 300; color: #333;
+  letter-spacing: .06em; text-transform: uppercase; margin-bottom: 36px;
+}
+.cr-hero-grid {
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px;
+  padding-top: 32px; border-top: 1px solid #1A1A1A; align-items: start;
+}
+.cr-lead {
+  font-size: clamp(.88rem, 1.6vw, 1rem); font-weight: 300;
+  color: #777; line-height: 1.8; margin-bottom: 20px;
+  font-style: italic; padding-left: 16px; border-left: 1px solid #2E2E2E;
+}
+.cr-meta-stack { display: flex; flex-direction: column; gap: 18px; }
+.cr-meta-lbl {
+  font-size: .54rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #333; margin-bottom: 4px;
+}
+.cr-meta-val { font-size: .78rem; font-weight: 300; color: #666; line-height: 1.55; }
+.cr-meta-val strong { color: #bbb; font-weight: 500; }
+
+/* ── APPROACH ── */
+.cr-approach-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.cr-pull {
+  font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 300;
+  color: #bbb; line-height: 1.65; margin-bottom: 20px; letter-spacing: -.01em;
+}
+.cr-pull strong { color: #E8E6E2; font-weight: 500; }
+.cr-principles {
+  display: flex; flex-direction: column; gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.cr-principle {
+  background: #0D0D0D; padding: 14px 16px;
+  display: flex; align-items: flex-start; gap: 12px;
+  transition: background .2s;
+}
+.cr-principle:hover { background: #111; }
+.cr-principle-num {
+  font-size: .52rem; font-weight: 700; letter-spacing: .1em;
+  color: #2A2A2A; flex-shrink: 0; padding-top: 2px; width: 18px;
+}
+.cr-principle-text { font-size: .74rem; font-weight: 300; color: #555; line-height: 1.55; }
+.cr-principle-text strong { color: #888; font-weight: 500; }
+
+/* ── 6 INTERVENTIONS OVERVIEW ── */
+.cr-interventions {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.cr-intervention {
+  background: #0D0D0D; padding: 20px 16px 22px;
+  transition: background .2s; cursor: default;
+}
+.cr-intervention:hover { background: #111; }
+.cr-int-num {
+  font-size: .52rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: #2A2A2A; margin-bottom: 6px;
+}
+.cr-int-name {
+  font-size: .78rem; font-weight: 600; color: #999;
+  text-transform: uppercase; letter-spacing: .04em;
+  margin-bottom: 6px; padding-bottom: 8px; border-bottom: 1px solid #1A1A1A;
+}
+.cr-int-desc { font-size: .72rem; font-weight: 300; color: #444; line-height: 1.6; }
+
+/* ── IMAGE SYSTEM ── */
+.cr-img-slot {
+  position: relative; overflow: hidden; background: #111;
+}
+.cr-img-slot img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+.cr-img-slot:hover img { transform: scale(1.025); }
+.cr-img-slot.wide   { aspect-ratio: 16/9; }
+.cr-img-slot.cinema { aspect-ratio: 21/9; }
+.cr-img-slot.sq     { aspect-ratio: 1/1; }
+.cr-img-slot.tall   { aspect-ratio: 3/4; }
+.cr-img-slot.plan   { aspect-ratio: 3/2; }
+.cr-img-slot.med    { aspect-ratio: 4/3; }
+
+.cr-img-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.82));
+  padding: 28px 14px 12px;
+  font-size: .6rem; font-weight: 400; color: rgba(255,255,255,.45);
+  opacity: 0; transition: opacity .3s; line-height: 1.4;
+}
+.cr-img-slot:hover .cr-img-cap { opacity: 1; }
+
+.cr-placeholder {
+  width: 100%; height: 100%; min-height: 200px;
+  display: flex; align-items: center; justify-content: center; background: #0F0F0F;
+}
+.cr-placeholder span {
+  font-size: .56rem; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: #1E1E1E; text-align: center;
+  padding: 0 14px; line-height: 1.7;
+}
+
+.cr-grid-full  { width: 100%; margin-bottom: 2px; }
+.cr-grid-2     { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.cr-grid-3     { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.cr-grid-asym  { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2px; margin-bottom: 2px; }
+.cr-grid-rasym { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2px; margin-bottom: 2px; }
+
+/* Intervention section header */
+.cr-int-header {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px;
+}
+.cr-int-header-num {
+  font-size: .54rem; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: #2A2A2A;
+}
+.cr-int-header-name {
+  font-size: .8rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: #555;
+}
+.cr-int-header-rule { flex: 1; height: 1px; background: #1A1A1A; }
+.cr-int-desc-block {
+  background: #111; border: 1px solid #1E1E1E;
+  padding: 18px 20px; margin-bottom: 20px;
+  font-size: .78rem; font-weight: 300; color: #555; line-height: 1.7;
+}
+
+/* ── CLOSING ── */
+.cr-closing {
+  max-width: 1040px; margin: 80px auto 0;
+  padding: 48px 48px 0;
+  border-top: 1px solid #1A1A1A;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.cr-closing-quote {
+  font-size: clamp(.9rem, 1.8vw, 1.1rem); font-weight: 300;
+  color: #444; line-height: 1.8; font-style: italic;
+}
+.cr-closing-quote strong { color: #888; font-weight: 400; font-style: normal; }
+.cr-closing-meta { display: flex; flex-direction: column; gap: 12px; }
+.cr-closing-row { border-top: 1px solid #1A1A1A; padding-top: 11px; }
+.cr-closing-lbl { font-size: .52rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #2E2E2E; margin-bottom: 3px; }
+.cr-closing-val { font-size: .74rem; font-weight: 300; color: #555; line-height: 1.5; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .cr-hero, .cr-section, .cr-closing { padding-left: 20px; padding-right: 20px; }
+  .cr-title { font-size: clamp(1.6rem, 7vw, 2.6rem); }
+  .cr-hero-grid, .cr-approach-grid, .cr-closing { grid-template-columns: 1fr; gap: 32px; }
+  .cr-interventions { grid-template-columns: 1fr 1fr; }
+  .cr-grid-2, .cr-grid-asym, .cr-grid-rasym { grid-template-columns: 1fr; }
+  .cr-grid-3 { grid-template-columns: 1fr 1fr; }
+}
+
+
+    /* Light theme override */
+    .fvr,.pp,.sy,.tr,.ei,.cr { background:#F8F7F5 !important; color:#141414 !important; }
+    .fvr-hero,.fvr-section,.fvr-gallery,.fvr-process,.fvr-closing,
+    .fvr-concept,.fvr-contribution,.pp-hero,.pp-section,.pp-closing,
+    .sy-hero,.sy-section,.sy-closing,.tr-hero,.tr-section,.tr-closing,
+    .ei-hero,.ei-section,.ei-closing,.cr-hero,.cr-section,.cr-closing { background:#F8F7F5 !important; }
+    .fvr-title,.pp-title,.sy-title,.tr-title,.ei-title,.cr-title { color:#141414 !important; }
+    .fvr-title span,.fvr-title em,.pp-title em,.tr-title em { color:#C8C5C0 !important; }
+    .fvr-title-sub,.pp-title-sub,.sy-title-sub,.tr-title-sub,.ei-title-sub,.cr-title-sub { color:#888 !important; }
+    .fvr-eyebrow,.pp-eyebrow,.sy-eyebrow,.tr-eyebrow,.ei-eyebrow,.cr-eyebrow { color:#999 !important; }
+    .fvr-eyebrow::after,.pp-eyebrow::after,.sy-eyebrow::after,.tr-eyebrow::after,.ei-eyebrow::after,.cr-eyebrow::after { background:#D8D5D0 !important; }
+    .fvr-section-label,.pp-section-label,.sy-section-label,.tr-section-label,.ei-section-label,.cr-section-label { color:#999 !important; }
+    .fvr-section-label::after,.pp-section-label::after,.sy-section-label::after,.tr-section-label::after,.ei-section-label::after,.cr-section-label::after { background:#E0DDD8 !important; }
+    .fvr-body,.pp-body,.sy-body,.tr-body { color:#555 !important; }
+    .fvr-lead,.pp-lead,.sy-lead,.tr-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-tagline { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-concept-pull,.pp-pull,.sy-pull,.tr-pull { color:#555 !important; }
+    .fvr-concept-pull strong,.pp-pull strong,.sy-pull strong,.tr-pull strong { color:#141414 !important; }
+    .fvr-meta-lbl,.pp-meta-lbl,.sy-meta-lbl,.tr-meta-lbl,.ei-meta-lbl,.cr-meta-lbl { color:#bbb !important; }
+    .fvr-meta-val,.pp-meta-val,.sy-meta-val,.tr-meta-val,.ei-meta-val,.cr-meta-val { color:#555 !important; }
+    .fvr-meta-val strong,.pp-meta-val strong { color:#141414 !important; }
+    .fvr-scales,.pp-themes,.sy-ideas,.tr-surfaces,.tr-strat-grid,.tr-tech-grid,
+    .ei-principles,.ei-program,.ei-sensory,.ei-edu-grid,.cr-interventions { background:#E0DDD8 !important; }
+    .fvr-scale,.pp-theme,.sy-idea,.tr-surface,.tr-strat-cell,.tr-tech-cell,
+    .ei-principle,.ei-program-group,.ei-sensory-cell,.ei-edu-cell,.cr-intervention,
+    .cr-principle,.cr-int-desc-block { background:#fff !important; border-color:#E0DDD8 !important; }
+    .fvr-scale-num,.pp-theme-num,.sy-idea-num,.tr-surface-num { color:#C8C5C0 !important; }
+    .fvr-scale-name,.pp-theme-name,.sy-idea-name,.tr-surface-name { color:#141414 !important; }
+    .fvr-scale-desc,.pp-theme-desc,.sy-idea-desc,.tr-surface-desc { color:#666 !important; }
+    .fvr-act-num,.pp-act-num,.sy-act-num,.tr-act-num,.ei-act-num,.cr-act-num { color:#bbb !important; }
+    .fvr-act-name,.pp-act-name,.sy-act-name,.tr-act-name,.ei-act-name,.cr-act-name { color:#555 !important; }
+    .fvr-act-rule,.pp-act-rule,.sy-act-rule,.tr-act-rule,.ei-act-rule,.cr-act-rule { background:#E0DDD8 !important; }
+    .fvr-img-slot,.pp-img-slot,.sy-img-slot,.tr-img-slot,.ei-img-slot,.cr-img-slot { background:#EDECEA !important; }
+    .fvr-placeholder,.pp-placeholder,.sy-placeholder,.tr-placeholder,.ei-placeholder,.cr-placeholder { background:#EDECEA !important; }
+    .fvr-placeholder span,.pp-placeholder span,.sy-placeholder span,.tr-placeholder span,.ei-placeholder span,.cr-placeholder span { color:#C0BDB8 !important; }
+    .fvr-img-cap,.pp-img-cap,.sy-img-cap,.tr-img-cap,.ei-img-cap,.cr-img-cap { background:linear-gradient(transparent,rgba(0,0,0,.45)) !important; }
+    .fvr-closing-quote,.pp-closing-quote,.sy-closing-quote,.tr-closing-quote { color:#777 !important; }
+    .fvr-closing-quote strong,.pp-closing-quote strong,.sy-closing-quote strong,.tr-closing-quote strong { color:#141414 !important; font-weight:500 !important; }
+    .fvr-closing-row,.pp-closing-row,.sy-closing-row,.tr-closing-row,.ei-closing-row,.cr-closing-row { border-top-color:#E0DDD8 !important; }
+    .fvr-closing-lbl,.pp-closing-lbl,.sy-closing-lbl,.tr-closing-lbl,.ei-closing-lbl,.cr-closing-lbl { color:#bbb !important; }
+    .fvr-closing-val,.pp-closing-val,.sy-closing-val,.tr-closing-val,.ei-closing-val,.cr-closing-val { color:#555 !important; }
+    .fvr-world-grid,.sy-world-grid { background:#E0DDD8 !important; }
+    .fvr-world-cell,.sy-world-cell { background:#fff !important; }
+    .fvr-world-cell-lbl,.sy-world-cell-lbl { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .fvr-world-cell-text,.sy-world-cell-text { color:#555 !important; }
+    .fvr-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-col { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-head { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .sy-analogy-item { color:#555 !important; border-left-color:#D0CDC8 !important; }
+    .sy-analogy-item strong { color:#141414 !important; }
+    .sy-analogy-eq { color:#C8C5C0 !important; }
+    .fvr-pipeline { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .tr-pipeline-step { background:#fff !important; }
+    .tr-step-num { color:#C8C5C0 !important; }
+    .tr-step-text { color:#555 !important; }
+    .tr-step-text strong { color:#141414 !important; }
+    .tr-pipeline-step::after { color:#C8C5C0 !important; }
+    .fvr-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique-label { color:#999 !important; }
+    .pp-step-num { color:#C8C5C0 !important; }
+    .pp-step-text { color:#555 !important; }
+    .pp-step-text strong { color:#888 !important; }
+    .fvr-flow-svg line,.fvr-flow-svg polygon,.pp-flow-svg line,.pp-flow-svg polygon { stroke:#C8C5C0 !important; fill:#C8C5C0 !important; }
+    .pp-flow-sub .pp-fch { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .pp-fchip { border-color:#D0CDC8 !important; color:#555 !important; background:#F8F7F5 !important; }
+    .pp-fchip:hover { background:#F2F0EC !important; }
+    .pp-fpivot { border-color:#D0CDC8 !important; color:#888 !important; background:#F8F7F5 !important; }
+    .ei-stat { background:#fff !important; }
+    .ei-stat-val { color:#141414 !important; }
+    .ei-stat-lbl { color:#888 !important; }
+    .ei-stats { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .cr-approach-grid .cr-principles { background:#E0DDD8 !important; }
+    .cr-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .cr-banner-num { color:#bbb !important; }
+    .cr-banner-title { color:#141414 !important; }
+    .cr-banner-phases { color:#999 !important; }
+    .cr-int-header-num { color:#bbb !important; }
+    .cr-int-header-name { color:#555 !important; }
+    .cr-int-header-rule { background:#E0DDD8 !important; }
+    .cr-int-desc-block { background:#F2F0EC !important; border-color:#E0DDD8 !important; color:#555 !important; }
+    .cr-int-num { color:#bbb !important; }
+    .cr-int-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .cr-int-desc { color:#555 !important; }
+    .cr-location-tag { color:#bbb !important; }
+    .cr-location-name { color:#141414 !important; }
+    .cr-location-phases { color:#999 !important; }
+    .cr-location-desc { color:#555 !important; }
+    .cr-principle-text { color:#555 !important; }
+    .cr-principle-text strong { color:#141414 !important; }
+    .jp,.ftf { background:#F8F7F5 !important; color:#141414 !important; }
+    .jp-hero,.jp-section,.jp-closing,.ftf-hero,.ftf-section,.ftf-close { background:#F8F7F5 !important; }
+    .jp-title,.ftf-hero-title { color:#141414 !important; }
+    .jp-title-sub,.ftf-header-eyebrow { color:#999 !important; }
+    .jp-meta-lbl,.ftf-meta-label { color:#bbb !important; }
+    .jp-meta-val,.ftf-meta-val { color:#555 !important; }
+    .jp-meta-val strong { color:#141414 !important; }
+    .jp-contrib,.jp-locations,.jp-design-els,
+    .ftf-cards-grid,.ftf-stats,.ftf-3col { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .jp-contrib-cell,.jp-location-cell,.jp-design-el,
+    .ftf-card,.ftf-stat,.ftf-3col-cell { background:#fff !important; }
+    .jp-contrib-cell:hover,.jp-location-cell:hover,.jp-design-el:hover { background:#FAFAF8 !important; }
+    .jp-contrib-num,.jp-location-tag { color:#bbb !important; }
+    .jp-contrib-name,.jp-location-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .jp-contrib-desc,.jp-location-desc { color:#555 !important; }
+    .jp-act-num { color:#bbb !important; }
+    .jp-act-name { color:#555 !important; }
+    .jp-act-rule { background:#E0DDD8 !important; }
+    .jp-img-slot { background:#EDECEA !important; }
+    .jp-placeholder { background:#EDECEA !important; }
+    .jp-placeholder span { color:#C0BDB8 !important; }
+    .jp-closing-quote { color:#777 !important; }
+    .jp-closing-quote strong { color:#141414 !important; }
+    .jp-closing-row { border-top-color:#E0DDD8 !important; }
+    .jp-closing-lbl { color:#bbb !important; }
+    .jp-closing-val { color:#555 !important; }
+    .jp-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .jp-pull { color:#555 !important; }
+    .jp-pull strong { color:#141414 !important; }
+    .jp-design-el-dot { background:#C8C5C0 !important; }
+    .jp-design-el-text { color:#555 !important; }
+    .jp-design-el-text strong { color:#141414 !important; }
+    .jp-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .jp-banner-num { color:#bbb !important; }
+    .jp-banner-title { color:#141414 !important; }
+    .jp-banner-phases { color:#999 !important; }
+    /* Finance the future extra */
+    .ftf-label { color:#bbb !important; }
+    .ftf-body { color:#555 !important; }
+    .ftf-cta { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .ftf-cta svg path { stroke:#141414 !important; }
+    
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Akshada Muley</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link ">About</a>
+    <a href="work.html" class="nav-link ">Work</a>
+    <a href="projects.html" class="nav-link active">Projects</a>
+  </div>
+</nav>
+<a href="projects.html" class="back-link" style="display:block;padding:20px 48px 0;max-width:1040px;margin:0 auto;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#999;text-decoration:none;">← Projects</a>
+<div class="detail-wrap">
+
+
+<div class="cr">
+
+<!-- ══ HERO ══ -->
+<div class="cr-hero">
+  <div class="cr-eyebrow">Design Studio · Sir JJ College of Architecture · 2017</div>
+  <h1 class="cr-title">Charni Road <span class="cr-title-arrow">→</span> Khotachiwadi</h1>
+  <div class="cr-title-sub">Urban Interventions · Mumbai, India · 500m Stretch</div>
+
+  <div class="cr-hero-grid">
+    <div>
+      <p class="cr-lead">
+        "Intervening in an urban site requires conscious sensitivity and appropriate justifications — the smallest alteration can result in a massive change."
+      </p>
+      <div class="cr-body">
+        <p>Charni Road is one of Mumbai's prominent Western Line stations, surrounded by the historically rich Girgaon Chowpatty and Taraporewala Aquarium. At its end lies Khotachiwadi — a low-rise, high-density heritage settlement established by Mumbai's East Indian community, declared a heritage precinct.</p>
+        <p>The project draws people toward Khotachiwadi by creating an experiential journey along the 500m stretch between station and settlement — reinterpreting the architectural language of the wadi through modern street-level interventions that blend with the surrounding urban fabric rather than compete with it.</p>
+      </div>
+    </div>
+
+    <div class="cr-meta-stack">
+      <div>
+        <div class="cr-meta-lbl">Project Type</div>
+        <div class="cr-meta-val">Urban Design · Street Intervention</div>
+      </div>
+      <div>
+        <div class="cr-meta-lbl">Location</div>
+        <div class="cr-meta-val">Charni Road to Khotachiwadi<br>Mumbai, Maharashtra, India</div>
+      </div>
+      <div>
+        <div class="cr-meta-lbl">Scope</div>
+        <div class="cr-meta-val">500m urban stretch · 6 interventions</div>
+      </div>
+      <div>
+        <div class="cr-meta-lbl">Institution</div>
+        <div class="cr-meta-val">Sir JJ College of Architecture, Mumbai</div>
+      </div>
+      <div>
+        <div class="cr-meta-lbl">Guide</div>
+        <div class="cr-meta-val">Prof. Mustansir Dalvi</div>
+      </div>
+      <div>
+        <div class="cr-meta-lbl">Team</div>
+        <div class="cr-meta-val"><strong>Akshada Muley</strong> · Ashish Dandekar<br>Sejal Bamb · Ishwari Deshmukh · Aakanksha Hule</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ APPROACH ══ -->
+<div class="cr-section">
+  <div class="cr-section-label">Design Approach</div>
+  <div class="cr-approach-grid">
+    <div>
+      <p class="cr-pull">A journey designed using <strong>Ian Gehl's principles</strong> — mapping activity, identifying spatial character, then proposing interventions that respond to how people already use the street.</p>
+      <div class="cr-body">
+        <p>The project began with intensive site mapping: traffic patterns, street furniture, ground floor usage, and time-bound activities along the full 500m stretch. Spatial road sections were identified and analyzed before any design proposal was developed.</p>
+        <p>The design strategy was to interpret and reapply Khotachiwadi's architectural language — its Indo-Portuguese elements, compound walls, and scale — through modern street furniture, canopies, signage, and public space design. The wadi becomes the design vocabulary for the journey toward it.</p>
+      </div>
+    </div>
+    <div>
+      <div class="cr-principles">
+        <div class="cr-principle">
+          <div class="cr-principle-num">—</div>
+          <div class="cr-principle-text">Reinterpreting <strong>Khotachiwadi's architectural elements</strong> and applying them to street furniture along the stretch</div>
+        </div>
+        <div class="cr-principle">
+          <div class="cr-principle-num">—</div>
+          <div class="cr-principle-text">Formalizing <strong>hawker activity</strong> with dedicated space that also serves as a flexible urban plaza</div>
+        </div>
+        <div class="cr-principle">
+          <div class="cr-principle-num">—</div>
+          <div class="cr-principle-text">Regulating <strong>shop frontage signage</strong> to protect pedestrian walkways and improve visual coherence</div>
+        </div>
+        <div class="cr-principle">
+          <div class="cr-principle-num">—</div>
+          <div class="cr-principle-text"><strong>Pedestrianizing</strong> Raja Ram Mohan Roy Road — barrier-free movement and resolved parking</div>
+        </div>
+        <div class="cr-principle">
+          <div class="cr-principle-num">—</div>
+          <div class="cr-principle-text">Creating a <strong>sheltered plaza</strong> at the SBI building setback — the most robust public space opportunity on the site</div>
+        </div>
+        <div class="cr-principle">
+          <div class="cr-principle-num">—</div>
+          <div class="cr-principle-text">Activating <strong>Khotachiwadi's entrance wall</strong> as a canvas — murals, artwork, and media facades as identity</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 6 INTERVENTIONS OVERVIEW ══ -->
+<div class="cr-section" style="padding-top:48px">
+  <div class="cr-section-label">6 Interventions</div>
+  <div class="cr-interventions">
+    <div class="cr-intervention">
+      <div class="cr-int-num">Intervention 01</div>
+      <div class="cr-int-name">Hinduja College Lane</div>
+      <div class="cr-int-desc">Formalizing the hawker cluster into a shared urban plaza with segregated vending units, flexible multi-use space, and facilities for both hawkers and pedestrians.</div>
+    </div>
+    <div class="cr-intervention">
+      <div class="cr-int-num">Intervention 02</div>
+      <div class="cr-int-name">Daryush Bakery Junction</div>
+      <div class="cr-int-desc">A common street roof and redesigned sidewalks at the bakery junction — signage regulation and canopy design to shelter pedestrians and formalize informal activity.</div>
+    </div>
+    <div class="cr-intervention">
+      <div class="cr-int-num">Intervention 03</div>
+      <div class="cr-int-name">SBI Building Plaza</div>
+      <div class="cr-int-desc">A sheltered plaza in the setback of the SBI building — covered in Indo-Portuguese style columns, creating the most robust and versatile public space on the site.</div>
+    </div>
+    <div class="cr-intervention">
+      <div class="cr-int-num">Intervention 04</div>
+      <div class="cr-int-name">Shop Frontages</div>
+      <div class="cr-int-desc">Guidelines regulating signage and projecting shopfronts to create a consistent, pedestrian-protective canopy along the ground floor commercial strip.</div>
+    </div>
+    <div class="cr-intervention">
+      <div class="cr-int-num">Intervention 05</div>
+      <div class="cr-int-name">Pedestrianization</div>
+      <div class="cr-int-desc">Raja Ram Mohan Roy Road redesigned for barrier-free pedestrian movement — shared parking proposal between residential and commercial buildings to free road space.</div>
+    </div>
+    <div class="cr-intervention">
+      <div class="cr-int-num">Intervention 06</div>
+      <div class="cr-int-name">Khotachiwadi Entrance</div>
+      <div class="cr-int-desc">The wadi's compound wall activated as a cultural canvas — murals, artwork, and media facades creating an identity and landmark arrival experience at the entrance.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ANALYSIS ══ -->
+<div class="cr-section" style="padding-top:48px">
+  <div class="cr-section-label">Analysis of the Site</div>
+
+  <div class="cr-grid-full">
+    <div class="cr-img-slot plan">
+      <!-- REPLACE src with CDN URL -->
+      <img src="REPLACE_WITH_IMAGE_URL_1"
+        alt="Site analysis — traffic, street furniture, ground floor usage, time-bound activities"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Site Analysis — 500m stretch<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Site analysis — traffic, street furniture, ground floor usage, and time-bound activities along the 500m stretch.</div>
+    </div>
+  </div>
+
+  <div class="cr-grid-full">
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_2"
+        alt="Mapping activities and spatial road sections"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Mapping activities &amp; spatial sections<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Mapping activities and identifying the spatial road sections along the 500m stretch.</div>
+    </div>
+  </div>
+
+  <div class="cr-grid-2">
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_3"
+        alt="Site Plan — stretch and areas of intervention"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Site Plan — interventions<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Site Plan — indicating the stretch and areas of intervention, analysed using Ian Gehl's Principles.</div>
+    </div>
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_4"
+        alt="Concept diagram — Ian Gehl's Principles"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Concept diagram — Gehl principles<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Concept diagram — principles used in understanding urban architectural interventions and design.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ INTERVENTION 01: HINDUJA COLLEGE LANE ══ -->
+<div class="cr-section" style="padding-top:48px">
+  <div class="cr-int-header">
+    <div class="cr-int-header-num">Intervention 01</div>
+    <div class="cr-int-header-name">Hinduja College Lane</div>
+    <div class="cr-int-header-rule"></div>
+  </div>
+  <div class="cr-int-desc-block">
+    The junction of Raja Ram Mohan Roy Road and Hinduja College Lane is heavily crowded by street food hawkers. A dedicated, segregated space for these hawkers — combined with a multi-use plaza for pedestrians and a full set of street facilities — ensures the space remains clean, congestion-free, and activates for festivals and events.
+  </div>
+
+  <div class="cr-grid-2">
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_5"
+        alt="Site plan — formalizing hawker activity as urban plaza"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Intervention 01 — Site Plan<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Site Plan — formalizing hawker activity in the centre, restricting vehicles to create an urban plaza.</div>
+    </div>
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_6"
+        alt="Multi-functionality — street festivals and events"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Intervention 01 — Multi-functionality<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Multi-functionality addressing requirements for urban street festivals and events.</div>
+    </div>
+  </div>
+
+  <div class="cr-grid-asym">
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_7"
+        alt="Design proposal sections"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Intervention 01 — Sections<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Design Proposal Sections through different parts of the intervention.</div>
+    </div>
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_8"
+        alt="Views of Intervention 01"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Intervention 01 — Views<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Views of Intervention 01</div>
+    </div>
+  </div>
+
+  <div class="cr-grid-full">
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_9"
+        alt="Design details — hawker vending units day and night"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Hawker vending units — day &amp; night<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Design Details — hawker vending units during the day and night.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ INTERVENTION 02: DARYUSH BAKERY JUNCTION ══ -->
+<div class="cr-section" style="padding-top:48px">
+  <div class="cr-int-header">
+    <div class="cr-int-header-num">Intervention 02</div>
+    <div class="cr-int-header-name">Daryush Bakery Junction</div>
+    <div class="cr-int-header-rule"></div>
+  </div>
+  <div class="cr-int-desc-block">
+    A common street roof and redesigned sidewalks at the bakery junction — facilitating pedestrians and on-street parking while regulating the signage of the commercial ground floor. The street roof draws on Khotachiwadi's Indo-Portuguese architectural vocabulary, creating a covered informal activity zone.
+  </div>
+
+  <div class="cr-grid-2">
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_10"
+        alt="Site plan — street roof and sidewalk design"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Intervention 02 — Site Plan<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Site Plan — common street roof and sidewalk designs facilitating pedestrians and on-street parking.</div>
+    </div>
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_11"
+        alt="Signage and street roof cross-section"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Intervention 02 — Cross Section<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Signage and street roof cross-section — design for the informal activity zone.</div>
+    </div>
+  </div>
+
+  <div class="cr-grid-3">
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_12"
+        alt="Intervention 02 — detail 01"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Intervention 02 — Detail 01<br>Replace src with CDN URL</span></div>'">
+    </div>
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_13"
+        alt="Intervention 02 — detail 02"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Intervention 02 — Detail 02<br>Replace src with CDN URL</span></div>'">
+    </div>
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_14"
+        alt="Signage regulations for street facades"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Signage regulations<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Signage regulations for street facades.</div>
+    </div>
+  </div>
+
+  <div class="cr-grid-2">
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_15"
+        alt="View of the new designed street roof and signage"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Street roof &amp; signage — View 01<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">View of the new designed street roof and signage.</div>
+    </div>
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_16"
+        alt="View of the new designed street roof and signage — angle 2"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Street roof &amp; signage — View 02<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">View of the new designed street roof and signage.</div>
+    </div>
+  </div>
+
+  <div class="cr-grid-3">
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_17"
+        alt="View 01"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>View 01<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">View 01</div>
+    </div>
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_18"
+        alt="View 02"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>View 02<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">View 02</div>
+    </div>
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_19"
+        alt="View 03"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>View 03<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">View 03</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ INTERVENTION 03: SBI BUILDING ══ -->
+<div class="cr-section" style="padding-top:48px">
+  <div class="cr-int-header">
+    <div class="cr-int-header-num">Intervention 03</div>
+    <div class="cr-int-header-name">SBI Building Plaza</div>
+    <div class="cr-int-header-rule"></div>
+  </div>
+  <div class="cr-int-desc-block">
+    The SBI building is set back from the main road — making its forecourt the most robust and versatile public space on the site. A new covered roof in Indo-Portuguese style, with a colonnade of designed support columns, transforms the setback into a sheltered plaza that attracts people to stop, sit, and become part of the area.
+  </div>
+
+  <div class="cr-grid-asym">
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_20"
+        alt="Detail plan — SBI setback and new covered roof"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>SBI Plaza — Detail Plan<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Detail plan — setback of the SBI building and the proposal for a new covered roof in Indo-Portuguese style.</div>
+    </div>
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_21"
+        alt="View of the SBI Plaza"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>SBI Plaza — View<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">View of the SBI Plaza.</div>
+    </div>
+  </div>
+
+  <div class="cr-grid-3">
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_22"
+        alt="Section — arrangement of columns along the plaza"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>SBI Plaza — Section 01<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Section showing the arrangement of columns along the plaza.</div>
+    </div>
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_23"
+        alt="Section — arrangement of columns along the plaza (2)"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>SBI Plaza — Section 02<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Section showing the arrangement of columns along the plaza.</div>
+    </div>
+    <div class="cr-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_24"
+        alt="Design detail of the support columns"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Column design detail<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Design detail of the support columns of the roof.</div>
+    </div>
+  </div>
+
+  <!-- Parking + Mural -->
+  <div class="cr-grid-2">
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_25"
+        alt="Shared parking proposal — freeing road space for wider sidewalks"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Shared parking proposal<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Shared parking proposal between residential and commercial buildings — freeing road space for wider sidewalks.</div>
+    </div>
+    <div class="cr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_26"
+        alt="Mural designed for Khotachiwadi entrance"
+        onerror="this.parentElement.innerHTML='<div class=\'cr-placeholder\'><span>Khotachiwadi entrance mural<br>Replace src with CDN URL</span></div>'">
+      <div class="cr-img-cap">Mural designed for the Khotachiwadi entrance — activating the compound wall as a cultural identity marker.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CLOSING ══ -->
+<div class="cr-closing">
+  <div class="cr-closing-quote">
+    "The smallest alteration can result in a massive change. This project is built on <strong>conscious sensitivity</strong> — every intervention justified by observation, every design decision in service of the people who already use the street."
+  </div>
+  <div class="cr-closing-meta">
+    <div class="cr-closing-row">
+      <div class="cr-closing-lbl">Project</div>
+      <div class="cr-closing-val">Charni Road to Khotachiwadi</div>
+    </div>
+    <div class="cr-closing-row">
+      <div class="cr-closing-lbl">Location</div>
+      <div class="cr-closing-val">Mumbai, Maharashtra, India</div>
+    </div>
+    <div class="cr-closing-row">
+      <div class="cr-closing-lbl">Scope</div>
+      <div class="cr-closing-val">500m stretch · 6 urban interventions</div>
+    </div>
+    <div class="cr-closing-row">
+      <div class="cr-closing-lbl">Method</div>
+      <div class="cr-closing-val">Ian Gehl's Principles · Site Mapping · Heritage Reinterpretation</div>
+    </div>
+    <div class="cr-closing-row">
+      <div class="cr-closing-lbl">Year</div>
+      <div class="cr-closing-val">2017</div>
+    </div>
+    <div class="cr-closing-row">
+      <div class="cr-closing-lbl">Team</div>
+      <div class="cr-closing-val">Akshada Muley · Ashish Dandekar · Sejal Bamb · Ishwari Deshmukh · Aakanksha Hule</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

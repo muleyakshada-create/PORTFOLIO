@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshada Muley — Finance the Future</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+.ftf * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.ftf {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #F8F7F5;
+  color: #141414;
+  width: 100%;
+  padding-bottom: 80px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── TYPOGRAPHY SCALE ── */
+.ftf-eyebrow {
+  font-size: .58rem; font-weight: 600; letter-spacing: .22em;
+  text-transform: uppercase; color: #999; margin-bottom: 10px;
+}
+.ftf-label {
+  font-size: .58rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #bbb; margin-bottom: 6px;
+}
+.ftf-body {
+  font-size: .82rem; font-weight: 300; color: #555; line-height: 1.75;
+}
+.ftf-body p { margin-bottom: 10px; }
+.ftf-body p:last-child { margin-bottom: 0; }
+
+/* ── DIVIDER ── */
+.ftf-rule { border: none; border-top: 1px solid #E0DDD8; margin: 0; }
+.ftf-rule-heavy { border: none; border-top: 2px solid #141414; margin: 0; }
+
+/* ── SECTION ── */
+.ftf-section {
+  padding: 64px 48px 0;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.ftf-section-head {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  padding-bottom: 40px; margin-bottom: 40px;
+  border-bottom: 1px solid #E0DDD8;
+}
+.ftf-section-num {
+  font-size: .58rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: #999; margin-bottom: 8px;
+}
+.ftf-section-title {
+  font-size: clamp(1.4rem, 2.8vw, 2rem); font-weight: 300;
+  letter-spacing: -.02em; line-height: 1.1; color: #141414;
+}
+.ftf-section-title strong { font-weight: 700; }
+.ftf-section-desc {
+  font-size: .82rem; font-weight: 300; color: #555; line-height: 1.75;
+  padding-top: 4px;
+}
+
+/* ── HERO ── */
+.ftf-hero {
+  padding: 72px 48px 64px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.ftf-hero-title {
+  font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 300;
+  letter-spacing: -.03em; line-height: 1.0; color: #141414;
+  margin-bottom: 32px;
+}
+.ftf-hero-title strong { font-weight: 700; }
+.ftf-hero-grid {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px;
+  padding-top: 32px; border-top: 1px solid #E0DDD8;
+}
+.ftf-meta-stack { display: flex; flex-direction: column; gap: 20px; }
+.ftf-meta-row {}
+.ftf-meta-val { font-size: .8rem; font-weight: 300; color: #555; line-height: 1.6; }
+.ftf-meta-val strong { font-weight: 600; color: #141414; }
+
+/* CTA link — text only, no fill */
+.ftf-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: #141414; text-decoration: none;
+  font-size: .72rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; margin-top: 16px;
+  padding-bottom: 2px; border-bottom: 1.5px solid #141414;
+  transition: opacity .2s;
+}
+.ftf-cta:hover { opacity: .5; }
+
+/* ── 3-COL GRID ── */
+.ftf-3col { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: #E0DDD8; border: 1px solid #E0DDD8; }
+.ftf-3col-cell { background: #F8F7F5; padding: 24px 20px 28px; }
+
+/* ── CARD (outlined) ── */
+.ftf-card {
+  border: 1px solid #E0DDD8; background: #fff;
+  padding: 22px 18px 26px;
+}
+.ftf-cards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: #E0DDD8; border: 1px solid #E0DDD8; }
+.ftf-cards-grid .ftf-card { border: none; }
+
+/* ── STAT ROW ── */
+.ftf-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: #E0DDD8; border: 1px solid #E0DDD8; margin-top: 1px; }
+.ftf-stat { background: #fff; padding: 28px 20px; text-align: center; }
+.ftf-stat-val { font-size: 2rem; font-weight: 700; color: #141414; letter-spacing: -.03em; line-height: 1; margin-bottom: 6px; }
+.ftf-stat-lbl { font-size: .72rem; font-weight: 300; color: #888; line-height: 1.45; }
+
+/* ── ITEM LIST (dot) ── */
+.ftf-items { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.ftf-item { display: flex; gap: 10px; align-items: flex-start; }
+.ftf-item-dot {
+  width: 4px; height: 4px; border-radius: 50%; background: #141414;
+  flex-shrink: 0; margin-top: 7px;
+}
+.ftf-item-text { font-size: .8rem; font-weight: 300; color: #555; line-height: 1.6; }
+
+/* ── STATEMENT (large) ── */
+.ftf-statement {
+  font-size: .95rem; font-weight: 400; color: #141414;
+  line-height: 1.65; letter-spacing: .01em;
+}
+
+/* ── MECHANISM DIAGRAM ── */
+.ftf-diag-layout { display: grid; grid-template-columns: 180px 1fr; gap: 32px; }
+.ftf-diag-left {}
+.ftf-diag-box { border: 1.5px solid #141414; padding: 20px 16px 20px; margin-bottom: 20px; }
+.ftf-diag-box h3 { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: -.01em; line-height: 1.1; margin-bottom: 12px; }
+.ftf-diag-box p { font-size: .75rem; font-weight: 300; color: #555; line-height: 1.65; }
+.ftf-legend { display: flex; flex-direction: column; gap: 8px; }
+.ftf-legend-item { display: flex; align-items: center; gap: 8px; font-size: .68rem; color: #555; }
+.ftf-legend-swatch { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+.ftf-diag-right { display: flex; flex-direction: column; gap: 8px; }
+.ftf-bar {
+  border: 1.5px solid #141414; padding: 13px 18px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.ftf-bar-lbl { font-size: .68rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.ftf-bar-sub { font-size: .65rem; font-weight: 300; color: #888; }
+.ftf-bar.filled { background: #141414; }
+.ftf-bar.filled .ftf-bar-lbl { color: #fff; }
+.ftf-bar.filled .ftf-bar-sub { color: rgba(255,255,255,.5); }
+.ftf-bar.teal { background: #141414; border-color: #141414; }
+.ftf-bar.teal .ftf-bar-lbl { color: #fff; }
+.ftf-bar.teal .ftf-bar-sub { color: rgba(255,255,255,.5); }
+
+.ftf-chip-row { display: grid; gap: 6px; }
+.ftf-chip-row-4 { grid-template-columns: repeat(4,1fr); }
+.ftf-chip-row-3 { grid-template-columns: repeat(3,1fr); }
+.ftf-chip {
+  border: 1px solid #D0CDC8; padding: 9px 8px; text-align: center;
+  font-size: .6rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  color: #141414; transition: background .2s, color .2s; cursor: default;
+}
+.ftf-chip:hover { background: #141414; color: #fff; }
+
+.ftf-ret-grid { display: grid; grid-template-columns: 140px 1fr; gap: 6px; }
+.ftf-comm {
+  border: 1px solid #D0CDC8; padding: 16px 12px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; grid-row: span 2; background: #F2F0EC;
+}
+.ftf-comm-lbl { font-size: .6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #555; line-height: 1.5; }
+.ftf-devside { display: flex; flex-direction: column; gap: 6px; }
+.ftf-svg-conn { display: flex; justify-content: center; margin: 0; }
+
+/* ── MATRIX TABS ── */
+.ftf-tabs { display: flex; gap: 1px; background: #E0DDD8; border: 1px solid #E0DDD8; margin-bottom: 24px; }
+.ftf-tab {
+  flex: 1; font-size: .6rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+  padding: 10px 14px; background: #fff; color: #999;
+  border: none; cursor: pointer; transition: all .2s; text-align: center;
+}
+.ftf-tab:hover { color: #141414; }
+.ftf-tab.on { background: #141414; color: #fff; }
+
+.ftf-panel { display: none; }
+.ftf-panel.on { display: block; }
+
+.ftf-devhdrs { display: grid; grid-template-columns: repeat(6,1fr); gap: 1px; background: #E0DDD8; margin-bottom: 1px; }
+.ftf-devhdr { background: #141414; padding: 10px 8px; text-align: center; }
+.ftf-devhdr .dht { font-size: .5rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 2px; }
+.ftf-devhdr .dhn { font-size: .65rem; font-weight: 600; color: #fff; line-height: 1.2; }
+
+/* Subtle column tinting */
+.ftf-c0 .ftf-devhdr { background: #1a1a1a; }
+.ftf-c1 .ftf-devhdr { background: #2a2a2a; }
+.ftf-c2 .ftf-devhdr { background: #333; }
+.ftf-c3 .ftf-devhdr { background: #3a3a3a; }
+.ftf-c4 .ftf-devhdr { background: #404040; }
+.ftf-c5 .ftf-devhdr { background: #484848; }
+
+.ftf-rowgrp { margin-bottom: 16px; }
+.ftf-rowgrp-lbl { font-size: .54rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #ccc; margin-bottom: 1px; padding-top: 14px; border-top: 1px solid #E0DDD8; }
+.ftf-dgrid { display: grid; grid-template-columns: repeat(6,1fr); gap: 1px; background: #E0DDD8; }
+.ftf-dc { background: #fff; padding: 12px 11px 14px; min-height: 72px; transition: background .15s; }
+.ftf-dc:hover { background: #FAFAF8; }
+.ftf-dc.emp { background: #F8F7F5; }
+.ftf-dc.emp:hover { background: #F8F7F5; }
+.ftf-crlbl { font-size: .52rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #bbb; margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid #E0DDD8; }
+.ftf-dc ul { list-style: none; padding: 0; }
+.ftf-dc ul li { font-size: .68rem; color: #555; font-weight: 300; line-height: 1.5; padding-left: 8px; position: relative; margin-bottom: 2px; }
+.ftf-dc ul li::before { content: '–'; position: absolute; left: 0; color: #bbb; }
+.ftf-dc p { font-size: .68rem; color: #555; font-weight: 300; line-height: 1.5; }
+.ftf-dc strong { font-weight: 600; color: #141414; }
+
+/* ── MODELS ── */
+.ftf-models { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #E0DDD8; border: 1px solid #E0DDD8; }
+.ftf-model { background: #fff; }
+.ftf-model-head { padding: 18px 20px 16px; border-bottom: 1px solid #E0DDD8; }
+.ftf-model-tag { font-size: .56rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+.ftf-model-title { font-size: 1rem; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; color: #141414; }
+.ftf-model-desc { font-size: .75rem; font-weight: 300; color: #888; margin-top: 5px; line-height: 1.5; }
+.ftf-model-chips { padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+.ftf-mod-chip {
+  border: 1px solid #E0DDD8; padding: 9px 12px;
+  font-size: .72rem; font-weight: 300; color: #555; line-height: 1.35;
+  transition: background .2s, border-color .2s; cursor: default;
+}
+.ftf-mod-chip:hover { background: #F2F0EC; border-color: #C8C5C0; }
+.ftf-models-footer { background: #141414; color: #fff; text-align: center; padding: 14px; font-size: .68rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; margin-top: 1px; }
+
+/* ── FINANCE TIMELINE ── */
+.ftf-timeline { display: flex; align-items: center; justify-content: center; gap: 0; margin-bottom: 40px; }
+.ftf-tl-seg { display: flex; align-items: center; flex: 1; max-width: 180px; }
+.ftf-tl-dash { flex: 1; border-top: 1px dashed #C8C5C0; }
+.ftf-tl-lbl { font-size: .55rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #bbb; white-space: nowrap; padding: 0 10px; }
+.ftf-tl-node { flex-shrink: 0; }
+.ftf-tl-circle {
+  width: 68px; height: 68px; border-radius: 50%; background: transparent;
+  border: 1.5px solid #141414;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 10px;
+  font-size: .6rem; font-weight: 600; color: #141414; line-height: 1.3;
+  transition: background .2s, color .2s; cursor: default;
+}
+.ftf-tl-circle:hover { background: #141414; color: #fff; }
+
+.ftf-fcols { display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
+.ftf-fcol { display: flex; flex-direction: column; gap: 14px; }
+.ftf-fcol:not(:last-child) { border-right: 1px solid #E0DDD8; padding-right: 40px; }
+.ftf-fcol-tag { font-size: .55rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #999; }
+.ftf-fcol-q { font-size: .9rem; font-weight: 300; color: #141414; line-height: 1.35; padding-bottom: 12px; border-bottom: 1.5px solid #141414; }
+.ftf-mission { padding: 12px 14px; border-left: 2px solid #141414; background: #F2F0EC; }
+.ftf-mission p { font-size: .76rem; font-weight: 400; color: #141414; line-height: 1.5; }
+.ftf-flow-svg { width: 100%; height: 26px; overflow: visible; }
+.ftf-flow-sub { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ftf-fch { font-size: .56rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: #141414; text-align: center; margin-bottom: 6px; padding-bottom: 5px; border-bottom: 1.5px solid #141414; }
+.ftf-fitems { display: flex; flex-direction: column; gap: 4px; }
+.ftf-fchip { border: 1px solid #D0CDC8; padding: 7px 8px; font-size: .63rem; font-weight: 400; color: #555; line-height: 1.35; text-align: center; transition: background .2s; cursor: default; }
+.ftf-fchip:hover { background: #F2F0EC; }
+.ftf-fpivots { display: flex; gap: 6px; margin-top: 8px; }
+.ftf-fpivot { flex: 1; border: 1px solid #D0CDC8; padding: 6px 8px; font-size: .56rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #888; text-align: center; background: #F8F7F5; }
+
+.ftf-fag { margin-bottom: 14px; }
+.ftf-faq { font-size: .78rem; font-weight: 500; color: #141414; line-height: 1.4; margin-bottom: 8px; }
+.ftf-fai { margin-bottom: 7px; padding-left: 10px; border-left: 1.5px solid #D0CDC8; }
+.ftf-fai-t { font-size: .72rem; font-weight: 600; color: #141414; margin-bottom: 1px; }
+.ftf-fai-d { font-size: .7rem; font-weight: 300; color: #888; line-height: 1.5; }
+
+/* ── CLOSING ── */
+.ftf-close { max-width: 1040px; margin: 64px auto 0; padding: 48px 48px 0; border-top: 1px solid #E0DDD8; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+.ftf-close-text { font-size: clamp(.85rem, 1.5vw, 1.05rem); font-weight: 300; color: #141414; line-height: 1.5; max-width: 480px; }
+.ftf-close-link {
+  display: inline-flex; align-items: center; gap: 7px; flex-shrink: 0;
+  color: #141414; text-decoration: none; font-size: .68rem; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding-bottom: 2px; border-bottom: 1.5px solid #141414; transition: opacity .2s;
+}
+.ftf-close-link:hover { opacity: .5; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 780px) {
+  .ftf-hero, .ftf-section, .ftf-close { padding-left: 20px; padding-right: 20px; }
+  .ftf-hero-grid, .ftf-section-head, .ftf-fcols, .ftf-models,
+  .ftf-cards-grid, .ftf-3col, .ftf-diag-layout { grid-template-columns: 1fr; }
+  .ftf-stats { grid-template-columns: 1fr; }
+  .ftf-devhdrs, .ftf-dgrid { grid-template-columns: repeat(2,1fr); }
+  .ftf-chip-row-4 { grid-template-columns: repeat(2,1fr); }
+  .ftf-tl-lbl { display: none; }
+  .ftf-tl-circle { width: 56px; height: 56px; font-size: .56rem; }
+  .ftf-fcol:not(:last-child) { border-right: none; border-bottom: 1px solid #E0DDD8; padding-right: 0; padding-bottom: 24px; }
+  .ftf-close { flex-direction: column; align-items: flex-start; }
+  .ftf-tabs { flex-direction: column; }
+}
+
+
+  /* Light theme override for dark pages */
+  .jp,.ftf,.eg { background:#F8F7F5 !important; color:#141414 !important; }
+  .jp-hero,.jp-section,.jp-closing,.ftf-hero,.ftf-section,.ftf-close,
+  .eg-hero,.eg-section,.eg-closing { background:#F8F7F5 !important; }
+  .jp-title,.ftf-hero-title,.eg-title { color:#141414 !important; }
+  .jp-title-sub,.eg-title-sub { color:#999 !important; }
+  .jp-meta-lbl,.eg-meta-lbl { color:#bbb !important; }
+  .jp-meta-val,.eg-meta-val { color:#555 !important; }
+  .jp-meta-val strong,.eg-meta-val strong { color:#141414 !important; }
+  .jp-contrib,.jp-design-els,.eg-contrib,.eg-locations,.eg-design-els {
+    background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+  .jp-contrib-cell,.jp-design-el,.eg-contrib-cell,.eg-location-cell,.eg-design-el {
+    background:#fff !important; }
+  .jp-contrib-cell:hover,.jp-design-el:hover,.eg-contrib-cell:hover,.eg-location-cell:hover,
+  .eg-design-el:hover { background:#FAFAF8 !important; }
+  .jp-contrib-num,.jp-location-tag,.eg-contrib-num,.eg-location-tag { color:#bbb !important; }
+  .jp-contrib-name,.jp-location-name,.eg-contrib-name,.eg-location-name {
+    color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+  .jp-contrib-desc,.jp-location-desc,.eg-contrib-desc,.eg-location-desc { color:#555 !important; }
+  .jp-act-num,.eg-act-num { color:#bbb !important; }
+  .jp-act-name,.eg-act-name { color:#555 !important; }
+  .jp-act-rule,.eg-act-rule { background:#E0DDD8 !important; }
+  .jp-img-slot,.eg-img-slot { background:#EDECEA !important; }
+  .jp-placeholder,.eg-placeholder { background:#EDECEA !important; }
+  .jp-placeholder span,.eg-placeholder span { color:#C0BDB8 !important; }
+  .jp-img-cap,.eg-img-cap { background:linear-gradient(transparent,rgba(0,0,0,.45)) !important; }
+  .jp-closing-quote,.eg-closing-quote { color:#777 !important; }
+  .jp-closing-quote strong,.eg-closing-quote strong { color:#141414 !important; font-weight:500 !important; }
+  .jp-closing-row,.eg-closing-row { border-top-color:#E0DDD8 !important; }
+  .jp-closing-lbl,.eg-closing-lbl { color:#bbb !important; }
+  .jp-closing-val,.eg-closing-val { color:#555 !important; }
+  .jp-lead,.eg-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+  .jp-pull,.eg-pull { color:#555 !important; }
+  .jp-pull strong,.eg-pull strong { color:#141414 !important; }
+  .jp-design-el-dot,.eg-design-el-dot { background:#C8C5C0 !important; }
+  .jp-design-el-text,.eg-design-el-text { color:#555 !important; }
+  .jp-design-el-text strong,.eg-design-el-text strong { color:#141414 !important; }
+  .jp-location-banner,.eg-location-banner {
+    background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+  .jp-banner-num,.eg-banner-num { color:#bbb !important; }
+  .jp-banner-title,.eg-banner-title { color:#141414 !important; }
+  .jp-banner-phases,.eg-banner-phases { color:#999 !important; }
+  .eg-approach-grid .eg-pull { color:#555 !important; }
+  .ftf-label { color:#bbb !important; }
+  .ftf-body { color:#555 !important; }
+  .ftf-cta { color:#141414 !important; border-bottom-color:#141414 !important; }
+  .ftf-cards-grid,.ftf-stats,.ftf-3col { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+  .ftf-card,.ftf-stat,.ftf-3col-cell { background:#fff !important; }
+  .ftf-section-num { color:#bbb !important; }
+  .ftf-section-title { color:#141414 !important; }
+  .ftf-section-desc { color:#555 !important; }
+
+
+</style>
+</head>
+<body>
+<script>
+if (sessionStorage.getItem('work_access') !== 'granted') {
+  window.location.replace('work-gate.html');
+}
+</script>
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Akshada Muley</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="work-gate.html" class="nav-link active">Work 🔒</a>
+    <a href="projects.html" class="nav-link">Projects</a>
+  </div>
+</nav>
+<a href="work.html" style="display:block;padding:20px 48px 0;max-width:1040px;margin:0 auto;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#999;text-decoration:none;">← Work</a>
+<div class="detail-wrap">
+
+
+<div class="ftf">
+
+<!-- ══ HERO ══ -->
+<div class="ftf-hero">
+  <div class="ftf-eyebrow">Gensler Research Institute · Equitable Neighborhood Start Up Fund</div>
+  <h1 class="ftf-hero-title">Finance the Future:<br><strong>Strategies for Equitable<br>Neighborhood Development</strong></h1>
+  <div class="ftf-hero-grid">
+    <div>
+      <div class="ftf-body">
+        <p>This research challenges the assumption that equitable development requires subsidies or sacrificed returns. Through stakeholder interviews and case study analysis, we demonstrate that mission-driven neighborhood development can be revenue-generating, scalable, and financially competitive with market-rate development.</p>
+        <p>The research maps real-world models across six developer typologies — from large corporate developers to community co-ops — identifying the specific mechanisms that make equitable development work financially.</p>
+      </div>
+      <a class="ftf-cta" href="https://www.gensler.com/gri/strategies-for-equitable-neighborhood-developments" target="_blank" rel="noopener">
+        Read full research on Gensler.com
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="#141414" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="ftf-meta-stack">
+      <div class="ftf-meta-row">
+        <div class="ftf-label">Organization</div>
+        <div class="ftf-meta-val"><strong>Gensler Research Institute</strong></div>
+      </div>
+      <div class="ftf-meta-row">
+        <div class="ftf-label">Program</div>
+        <div class="ftf-meta-val">Equitable Neighborhood Start Up Fund</div>
+      </div>
+      <div class="ftf-meta-row">
+        <div class="ftf-label">My Role</div>
+        <div class="ftf-meta-val">Research, stakeholder interviews, framework synthesis, presentation development</div>
+      </div>
+      <div class="ftf-meta-row">
+        <div class="ftf-label">Team</div>
+        <div class="ftf-meta-val">Andre Brumfield, Akshada Muley, Kelly Guo, Aaron Birney, Dylan Jones, Trayquan Walton, Sadvi Jayanth, Annie Hong, Mun Yi Cheng, James Kelly</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="ftf-rule">
+
+<!-- ══ 01 HIGHLIGHTS ══ -->
+<div class="ftf-section">
+  <div class="ftf-section-head">
+    <div>
+      <div class="ftf-section-num">01 — Key Highlights</div>
+      <div class="ftf-section-title">What We <strong>Found</strong></div>
+    </div>
+    <div class="ftf-section-desc">Three core insights that reframe equitable development as a financially sound, scalable strategy — not a compromise.</div>
+  </div>
+
+  <div class="ftf-cards-grid">
+    <div class="ftf-card">
+      <div class="ftf-label" style="margin-bottom:10px">Finding 01</div>
+      <div style="font-size:.92rem;font-weight:600;margin-bottom:8px;line-height:1.2">Revenue-Generating</div>
+      <div class="ftf-body"><p>With the right financial structuring, equitable development can match or exceed market-rate returns — no subsidies required.</p></div>
+    </div>
+    <div class="ftf-card">
+      <div class="ftf-label" style="margin-bottom:10px">Finding 02</div>
+      <div style="font-size:.92rem;font-weight:600;margin-bottom:8px;line-height:1.2">A Scalable Framework</div>
+      <div class="ftf-body"><p>A replicable model works across all six developer typologies, each with tailored funding paths and action strategies.</p></div>
+    </div>
+    <div class="ftf-card">
+      <div class="ftf-label" style="margin-bottom:10px">Finding 03</div>
+      <div style="font-size:.92rem;font-weight:600;margin-bottom:8px;line-height:1.2">Dual Returns</div>
+      <div class="ftf-body"><p>Projects generate both financial returns for developers and measurable community benefit — these goals are complementary.</p></div>
+    </div>
+  </div>
+
+  <div class="ftf-stats">
+    <div class="ftf-stat"><div class="ftf-stat-val">6</div><div class="ftf-stat-lbl">Developer typologies<br>mapped in the framework</div></div>
+    <div class="ftf-stat"><div class="ftf-stat-val">4</div><div class="ftf-stat-lbl">Core mechanisms:<br>Buy-In, Funding, Opportunity, Action</div></div>
+    <div class="ftf-stat"><div class="ftf-stat-val">2</div><div class="ftf-stat-lbl">Return streams:<br>Community &amp; Developer</div></div>
+  </div>
+</div>
+
+<hr class="ftf-rule" style="margin-top:64px">
+
+<!-- ══ 02 SETTING THE STAGE ══ -->
+<div class="ftf-section">
+  <div class="ftf-section-head">
+    <div>
+      <div class="ftf-section-num">02 — Setting the Stage</div>
+      <div class="ftf-section-title">The <strong>Problem</strong></div>
+    </div>
+    <div class="ftf-section-desc">While hesitation holds many developers back, the tide has shifted. We must develop in a socially responsible way — and we now know how.</div>
+  </div>
+
+  <div class="ftf-3col">
+    <div class="ftf-3col-cell">
+      <div class="ftf-label" style="margin-bottom:12px">The challenge</div>
+      <div class="ftf-body"><p>There is significant hesitation among developers toward equitable and affordable housing — rooted in assumptions about profitability and risk that this research challenges directly.</p></div>
+    </div>
+    <div class="ftf-3col-cell">
+      <div class="ftf-label" style="margin-bottom:12px">The question</div>
+      <div class="ftf-body"><p>We know equitable neighborhood development is important and in high demand — but what are the real mechanisms for funding and driving successful development models?</p></div>
+    </div>
+    <div class="ftf-3col-cell">
+      <div class="ftf-label" style="margin-bottom:12px">The approach</div>
+      <div class="ftf-body"><p>How can we find real-time success stories and lessons learned on equitable neighborhood business models — and package them into a call to action for future developers?</p></div>
+    </div>
+  </div>
+</div>
+
+<hr class="ftf-rule" style="margin-top:64px">
+
+<!-- ══ 03 RESEARCH GOALS ══ -->
+<div class="ftf-section">
+  <div class="ftf-section-head">
+    <div>
+      <div class="ftf-section-num">03 — Research Goals</div>
+      <div class="ftf-section-title">Hypothesis, Objectives<br><strong>&amp; Outcomes</strong></div>
+    </div>
+    <div class="ftf-section-desc">Starting with a clear hypothesis and structured objectives to prove equitable development can be both mission-driven and financially sound.</div>
+  </div>
+
+  <div class="ftf-cards-grid">
+    <div class="ftf-card">
+      <div class="ftf-label" style="margin-bottom:10px">01 — Hypothesis</div>
+      <div style="font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #E0DDD8;line-height:1.1">Hypothesis</div>
+      <p class="ftf-statement">Prove that equitable development is revenue-generating and can create sustainable growth for developers and the community.</p>
+    </div>
+    <div class="ftf-card">
+      <div class="ftf-label" style="margin-bottom:10px">02 — Objectives</div>
+      <div style="font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #E0DDD8;line-height:1.1">Objectives</div>
+      <div class="ftf-items">
+        <div class="ftf-item"><div class="ftf-item-dot"></div><div class="ftf-item-text">Define gentrification and metrics of success for equitable development</div></div>
+        <div class="ftf-item"><div class="ftf-item-dot"></div><div class="ftf-item-text">Gather and compile case studies of existing equitable developments</div></div>
+        <div class="ftf-item"><div class="ftf-item-dot"></div><div class="ftf-item-text">Talk to developers who have created equitable neighborhoods to understand their financial models</div></div>
+      </div>
+    </div>
+    <div class="ftf-card">
+      <div class="ftf-label" style="margin-bottom:10px">03 — Expected Outcomes</div>
+      <div style="font-size:1.05rem;font-weight:700;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #E0DDD8;line-height:1.1">Outcomes</div>
+      <div class="ftf-items">
+        <div class="ftf-item"><div class="ftf-item-dot"></div><div class="ftf-item-text">Create a framework from case studies and interviews — a call to action for future developers</div></div>
+        <div class="ftf-item"><div class="ftf-item-dot"></div><div class="ftf-item-text">Create a presentation package for speaking engagements, asking firm leadership to champion this call to action</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="ftf-rule" style="margin-top:64px">
+
+<!-- ══ 04 METHODOLOGY ══ -->
+<div class="ftf-section">
+  <div class="ftf-section-head">
+    <div>
+      <div class="ftf-section-num">04 — Research Methodology</div>
+      <div class="ftf-section-title">Framework <strong>Creation</strong></div>
+    </div>
+    <div class="ftf-section-desc">Identifying the ways for internal buy-in, funding, benefits, and how to get development projects off the ground.</div>
+  </div>
+
+  <div class="ftf-diag-layout">
+    <div>
+      <div class="ftf-diag-box">
+        <h3>Framework<br>Creation</h3>
+        <p>Identified ways for internal buy-in, funding, benefits, and how to get development projects off the ground.</p>
+      </div>
+      <div class="ftf-legend">
+        <div class="ftf-legend-item"><div class="ftf-legend-swatch" style="background:#141414"></div>Mechanism</div>
+        <div class="ftf-legend-item"><div class="ftf-legend-swatch" style="background:#888"></div>Community Returns</div>
+        <div class="ftf-legend-item"><div class="ftf-legend-swatch" style="background:#bbb"></div>Developer Returns</div>
+      </div>
+    </div>
+    <div class="ftf-diag-right">
+      <div class="ftf-label">Mechanism</div>
+      <div class="ftf-bar filled">
+        <span class="ftf-bar-lbl">Mechanism</span>
+        <span class="ftf-bar-sub">Framework inputs for equitable development</span>
+      </div>
+      <div class="ftf-svg-conn">
+        <svg width="100%" height="20" viewBox="0 0 600 20" preserveAspectRatio="none" fill="none">
+          <line x1="300" y1="0" x2="300" y2="10" stroke="#D0CDC8" stroke-width="1"/>
+          <line x1="75" y1="10" x2="525" y2="10" stroke="#D0CDC8" stroke-width="1"/>
+          <line x1="75" y1="10" x2="75" y2="20" stroke="#D0CDC8" stroke-width="1"/>
+          <line x1="225" y1="10" x2="225" y2="20" stroke="#D0CDC8" stroke-width="1"/>
+          <line x1="375" y1="10" x2="375" y2="20" stroke="#D0CDC8" stroke-width="1"/>
+          <line x1="525" y1="10" x2="525" y2="20" stroke="#D0CDC8" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="ftf-chip-row ftf-chip-row-4">
+        <div class="ftf-chip">Internal Buy-In</div>
+        <div class="ftf-chip">Funding</div>
+        <div class="ftf-chip">Opportunity</div>
+        <div class="ftf-chip">Action</div>
+      </div>
+
+      <hr class="ftf-rule" style="margin:8px 0">
+      <div class="ftf-label">Returns</div>
+
+      <div class="ftf-ret-grid">
+        <div class="ftf-comm"><div class="ftf-comm-lbl">Returns<br>for<br>Community</div></div>
+        <div class="ftf-devside">
+          <div class="ftf-bar" style="border:1.5px solid #888;background:#888;">
+            <span class="ftf-bar-lbl" style="color:#fff">Returns for Developer</span>
+            <span class="ftf-bar-sub" style="color:rgba(255,255,255,.6)">Financial · External · Internal</span>
+          </div>
+          <div class="ftf-svg-conn">
+            <svg width="100%" height="18" viewBox="0 0 400 18" preserveAspectRatio="none" fill="none">
+              <line x1="200" y1="0" x2="200" y2="9" stroke="#D0CDC8" stroke-width="1"/>
+              <line x1="67" y1="9" x2="333" y2="9" stroke="#D0CDC8" stroke-width="1"/>
+              <line x1="67" y1="9" x2="67" y2="18" stroke="#D0CDC8" stroke-width="1"/>
+              <line x1="200" y1="9" x2="200" y2="18" stroke="#D0CDC8" stroke-width="1"/>
+              <line x1="333" y1="9" x2="333" y2="18" stroke="#D0CDC8" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="ftf-chip-row ftf-chip-row-3">
+            <div class="ftf-chip">Financial</div>
+            <div class="ftf-chip">External</div>
+            <div class="ftf-chip">Internal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="ftf-rule" style="margin-top:64px">
+
+<!-- ══ 05 KEY FINDINGS ══ -->
+<div class="ftf-section">
+  <div class="ftf-section-head">
+    <div>
+      <div class="ftf-section-num">05 — Key Findings</div>
+      <div class="ftf-section-title">Developer Typologies<br><strong>&amp; Strategies</strong></div>
+    </div>
+    <div class="ftf-section-desc">Six developer profiles mapped across internal buy-in, funding sources, development opportunities, and action strategies.</div>
+  </div>
+
+  <div class="ftf-tabs">
+    <button class="ftf-tab on" onclick="ftfTab('buyin',this)">Internal Buy-In</button>
+    <button class="ftf-tab" onclick="ftfTab('funding',this)">Funding &amp; Opportunities</button>
+    <button class="ftf-tab" onclick="ftfTab('action',this)">Action</button>
+  </div>
+
+  <!-- BUY-IN -->
+  <div class="ftf-panel on" id="ftf-buyin">
+    <div class="ftf-devhdrs">
+      <div class="ftf-c0"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Large Developer</div></div></div>
+      <div class="ftf-c1"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Medium Developer</div></div></div>
+      <div class="ftf-c2"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Medium Developer</div></div></div>
+      <div class="ftf-c3"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Small Developer</div></div></div>
+      <div class="ftf-c4"><div class="ftf-devhdr"><div class="dht">Non-Profit</div><div class="dhn">Social Enterprise</div></div></div>
+      <div class="ftf-c5"><div class="ftf-devhdr"><div class="dht">Co-op</div><div class="dhn">Social Enterprise</div></div></div>
+    </div>
+    <div class="ftf-rowgrp">
+      <div class="ftf-rowgrp-lbl">Organizational Mission</div>
+      <div class="ftf-dgrid">
+        <div class="ftf-dc ftf-c0"><div class="ftf-crlbl">Mission</div><ul><li>Corporate ESG and DEI goals</li><li>Establish thought leadership</li></ul></div>
+        <div class="ftf-dc ftf-c1"><div class="ftf-crlbl">Mission</div><p>Mission-driven (for profit)</p></div>
+        <div class="ftf-dc ftf-c2"><div class="ftf-crlbl">Mission</div><p>Mission-driven (for profit)</p></div>
+        <div class="ftf-dc ftf-c3"><div class="ftf-crlbl">Mission</div><p>Mission-driven (for profit)</p></div>
+        <div class="ftf-dc ftf-c4"><div class="ftf-crlbl">Mission</div><p>Mission-driven (non-profit)</p></div>
+        <div class="ftf-dc ftf-c5"><div class="ftf-crlbl">Mission</div><p>Mission-driven (co-op)</p></div>
+      </div>
+    </div>
+    <div class="ftf-rowgrp">
+      <div class="ftf-rowgrp-lbl">Partners</div>
+      <div class="ftf-dgrid">
+        <div class="ftf-dc ftf-c0"><div class="ftf-crlbl">Partners</div><p>Hudson Pacific</p></div>
+        <div class="ftf-dc ftf-c1"><div class="ftf-crlbl">Partners</div><p>Housing and healthcare developers</p></div>
+        <div class="ftf-dc ftf-c2"><div class="ftf-crlbl">Partners</div><p>Government – public-private partnerships</p></div>
+        <div class="ftf-dc emp ftf-c3"></div>
+        <div class="ftf-dc ftf-c4"><div class="ftf-crlbl">Partners</div><p>Partners who donate time / donations in kind, e.g. GC</p></div>
+        <div class="ftf-dc ftf-c5"><div class="ftf-crlbl">Partners</div><p>Community organizers</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUNDING -->
+  <div class="ftf-panel" id="ftf-funding">
+    <div class="ftf-devhdrs">
+      <div class="ftf-c0"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Large Developer</div></div></div>
+      <div class="ftf-c1"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Medium Developer</div></div></div>
+      <div class="ftf-c2"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Medium Developer</div></div></div>
+      <div class="ftf-c3"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Small Developer</div></div></div>
+      <div class="ftf-c4"><div class="ftf-devhdr"><div class="dht">Non-Profit</div><div class="dhn">Social Enterprise</div></div></div>
+      <div class="ftf-c5"><div class="ftf-devhdr"><div class="dht">Co-op</div><div class="dhn">Social Enterprise</div></div></div>
+    </div>
+    <div class="ftf-rowgrp">
+      <div class="ftf-rowgrp-lbl">Private Funding Sources</div>
+      <div class="ftf-dgrid">
+        <div class="ftf-dc ftf-c0"><div class="ftf-crlbl">Funding</div><ul><li>Institutional investors</li><li>Internal funds 'EquiBlue' – 25% of carried interest to local CDFIs</li></ul></div>
+        <div class="ftf-dc ftf-c1"><div class="ftf-crlbl">Funding</div><ul><li>Bank financing</li><li>Real estate developer partnerships</li><li>Amazon Housing Equity Fund loan</li></ul></div>
+        <div class="ftf-dc ftf-c2"><div class="ftf-crlbl">Funding</div><ul><li>Institutional investors</li><li>Government retirement accounts</li><li>Rose Affordable Housing Preservation Fund</li></ul></div>
+        <div class="ftf-dc ftf-c3"><div class="ftf-crlbl">Funding</div><ul><li>Black Impact Fund ($500m)</li><li>Institutional impact investors</li><li>PNC Bank (Fund 4)</li></ul></div>
+        <div class="ftf-dc ftf-c4"><div class="ftf-crlbl">Funding</div><ul><li>Re-store profits – 25%</li><li>Sale of homes – 25%</li><li>Fundraising &amp; donations – 25%</li></ul></div>
+        <div class="ftf-dc ftf-c5"><div class="ftf-crlbl">Funding</div><p>Fundraising and private donations</p></div>
+      </div>
+    </div>
+    <div class="ftf-rowgrp">
+      <div class="ftf-rowgrp-lbl">Development Opportunities</div>
+      <div class="ftf-dgrid">
+        <div class="ftf-dc ftf-c0"><div class="ftf-crlbl">Opportunities</div><p>Underserved markets, e.g. communities of color</p></div>
+        <div class="ftf-dc ftf-c1"><div class="ftf-crlbl">Opportunities</div><ul><li>Close proximity to mass transit</li><li>Promotes arts and culture</li></ul></div>
+        <div class="ftf-dc ftf-c2"><div class="ftf-crlbl">Opportunities</div><ul><li>Publicly-owned land</li><li>Existing affordable housing acquisition</li></ul></div>
+        <div class="ftf-dc ftf-c3"><div class="ftf-crlbl">Opportunities</div><ul><li>Opportunity zones</li><li>Adjacent low-income areas</li></ul></div>
+        <div class="ftf-dc ftf-c4"><div class="ftf-crlbl">Opportunities</div><p>Donated land from participating jurisdictions</p></div>
+        <div class="ftf-dc ftf-c5"><div class="ftf-crlbl">Opportunities</div><ul><li>Low-income areas</li><li>Buildings with organized tenants</li><li>Tax-defaulted properties below market rate</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTION -->
+  <div class="ftf-panel" id="ftf-action">
+    <div class="ftf-devhdrs">
+      <div class="ftf-c0"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Large Developer</div></div></div>
+      <div class="ftf-c1"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Medium Developer</div></div></div>
+      <div class="ftf-c2"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Medium Developer</div></div></div>
+      <div class="ftf-c3"><div class="ftf-devhdr"><div class="dht">For-Profit</div><div class="dhn">Small Developer</div></div></div>
+      <div class="ftf-c4"><div class="ftf-devhdr"><div class="dht">Non-Profit</div><div class="dhn">Social Enterprise</div></div></div>
+      <div class="ftf-c5"><div class="ftf-devhdr"><div class="dht">Co-op</div><div class="dhn">Social Enterprise</div></div></div>
+    </div>
+    <div class="ftf-rowgrp">
+      <div class="ftf-rowgrp-lbl">Equitable Development Type</div>
+      <div class="ftf-dgrid">
+        <div class="ftf-dc ftf-c0"><div class="ftf-crlbl">Dev Type</div><p><strong>Adaptive re-use</strong> – transform obsolete properties, support POC-owned businesses</p></div>
+        <div class="ftf-dc ftf-c1"><div class="ftf-crlbl">Dev Type</div><p>Mixed-use community rejuvenation, reusing existing architectural elements</p></div>
+        <div class="ftf-dc ftf-c2"><div class="ftf-crlbl">Dev Type</div><ul><li><strong>Ground-up</strong> – mixed-income housing</li><li><strong>Re-development</strong> – mixed-income properties</li></ul></div>
+        <div class="ftf-dc ftf-c3"><div class="ftf-crlbl">Dev Type</div><ul><li><strong>Ground-up</strong> – affordable housing</li><li><strong>Re-development</strong> – rehab existing stock</li></ul></div>
+        <div class="ftf-dc ftf-c4"><div class="ftf-crlbl">Dev Type</div><p><strong>Ground-up</strong> – affordable and mixed-income developments</p></div>
+        <div class="ftf-dc ftf-c5"><div class="ftf-crlbl">Dev Type</div><p><strong>Re-development</strong> – rehab stock, hold land in trust for community</p></div>
+      </div>
+    </div>
+    <div class="ftf-rowgrp">
+      <div class="ftf-rowgrp-lbl">Support Programs</div>
+      <div class="ftf-dgrid">
+        <div class="ftf-dc ftf-c0"><div class="ftf-crlbl">Support</div><ul><li>Community engagement</li><li>Hire local contractors</li></ul></div>
+        <div class="ftf-dc ftf-c1"><div class="ftf-crlbl">Support</div><p>Community engagement</p></div>
+        <div class="ftf-dc ftf-c2"><div class="ftf-crlbl">Support</div><ul><li>Community engagement</li><li>Vocational training</li><li>Service coordination</li></ul></div>
+        <div class="ftf-dc ftf-c3"><div class="ftf-crlbl">Support</div><ul><li>Community engagement</li><li>Incubator</li><li>Education &amp; scholarships</li></ul></div>
+        <div class="ftf-dc ftf-c4"><div class="ftf-crlbl">Support</div><ul><li>Home buyer education</li><li>HOA</li><li>Long-term family support</li></ul></div>
+        <div class="ftf-dc ftf-c5"><div class="ftf-crlbl">Support</div><ul><li>Community engagement</li><li>Co-op ownership model</li></ul></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="ftf-rule" style="margin-top:64px">
+
+<!-- ══ 06 MODELS ══ -->
+<div class="ftf-section">
+  <div class="ftf-section-head">
+    <div>
+      <div class="ftf-section-num">06 — Equitable Development Models</div>
+      <div class="ftf-section-title">Supply-Side<br><strong>&amp; Demand-Side</strong></div>
+    </div>
+    <div class="ftf-section-desc">Two complementary approaches — securing funding and buy-in on one side, financing and supporting development clients on the other.</div>
+  </div>
+
+  <div class="ftf-models">
+    <div class="ftf-model ftf-supply">
+      <div class="ftf-model-head">
+        <div class="ftf-model-tag">Supply-Side</div>
+        <div class="ftf-model-title">Funding &amp; Buy-In</div>
+        <div class="ftf-model-desc">Securing the funding and stakeholder alignment needed to create equitable development.</div>
+      </div>
+      <div class="ftf-model-chips">
+        <div class="ftf-mod-chip">Identify Mission Type</div>
+        <div class="ftf-mod-chip">Identify Appropriate Partners</div>
+        <div class="ftf-mod-chip">Identify Public &amp; Private Funding Sources</div>
+        <div class="ftf-mod-chip">Identify Development Opportunities (Land / Property)</div>
+      </div>
+    </div>
+    <div class="ftf-model ftf-demand">
+      <div class="ftf-model-head">
+        <div class="ftf-model-tag">Demand-Side</div>
+        <div class="ftf-model-title">Finance &amp; Support</div>
+        <div class="ftf-model-desc">Financing and supporting the clients of equitable development so that it remains viable.</div>
+      </div>
+      <div class="ftf-model-chips">
+        <div class="ftf-mod-chip">Loan Structuring</div>
+        <div class="ftf-mod-chip">Soft Programming</div>
+        <div class="ftf-mod-chip">Complementary Commercial Mixed-Use Programs</div>
+        <div class="ftf-mod-chip">Landscape / Site Development</div>
+      </div>
+    </div>
+  </div>
+  <div class="ftf-models-footer">This is how equitable development can become financially viable and sustainable</div>
+</div>
+
+<hr class="ftf-rule" style="margin-top:64px">
+
+<!-- ══ 07 FINANCE THE FUTURE ══ -->
+<div class="ftf-section">
+  <div class="ftf-section-head">
+    <div>
+      <div class="ftf-section-num">07 — Call to Action</div>
+      <div class="ftf-section-title">Envisioning the Promise:<br><strong>Finance the Future</strong></div>
+    </div>
+    <div class="ftf-section-desc">Proactive and differentiated actions are needed to disrupt and redesign our systems. We need to change our mindset.</div>
+  </div>
+
+  <div class="ftf-timeline">
+    <div class="ftf-tl-node"><div class="ftf-tl-circle">Systematic &amp; Mindset Change</div></div>
+    <div class="ftf-tl-seg"><div class="ftf-tl-dash"></div><div class="ftf-tl-lbl">Accountability</div><div class="ftf-tl-dash"></div></div>
+    <div class="ftf-tl-node"><div class="ftf-tl-circle">Systems / Structure</div></div>
+    <div class="ftf-tl-seg"><div class="ftf-tl-dash"></div><div class="ftf-tl-lbl">Participation</div><div class="ftf-tl-dash"></div></div>
+    <div class="ftf-tl-node"><div class="ftf-tl-circle">Tactical Strategies</div></div>
+  </div>
+
+  <div class="ftf-fcols">
+    <div class="ftf-fcol">
+      <div class="ftf-fcol-tag">Change — Yes, it can be done</div>
+      <div class="ftf-fcol-q">Change your mindset on equitable development</div>
+      <div class="ftf-body">
+        <p>Change your attitude and overcome biases against equitable development and affordable housing.</p>
+        <p>Equitable development can be no different from market-rate development.</p>
+        <p>Equitable development can be profitable with the right financial structuring.</p>
+        <p>Equitable development can generate economic, social, and environmental benefits for your long-term investment.</p>
+      </div>
+      <div class="ftf-mission"><p>Define your Mission Statement — What does equitable development mean to you?</p></div>
+    </div>
+
+    <div class="ftf-fcol">
+      <div class="ftf-fcol-tag">Systems / Structure — How it can be done</div>
+      <div class="ftf-fcol-q">Finding the correct development model</div>
+      <svg class="ftf-flow-svg" viewBox="0 0 300 26" fill="none">
+        <line x1="150" y1="0" x2="150" y2="12" stroke="#C8C5C0" stroke-width="1"/>
+        <line x1="75" y1="12" x2="225" y2="12" stroke="#C8C5C0" stroke-width="1"/>
+        <line x1="75" y1="12" x2="75" y2="26" stroke="#C8C5C0" stroke-width="1"/>
+        <line x1="225" y1="12" x2="225" y2="26" stroke="#C8C5C0" stroke-width="1"/>
+        <polygon points="70,22 75,28 80,22" fill="#C8C5C0"/>
+        <polygon points="220,22 225,28 230,22" fill="#C8C5C0"/>
+      </svg>
+      <div class="ftf-flow-sub">
+        <div>
+          <div class="ftf-fch">Partners</div>
+          <div class="ftf-fitems">
+            <div class="ftf-fchip">Develop your own expertise</div>
+            <div class="ftf-fchip">Partner with a consultant<br><span style="font-weight:300;font-size:.62rem;color:#888">e.g. Chicago Trend, Habitat for Humanity</span></div>
+            <div class="ftf-fchip">Partner with experienced equitable developers</div>
+          </div>
+        </div>
+        <div>
+          <div class="ftf-fch">Financial Sources</div>
+          <div class="ftf-fitems">
+            <div class="ftf-fchip">Internal funding commitments</div>
+            <div class="ftf-fchip">Private funding</div>
+            <div class="ftf-fchip">Govt. incentives &amp; nonprofit resources</div>
+            <div class="ftf-fchip">Community fundraising</div>
+            <div class="ftf-fchip">Co-ownership of property</div>
+            <div class="ftf-fchip">Ownership loan structuring</div>
+          </div>
+        </div>
+      </div>
+      <div class="ftf-fpivots">
+        <div class="ftf-fpivot">Mission Statement</div>
+        <div class="ftf-fpivot">Development Land / Property + Program Mix</div>
+      </div>
+    </div>
+
+    <div class="ftf-fcol">
+      <div class="ftf-fcol-tag">Tactical Strategies — What can be done</div>
+      <div class="ftf-fcol-q">How can my project be implemented equitably?</div>
+      <div class="ftf-fag">
+        <div class="ftf-fai"><div class="ftf-fai-t">Equitable project procurement</div><div class="ftf-fai-d">Hiring and job training</div></div>
+        <div class="ftf-fai"><div class="ftf-fai-t">Equitable design and programming</div><div class="ftf-fai-d">Inclusive program mix, placemaking, safety</div></div>
+      </div>
+      <div class="ftf-faq">How can my project contribute towards making the city more equitable?</div>
+      <div class="ftf-fag">
+        <div class="ftf-fai"><div class="ftf-fai-t">Opportunity neighborhood creation</div><div class="ftf-fai-d">Community benefits, mission-driven tenanting, development partnerships</div></div>
+        <div class="ftf-fai"><div class="ftf-fai-t">Collective investment and ownership</div><div class="ftf-fai-d">Community Land Trust, cooperative neighborhood investment</div></div>
+      </div>
+      <div class="ftf-faq">How can I mitigate unintended consequences of investment?</div>
+      <div class="ftf-fag">
+        <div class="ftf-fai"><div class="ftf-fai-t">Involuntary displacement prevention</div><div class="ftf-fai-d">Property tax relief, housing requirements, neighborhood stabilization overlays</div></div>
+        <div class="ftf-fai"><div class="ftf-fai-t">Protection of cultural heritage &amp; small business</div><div class="ftf-fai-d">Preserving cultural anchors in community, public art</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CLOSING ══ -->
+<div class="ftf-close">
+  <p class="ftf-close-text">Equitable development is not a compromise — it is a path to financially viable, sustainable growth for developers and communities alike.</p>
+  <a class="ftf-close-link" href="https://www.gensler.com/gri/strategies-for-equitable-neighborhood-developments" target="_blank" rel="noopener">
+    Read full research on Gensler.com
+    <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2v6" stroke="#141414" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+</div>
+
+<script>
+function ftfTab(id, btn) {
+  document.querySelectorAll('.ftf-panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.ftf-tab').forEach(b => b.classList.remove('on'));
+  document.getElementById('ftf-' + id).classList.add('on');
+  btn.classList.add('on');
+}
+</script>
+
+</div>
+<footer class="site-footer">
+  <div class="footer-copy">© 2020–2026 by Akshada Muley</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/akshada-muley-assoc-aia-25b37b153" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+    <a href="https://drive.google.com/uc?export=download&id=1GJ8jZrhRk_v8KWGUJh4Qr4XcrbVuQSlw" target="_blank" rel="noopener" class="footer-link">Resume</a>
+  </div>
+</footer>
+</body>
+</html>

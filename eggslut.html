@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshada Muley — Eggslut</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+.eg * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.eg {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #F8F7F5;
+  color: #141414;
+  width: 100%;
+  padding-bottom: 96px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── UTILITIES ── */
+.eg-rule { border: none; border-top: 1px solid #E0DDD8; }
+.eg-eyebrow {
+  font-size: .56rem; font-weight: 600; letter-spacing: .26em;
+  text-transform: uppercase; color: #999; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.eg-eyebrow::after { content:''; flex:1; max-width:60px; height:1px; background:#D8D5D0; }
+.eg-section-label {
+  font-size: .54rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: #999; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.eg-section-label::after { content:''; flex:1; height:1px; background:#E0DDD8; }
+.eg-body {
+  font-size: .82rem; font-weight: 300; color: #555; line-height: 1.85;
+}
+.eg-body p { margin-bottom: 14px; }
+.eg-body p:last-child { margin-bottom: 0; }
+
+/* ── SECTION ── */
+.eg-section { max-width: 1040px; margin: 0 auto; padding: 64px 48px 0; }
+
+/* ── HERO ── */
+.eg-hero {
+  max-width: 1040px; margin: 0 auto;
+  padding: 80px 48px 72px;
+  border-bottom: 1px solid #E0DDD8;
+}
+.eg-title {
+  font-size: clamp(2rem, 6vw, 4.4rem); font-weight: 700;
+  letter-spacing: -.03em; line-height: .92; color: #141414;
+  margin-bottom: 10px;
+}
+.eg-title-sub {
+  font-size: .76rem; font-weight: 300; color: #999;
+  letter-spacing: .06em; text-transform: uppercase; margin-bottom: 36px;
+}
+.eg-hero-grid {
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px;
+  padding-top: 32px; border-top: 1px solid #E0DDD8; align-items: start;
+}
+.eg-lead {
+  font-size: clamp(.88rem, 1.6vw, 1rem); font-weight: 300;
+  color: #777; line-height: 1.8; margin-bottom: 20px;
+  font-style: italic; padding-left: 16px; border-left: 1px solid #D0CDC8;
+}
+.eg-meta-stack { display: flex; flex-direction: column; gap: 18px; }
+.eg-meta-lbl {
+  font-size: .54rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #bbb; margin-bottom: 4px;
+}
+.eg-meta-val { font-size: .78rem; font-weight: 300; color: #555; line-height: 1.55; }
+.eg-meta-val strong { color: #141414; font-weight: 600; }
+
+/* ── CONTRIBUTIONS ── */
+.eg-contrib {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+  background: #E0DDD8; border: 1px solid #E0DDD8;
+}
+.eg-contrib-cell {
+  background: #fff; padding: 22px 18px 26px; transition: background .2s;
+}
+.eg-contrib-cell:hover { background: #FAFAF8; }
+.eg-contrib-num {
+  font-size: .52rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: #bbb; margin-bottom: 8px;
+}
+.eg-contrib-name {
+  font-size: .78rem; font-weight: 600; color: #141414;
+  text-transform: uppercase; letter-spacing: .05em;
+  margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #E0DDD8;
+}
+.eg-contrib-desc { font-size: .73rem; font-weight: 300; color: #666; line-height: 1.6; }
+
+/* ── LOCATIONS OVERVIEW ── */
+.eg-locations {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: #E0DDD8; border: 1px solid #E0DDD8;
+}
+.eg-location-cell {
+  background: #fff; padding: 24px 20px 28px; transition: background .2s;
+}
+.eg-location-cell:hover { background: #FAFAF8; }
+.eg-location-tag {
+  font-size: .52rem; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: #bbb; margin-bottom: 8px;
+}
+.eg-location-name {
+  font-size: .92rem; font-weight: 600; color: #141414;
+  margin-bottom: 6px; line-height: 1.2;
+}
+.eg-location-phases {
+  font-size: .68rem; font-weight: 300; color: #999;
+  margin-bottom: 10px; letter-spacing: .04em; text-transform: uppercase;
+}
+.eg-location-desc { font-size: .73rem; font-weight: 300; color: #666; line-height: 1.6; }
+
+/* ── DESIGN ELEMENTS LIST ── */
+.eg-approach-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.eg-pull {
+  font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 300;
+  color: #555; line-height: 1.65; margin-bottom: 20px; letter-spacing: -.01em;
+}
+.eg-pull strong { color: #141414; font-weight: 500; }
+.eg-design-els {
+  display: flex; flex-direction: column; gap: 1px;
+  background: #E0DDD8; border: 1px solid #E0DDD8;
+}
+.eg-design-el {
+  background: #fff; padding: 14px 16px;
+  display: flex; align-items: flex-start; gap: 12px;
+  transition: background .2s;
+}
+.eg-design-el:hover { background: #F5F3F0; }
+.eg-design-el-dot {
+  width: 4px; height: 4px; border-radius: 50%; background: #C8C5C0;
+  flex-shrink: 0; margin-top: 6px;
+}
+.eg-design-el-text { font-size: .74rem; font-weight: 300; color: #555; line-height: 1.55; }
+.eg-design-el-text strong { color: #141414; font-weight: 600; }
+
+/* ── IMAGE SYSTEM ── */
+.eg-img-slot {
+  position: relative; overflow: hidden; background: #EDECEA;
+}
+.eg-img-slot img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+.eg-img-slot:hover img { transform: scale(1.025); }
+.eg-img-slot.wide   { aspect-ratio: 16/9; }
+.eg-img-slot.cinema { aspect-ratio: 21/9; }
+.eg-img-slot.sq     { aspect-ratio: 1/1; }
+.eg-img-slot.tall   { aspect-ratio: 3/4; }
+.eg-img-slot.plan   { aspect-ratio: 3/2; }
+.eg-img-slot.med    { aspect-ratio: 4/3; }
+
+.eg-img-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.55));
+  padding: 28px 14px 12px;
+  font-size: .6rem; font-weight: 400; color: rgba(255,255,255,.7);
+  opacity: 0; transition: opacity .3s; line-height: 1.4;
+}
+.eg-img-slot:hover .eg-img-cap { opacity: 1; }
+
+.eg-placeholder {
+  width: 100%; height: 100%; min-height: 200px;
+  display: flex; align-items: center; justify-content: center; background: #EDECEA;
+}
+.eg-placeholder span {
+  font-size: .56rem; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: #C0BDB8; text-align: center;
+  padding: 0 14px; line-height: 1.7;
+}
+
+.eg-grid-full  { width: 100%; margin-bottom: 2px; }
+.eg-grid-2     { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.eg-grid-3     { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.eg-grid-asym  { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2px; margin-bottom: 2px; }
+.eg-grid-rasym { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2px; margin-bottom: 2px; }
+
+.eg-act {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px;
+}
+.eg-act-num  { font-size: .54rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #bbb; }
+.eg-act-name { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #555; }
+.eg-act-rule { flex: 1; height: 1px; background: #E0DDD8; }
+
+/* Location divider banner */
+.eg-location-banner {
+  background: #F2F0EC; border: 1px solid #E0DDD8;
+  padding: 20px 24px; margin-bottom: 28px;
+  display: flex; align-items: baseline; gap: 16px;
+}
+.eg-banner-num {
+  font-size: .54rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: #bbb;
+}
+.eg-banner-title {
+  font-size: 1rem; font-weight: 600; color: #141414; letter-spacing: .02em;
+}
+.eg-banner-phases {
+  font-size: .62rem; font-weight: 300; color: #999;
+  letter-spacing: .06em; text-transform: uppercase; margin-left: auto;
+}
+
+/* ── CLOSING ── */
+.eg-closing {
+  max-width: 1040px; margin: 80px auto 0;
+  padding: 48px 48px 0;
+  border-top: 1px solid #E0DDD8;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.eg-closing-quote {
+  font-size: clamp(.9rem, 1.8vw, 1.1rem); font-weight: 300;
+  color: #777; line-height: 1.8; font-style: italic;
+}
+.eg-closing-quote strong { color: #141414; font-weight: 500; font-style: normal; }
+.eg-closing-meta { display: flex; flex-direction: column; gap: 12px; }
+.eg-closing-row { border-top: 1px solid #E0DDD8; padding-top: 11px; }
+.eg-closing-lbl { font-size: .52rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #bbb; margin-bottom: 3px; }
+.eg-closing-val { font-size: .74rem; font-weight: 300; color: #555; line-height: 1.5; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .eg-hero, .eg-section, .eg-closing { padding-left: 20px; padding-right: 20px; }
+  .eg-title { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+  .eg-hero-grid, .eg-approach-grid, .eg-closing { grid-template-columns: 1fr; gap: 32px; }
+  .eg-contrib, .eg-locations { grid-template-columns: 1fr; }
+  .eg-grid-2, .eg-grid-asym, .eg-grid-rasym { grid-template-columns: 1fr; }
+  .eg-grid-3 { grid-template-columns: 1fr 1fr; }
+  .eg-banner-phases { display: none; }
+}
+
+
+  /* Light theme override for dark pages */
+  .jp,.ftf,.eg { background:#F8F7F5 !important; color:#141414 !important; }
+  .jp-hero,.jp-section,.jp-closing,.ftf-hero,.ftf-section,.ftf-close,
+  .eg-hero,.eg-section,.eg-closing { background:#F8F7F5 !important; }
+  .jp-title,.ftf-hero-title,.eg-title { color:#141414 !important; }
+  .jp-title-sub,.eg-title-sub { color:#999 !important; }
+  .jp-meta-lbl,.eg-meta-lbl { color:#bbb !important; }
+  .jp-meta-val,.eg-meta-val { color:#555 !important; }
+  .jp-meta-val strong,.eg-meta-val strong { color:#141414 !important; }
+  .jp-contrib,.jp-design-els,.eg-contrib,.eg-locations,.eg-design-els {
+    background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+  .jp-contrib-cell,.jp-design-el,.eg-contrib-cell,.eg-location-cell,.eg-design-el {
+    background:#fff !important; }
+  .jp-contrib-cell:hover,.jp-design-el:hover,.eg-contrib-cell:hover,.eg-location-cell:hover,
+  .eg-design-el:hover { background:#FAFAF8 !important; }
+  .jp-contrib-num,.jp-location-tag,.eg-contrib-num,.eg-location-tag { color:#bbb !important; }
+  .jp-contrib-name,.jp-location-name,.eg-contrib-name,.eg-location-name {
+    color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+  .jp-contrib-desc,.jp-location-desc,.eg-contrib-desc,.eg-location-desc { color:#555 !important; }
+  .jp-act-num,.eg-act-num { color:#bbb !important; }
+  .jp-act-name,.eg-act-name { color:#555 !important; }
+  .jp-act-rule,.eg-act-rule { background:#E0DDD8 !important; }
+  .jp-img-slot,.eg-img-slot { background:#EDECEA !important; }
+  .jp-placeholder,.eg-placeholder { background:#EDECEA !important; }
+  .jp-placeholder span,.eg-placeholder span { color:#C0BDB8 !important; }
+  .jp-img-cap,.eg-img-cap { background:linear-gradient(transparent,rgba(0,0,0,.45)) !important; }
+  .jp-closing-quote,.eg-closing-quote { color:#777 !important; }
+  .jp-closing-quote strong,.eg-closing-quote strong { color:#141414 !important; font-weight:500 !important; }
+  .jp-closing-row,.eg-closing-row { border-top-color:#E0DDD8 !important; }
+  .jp-closing-lbl,.eg-closing-lbl { color:#bbb !important; }
+  .jp-closing-val,.eg-closing-val { color:#555 !important; }
+  .jp-lead,.eg-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+  .jp-pull,.eg-pull { color:#555 !important; }
+  .jp-pull strong,.eg-pull strong { color:#141414 !important; }
+  .jp-design-el-dot,.eg-design-el-dot { background:#C8C5C0 !important; }
+  .jp-design-el-text,.eg-design-el-text { color:#555 !important; }
+  .jp-design-el-text strong,.eg-design-el-text strong { color:#141414 !important; }
+  .jp-location-banner,.eg-location-banner {
+    background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+  .jp-banner-num,.eg-banner-num { color:#bbb !important; }
+  .jp-banner-title,.eg-banner-title { color:#141414 !important; }
+  .jp-banner-phases,.eg-banner-phases { color:#999 !important; }
+  .eg-approach-grid .eg-pull { color:#555 !important; }
+  .ftf-label { color:#bbb !important; }
+  .ftf-body { color:#555 !important; }
+  .ftf-cta { color:#141414 !important; border-bottom-color:#141414 !important; }
+  .ftf-cards-grid,.ftf-stats,.ftf-3col { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+  .ftf-card,.ftf-stat,.ftf-3col-cell { background:#fff !important; }
+  .ftf-section-num { color:#bbb !important; }
+  .ftf-section-title { color:#141414 !important; }
+  .ftf-section-desc { color:#555 !important; }
+
+
+</style>
+</head>
+<body>
+<script>
+if (sessionStorage.getItem('work_access') !== 'granted') {
+  window.location.replace('work-gate.html');
+}
+</script>
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Akshada Muley</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="work-gate.html" class="nav-link active">Work 🔒</a>
+    <a href="projects.html" class="nav-link">Projects</a>
+  </div>
+</nav>
+<a href="work.html" style="display:block;padding:20px 48px 0;max-width:1040px;margin:0 auto;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#999;text-decoration:none;">← Work</a>
+<div class="detail-wrap">
+
+
+
+<div class="eg">
+
+<!-- ══ HERO ══ -->
+<div class="eg-hero">
+  <div class="eg-eyebrow">Akarstudios · Architecture &amp; Interior Design · 2021</div>
+  <h1 class="eg-title">Eggslut</h1>
+  <div class="eg-title-sub">Multiple Locations · Singapore · Shoreditch, London · Retail Brand Rollout</div>
+
+  <div class="eg-hero-grid">
+    <div>
+      <p class="eg-lead">
+        "Translating a Los Angeles identity into scalable design strategies for diverse international markets — where spatial consistency, operational efficiency, and the open kitchen concept travel across cultures."
+      </p>
+      <div class="eg-body">
+        <p>Eggslut began as a cult LA food brand defined by an open kitchen, a tight material palette, and an unapologetically casual identity. Taking that identity international meant designing for markets as different as Singapore and London — each with their own spatial constraints, building types, and customer expectations.</p>
+        <p>I contributed to the retail brand development across international locations, leading material palette exploration, renderings, and test fits to support spatial consistency and operational efficiency. The challenge was not replication but translation — maintaining brand legibility while responding to each site's character.</p>
+      </div>
+    </div>
+
+    <div class="eg-meta-stack">
+      <div>
+        <div class="eg-meta-lbl">Client</div>
+        <div class="eg-meta-val"><strong>Eggslut</strong></div>
+      </div>
+      <div>
+        <div class="eg-meta-lbl">Locations</div>
+        <div class="eg-meta-val">Singapore<br>Shoreditch, London</div>
+      </div>
+      <div>
+        <div class="eg-meta-lbl">Project Type</div>
+        <div class="eg-meta-val">Retail Design · Brand Rollout<br>Architecture · Interior Design</div>
+      </div>
+      <div>
+        <div class="eg-meta-lbl">Firm</div>
+        <div class="eg-meta-val">Akarstudios</div>
+      </div>
+      <div>
+        <div class="eg-meta-lbl">Role</div>
+        <div class="eg-meta-val">Designer</div>
+      </div>
+      <div>
+        <div class="eg-meta-lbl">Skills</div>
+        <div class="eg-meta-val">Concept Development · Retail Design · Brand Rollout</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTRIBUTIONS ══ -->
+<div class="eg-section">
+  <div class="eg-section-label">My Contributions</div>
+  <div class="eg-contrib">
+    <div class="eg-contrib-cell">
+      <div class="eg-contrib-num">Contribution 01</div>
+      <div class="eg-contrib-name">Material Palette</div>
+      <div class="eg-contrib-desc">Leading material palette exploration to ensure the warmth and informality of the LA original translated into each new market — adapting sourcing and finishes to local availability while maintaining brand cohesion.</div>
+    </div>
+    <div class="eg-contrib-cell">
+      <div class="eg-contrib-num">Contribution 02</div>
+      <div class="eg-contrib-name">Renderings &amp; Visualization</div>
+      <div class="eg-contrib-desc">Producing design renderings across concept, schematic, and design development phases — communicating spatial intent to client and stakeholders across Singapore and London locations.</div>
+    </div>
+    <div class="eg-contrib-cell">
+      <div class="eg-contrib-num">Contribution 03</div>
+      <div class="eg-contrib-name">Test Fits &amp; Documentation</div>
+      <div class="eg-contrib-desc">Developing test fits, schematic floor plans, axonometric views, and elevations — supporting spatial consistency and operational efficiency across diverse site conditions and market requirements.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ LOCATIONS OVERVIEW ══ -->
+<div class="eg-section" style="padding-top:48px">
+  <div class="eg-section-label">Two Locations</div>
+  <div class="eg-locations">
+    <div class="eg-location-cell">
+      <div class="eg-location-tag">Location 01</div>
+      <div class="eg-location-name">Eggslut Singapore</div>
+      <div class="eg-location-phases">Concept · Schematic · Design Development</div>
+      <div class="eg-location-desc">Full design scope from concept through design development — including interior and exterior design, renderings, schematic floor plan, axonometric view, and a complete design development package for one of the brand's first major international locations.</div>
+    </div>
+    <div class="eg-location-cell">
+      <div class="eg-location-tag">Location 02</div>
+      <div class="eg-location-name">Eggslut Shoreditch, London</div>
+      <div class="eg-location-phases">Concept · Schematic Design</div>
+      <div class="eg-location-desc">Concept and schematic design for the London flagship — including renderings, axonometric view, schematic elevations, floor plan, and brand palette concept development adapting the Eggslut identity to Shoreditch's distinctive urban character.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DESIGN APPROACH ══ -->
+<div class="eg-section" style="padding-top:48px">
+  <div class="eg-section-label">Design Approach</div>
+  <div class="eg-approach-grid">
+    <div>
+      <p class="eg-pull">Brand rollout is not replication — it is <strong>translation</strong>. Each location carries the Eggslut DNA while responding to its own city, site, and customer.</p>
+      <div class="eg-body">
+        <p>The open kitchen is the heart of every Eggslut location — the design always departs from that central element and works outward. Material warmth, casual counter seating, and an unapologetic rawness in the finishes are consistent threads. What changes is how those elements respond to each site's spatial language.</p>
+        <p>Singapore demanded a tropical lightness and a precise fit within a tight commercial footprint. Shoreditch invited a grittier, more industrial interpretation — Eggslut's LA informality mapped onto East London's warehouse aesthetic.</p>
+      </div>
+    </div>
+    <div>
+      <div class="eg-design-els">
+        <div class="eg-design-el">
+          <div class="eg-design-el-dot"></div>
+          <div class="eg-design-el-text"><strong>Open kitchen as anchor</strong> — the defining spatial and experiential element that travels across all locations</div>
+        </div>
+        <div class="eg-design-el">
+          <div class="eg-design-el-dot"></div>
+          <div class="eg-design-el-text"><strong>Material palette exploration</strong> — warm, tactile, informal finishes calibrated to each market's sourcing and character</div>
+        </div>
+        <div class="eg-design-el">
+          <div class="eg-design-el-dot"></div>
+          <div class="eg-design-el-text"><strong>Operational efficiency</strong> — floor plan and test fit logic supporting high-volume service in compact footprints</div>
+        </div>
+        <div class="eg-design-el">
+          <div class="eg-design-el-dot"></div>
+          <div class="eg-design-el-text"><strong>Brand palette concept</strong> — a defined color, material, and finish system ensuring visual consistency across international rollout</div>
+        </div>
+        <div class="eg-design-el">
+          <div class="eg-design-el-dot"></div>
+          <div class="eg-design-el-text"><strong>Axonometric communication</strong> — spatial logic and brand identity expressed in plan and three-quarter view for client and contractor clarity</div>
+        </div>
+        <div class="eg-design-el">
+          <div class="eg-design-el-dot"></div>
+          <div class="eg-design-el-text"><strong>Exterior and interior continuity</strong> — the brand experience begins at the street, not the threshold</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     LOCATION 01: SINGAPORE
+══════════════════════════════════════ -->
+<div class="eg-section" style="padding-top:48px">
+  <div class="eg-location-banner">
+    <div class="eg-banner-num">Location 01</div>
+    <div class="eg-banner-title">Eggslut Singapore</div>
+    <div class="eg-banner-phases">Concept · Schematic · Design Development</div>
+  </div>
+
+  <!-- Built photography -->
+  <div class="eg-act">
+    <div class="eg-act-num">Built Work</div>
+    <div class="eg-act-name">Interior &amp; Exterior — After Completion</div>
+    <div class="eg-act-rule"></div>
+  </div>
+
+  <div class="eg-grid-full">
+    <div class="eg-img-slot wide">
+      <!--
+        REPLACE src with CDN URL from your page.
+        Right-click image on page → Inspect → copy src.
+      -->
+      <img src="REPLACE_WITH_IMAGE_URL_SG_1"
+        alt="Eggslut Singapore Interior — After Completion"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Singapore Interior — After Completion<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Singapore Interior — After Completion</div>
+    </div>
+  </div>
+
+  <div class="eg-grid-full">
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_2"
+        alt="Eggslut Singapore Exterior — After Completion"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Singapore Exterior — After Completion<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Singapore Exterior — After Completion</div>
+    </div>
+  </div>
+
+  <!-- Renderings -->
+  <div class="eg-act" style="margin-top:32px">
+    <div class="eg-act-num">Renderings</div>
+    <div class="eg-act-name">Concept &amp; Design Development</div>
+    <div class="eg-act-rule"></div>
+  </div>
+
+  <div class="eg-grid-3">
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_3"
+        alt="Eggslut Singapore Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Singapore Rendering 01<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Singapore Rendering</div>
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_4"
+        alt="Eggslut Singapore Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Singapore Rendering 02<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Singapore Rendering</div>
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_5"
+        alt="Eggslut Singapore Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Singapore Rendering 03<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Singapore Rendering</div>
+    </div>
+  </div>
+
+  <div class="eg-grid-3">
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_6"
+        alt="Eggslut Singapore Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Singapore Rendering 04<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Singapore Rendering</div>
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_7"
+        alt="Eggslut Singapore Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Singapore Rendering 05<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Singapore Rendering</div>
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_8"
+        alt="Eggslut Singapore Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Singapore Rendering 06<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Singapore Rendering</div>
+    </div>
+  </div>
+
+  <!-- Schematic drawings -->
+  <div class="eg-act" style="margin-top:32px">
+    <div class="eg-act-num">Schematic Design</div>
+    <div class="eg-act-name">Floor Plan &amp; Axonometric</div>
+    <div class="eg-act-rule"></div>
+  </div>
+
+  <div class="eg-grid-2">
+    <div class="eg-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_9"
+        alt="Schematic Floor Plan — Singapore"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Schematic Floor Plan 01<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Schematic Floor Plan — Singapore</div>
+    </div>
+    <div class="eg-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_10"
+        alt="Schematic Floor Plan — Singapore"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Schematic Floor Plan 02<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Schematic Floor Plan — Singapore</div>
+    </div>
+  </div>
+
+  <div class="eg-grid-2">
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_11"
+        alt="Schematic Axonometric View — Singapore"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Schematic Axonometric 01<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Schematic Axonometric View — Singapore</div>
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_12"
+        alt="Schematic Axonometric View — Singapore"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Schematic Axonometric 02<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Schematic Axonometric View — Singapore</div>
+    </div>
+  </div>
+
+  <!-- Design Development Package -->
+  <div class="eg-act" style="margin-top:32px">
+    <div class="eg-act-num">Design Development</div>
+    <div class="eg-act-name">Design Development Package</div>
+    <div class="eg-act-rule"></div>
+  </div>
+
+  <!-- Design development package — multiple images in grid -->
+  <div class="eg-grid-3">
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_DD_1"
+        alt="Design Development Package — Singapore"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Design Development 01<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Design Development Package</div>
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_DD_2"
+        alt="Design Development Package — Singapore"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Design Development 02<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Design Development Package</div>
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_DD_3"
+        alt="Design Development Package — Singapore"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Design Development 03<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Design Development Package</div>
+    </div>
+  </div>
+  <div class="eg-grid-3">
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_DD_4"
+        alt="Design Development Package — Singapore"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Design Development 04<br>Replace src with image URL</span></div>'">
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_DD_5"
+        alt="Design Development Package — Singapore"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Design Development 05<br>Replace src with image URL</span></div>'">
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_SG_DD_6"
+        alt="Design Development Package — Singapore"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Design Development 06<br>Replace src with image URL</span></div>'">
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     LOCATION 02: SHOREDITCH, LONDON
+══════════════════════════════════════ -->
+<div class="eg-section" style="padding-top:64px">
+  <div class="eg-location-banner">
+    <div class="eg-banner-num">Location 02</div>
+    <div class="eg-banner-title">Eggslut Shoreditch, London</div>
+    <div class="eg-banner-phases">Concept · Schematic Design</div>
+  </div>
+
+  <!-- Renderings -->
+  <div class="eg-act">
+    <div class="eg-act-num">Renderings</div>
+    <div class="eg-act-name">Concept &amp; Schematic Design</div>
+    <div class="eg-act-rule"></div>
+  </div>
+
+  <div class="eg-grid-3">
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_1"
+        alt="Eggslut Shoreditch Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Shoreditch Rendering 01<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Shoreditch Rendering</div>
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_2"
+        alt="Eggslut Shoreditch Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Shoreditch Rendering 02<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Shoreditch Rendering</div>
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_3"
+        alt="Eggslut Shoreditch Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Shoreditch Rendering 03<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Shoreditch Rendering</div>
+    </div>
+  </div>
+
+  <div class="eg-grid-3">
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_4"
+        alt="Eggslut Shoreditch Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Shoreditch Rendering 04<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Shoreditch Rendering</div>
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_5"
+        alt="Eggslut Shoreditch Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Shoreditch Rendering 05<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Shoreditch Rendering</div>
+    </div>
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_6"
+        alt="Eggslut Shoreditch Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Shoreditch Rendering 06<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Eggslut Shoreditch Rendering</div>
+    </div>
+  </div>
+
+  <!-- Schematic drawings -->
+  <div class="eg-act" style="margin-top:32px">
+    <div class="eg-act-num">Schematic Design</div>
+    <div class="eg-act-name">Axonometric · Elevations · Floor Plan</div>
+    <div class="eg-act-rule"></div>
+  </div>
+
+  <div class="eg-grid-full">
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_AXO"
+        alt="Axonometric — Eggslut Shoreditch"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Axonometric — Shoreditch<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Axonometric — Eggslut Shoreditch</div>
+    </div>
+  </div>
+
+  <div class="eg-grid-2">
+    <div class="eg-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_ELEV_1"
+        alt="Schematic Elevations — Shoreditch"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Schematic Elevations 01<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Schematic Elevations — Shoreditch</div>
+    </div>
+    <div class="eg-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_ELEV_2"
+        alt="Schematic Elevations — Shoreditch"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Schematic Elevations 02<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Schematic Elevations — Shoreditch</div>
+    </div>
+  </div>
+
+  <div class="eg-grid-2">
+    <div class="eg-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_FP_1"
+        alt="Schematic Floor Plan — Shoreditch"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Schematic Floor Plan 01<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Schematic Floor Plan — Shoreditch</div>
+    </div>
+    <div class="eg-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_FP_2"
+        alt="Schematic Floor Plan — Shoreditch"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Schematic Floor Plan 02<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Schematic Floor Plan — Shoreditch</div>
+    </div>
+  </div>
+
+  <div class="eg-grid-2">
+    <div class="eg-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_ELEV_3"
+        alt="Schematic Elevations — Shoreditch"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Schematic Elevations 03<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Schematic Elevations — Shoreditch</div>
+    </div>
+    <div class="eg-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_ELEV_4"
+        alt="Schematic Elevations — Shoreditch"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Schematic Elevations 04<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Schematic Elevations — Shoreditch</div>
+    </div>
+  </div>
+
+  <!-- Brand palette -->
+  <div class="eg-act" style="margin-top:32px">
+    <div class="eg-act-num">Brand System</div>
+    <div class="eg-act-name">Brand Palette Concept Design</div>
+    <div class="eg-act-rule"></div>
+  </div>
+
+  <div class="eg-grid-full">
+    <div class="eg-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_LDN_PALETTE"
+        alt="Brand Palette Concept Design"
+        onerror="this.parentElement.innerHTML='<div class=\'eg-placeholder\'><span>Brand Palette Concept Design<br>Replace src with image URL</span></div>'">
+      <div class="eg-img-cap">Brand Palette Concept Design — material, color, and finish system for international rollout</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CLOSING ══ -->
+<div class="eg-closing">
+  <div class="eg-closing-quote">
+    "Brand rollout is not about copying — it is about <strong>finding what is essential and what is adaptable.</strong> The open kitchen travels. The palette adapts. The attitude is non-negotiable."
+  </div>
+  <div class="eg-closing-meta">
+    <div class="eg-closing-row">
+      <div class="eg-closing-lbl">Project</div>
+      <div class="eg-closing-val">Eggslut — International Locations</div>
+    </div>
+    <div class="eg-closing-row">
+      <div class="eg-closing-lbl">Locations</div>
+      <div class="eg-closing-val">Singapore · Shoreditch, London</div>
+    </div>
+    <div class="eg-closing-row">
+      <div class="eg-closing-lbl">Firm</div>
+      <div class="eg-closing-val">Akarstudios</div>
+    </div>
+    <div class="eg-closing-row">
+      <div class="eg-closing-lbl">Project Type</div>
+      <div class="eg-closing-val">Retail Brand Rollout · Interior Design · Architecture</div>
+    </div>
+    <div class="eg-closing-row">
+      <div class="eg-closing-lbl">Skills</div>
+      <div class="eg-closing-val">Concept Development · Retail Design · Brand Rollout · Renderings · Test Fits · Construction Documentation</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+<footer class="site-footer">
+  <div class="footer-copy">© 2020–2026 by Akshada Muley</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/akshada-muley-assoc-aia-25b37b153" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+    <a href="https://drive.google.com/uc?export=download&id=1GJ8jZrhRk_v8KWGUJh4Qr4XcrbVuQSlw" target="_blank" rel="noopener" class="footer-link">Resume</a>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshada Muley — JPMorgan Financial Center</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+.jp * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.jp {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #0D0D0D;
+  color: #E8E6E2;
+  width: 100%;
+  padding-bottom: 96px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── UTILITIES ── */
+.jp-rule { border: none; border-top: 1px solid #1E1E1E; }
+.jp-eyebrow {
+  font-size: .56rem; font-weight: 600; letter-spacing: .26em;
+  text-transform: uppercase; color: #444; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.jp-eyebrow::after { content:''; flex:1; max-width:60px; height:1px; background:#222; }
+.jp-section-label {
+  font-size: .54rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: #3A3A3A; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.jp-section-label::after { content:''; flex:1; height:1px; background:#1A1A1A; }
+.jp-body {
+  font-size: .82rem; font-weight: 300; color: #666; line-height: 1.85;
+}
+.jp-body p { margin-bottom: 14px; }
+.jp-body p:last-child { margin-bottom: 0; }
+
+/* ── SECTION ── */
+.jp-section { max-width: 1040px; margin: 0 auto; padding: 64px 48px 0; }
+
+/* ── HERO ── */
+.jp-hero {
+  max-width: 1040px; margin: 0 auto;
+  padding: 80px 48px 72px;
+  border-bottom: 1px solid #1A1A1A;
+}
+.jp-title {
+  font-size: clamp(1.8rem, 5vw, 3.8rem); font-weight: 700;
+  letter-spacing: -.03em; line-height: .92; color: #E8E6E2;
+  margin-bottom: 10px;
+}
+.jp-title-sub {
+  font-size: .76rem; font-weight: 300; color: #333;
+  letter-spacing: .06em; text-transform: uppercase; margin-bottom: 36px;
+}
+.jp-hero-grid {
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px;
+  padding-top: 32px; border-top: 1px solid #1A1A1A; align-items: start;
+}
+.jp-lead {
+  font-size: clamp(.88rem, 1.6vw, 1rem); font-weight: 300;
+  color: #777; line-height: 1.8; margin-bottom: 20px;
+  font-style: italic; padding-left: 16px; border-left: 1px solid #2E2E2E;
+}
+.jp-meta-stack { display: flex; flex-direction: column; gap: 18px; }
+.jp-meta-lbl {
+  font-size: .54rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #333; margin-bottom: 4px;
+}
+.jp-meta-val { font-size: .78rem; font-weight: 300; color: #666; line-height: 1.55; }
+.jp-meta-val strong { color: #bbb; font-weight: 500; }
+
+/* ── ROLE CONTRIBUTION ── */
+.jp-contrib {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.jp-contrib-cell {
+  background: #0D0D0D; padding: 22px 18px 26px; transition: background .2s;
+}
+.jp-contrib-cell:hover { background: #111; }
+.jp-contrib-num {
+  font-size: .52rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: #2A2A2A; margin-bottom: 8px;
+}
+.jp-contrib-name {
+  font-size: .78rem; font-weight: 600; color: #999;
+  text-transform: uppercase; letter-spacing: .05em;
+  margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #1A1A1A;
+}
+.jp-contrib-desc { font-size: .73rem; font-weight: 300; color: #444; line-height: 1.6; }
+
+/* ── DESIGN APPROACH ── */
+.jp-approach-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.jp-pull {
+  font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 300;
+  color: #bbb; line-height: 1.65; margin-bottom: 20px; letter-spacing: -.01em;
+}
+.jp-pull strong { color: #E8E6E2; font-weight: 500; }
+.jp-design-elements {
+  display: flex; flex-direction: column; gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.jp-design-el {
+  background: #0D0D0D; padding: 14px 16px;
+  display: flex; align-items: flex-start; gap: 12px;
+  transition: background .2s;
+}
+.jp-design-el:hover { background: #111; }
+.jp-design-el-dot {
+  width: 4px; height: 4px; border-radius: 50%; background: #2A2A2A;
+  flex-shrink: 0; margin-top: 6px;
+}
+.jp-design-el-text { font-size: .74rem; font-weight: 300; color: #555; line-height: 1.55; }
+.jp-design-el-text strong { color: #888; font-weight: 500; }
+
+/* ── IMAGE SYSTEM ── */
+.jp-img-slot {
+  position: relative; overflow: hidden; background: #111;
+}
+.jp-img-slot img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+.jp-img-slot:hover img { transform: scale(1.025); }
+.jp-img-slot.wide   { aspect-ratio: 16/9; }
+.jp-img-slot.cinema { aspect-ratio: 21/9; }
+.jp-img-slot.sq     { aspect-ratio: 1/1; }
+.jp-img-slot.tall   { aspect-ratio: 3/4; }
+.jp-img-slot.plan   { aspect-ratio: 3/2; }
+.jp-img-slot.med    { aspect-ratio: 4/3; }
+
+.jp-img-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.82));
+  padding: 28px 14px 12px;
+  font-size: .6rem; font-weight: 400; color: rgba(255,255,255,.45);
+  opacity: 0; transition: opacity .3s; line-height: 1.4;
+}
+.jp-img-slot:hover .jp-img-cap { opacity: 1; }
+
+.jp-placeholder {
+  width: 100%; height: 100%; min-height: 200px;
+  display: flex; align-items: center; justify-content: center; background: #0F0F0F;
+}
+.jp-placeholder span {
+  font-size: .56rem; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: #1E1E1E; text-align: center;
+  padding: 0 14px; line-height: 1.7;
+}
+
+.jp-grid-full  { width: 100%; margin-bottom: 2px; }
+.jp-grid-2     { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.jp-grid-3     { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.jp-grid-asym  { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2px; margin-bottom: 2px; }
+.jp-grid-rasym { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2px; margin-bottom: 2px; }
+
+.jp-act {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px;
+}
+.jp-act-num  { font-size: .54rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #2A2A2A; }
+.jp-act-name { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #555; }
+.jp-act-rule { flex: 1; height: 1px; background: #1A1A1A; }
+
+/* ── CLOSING ── */
+.jp-closing {
+  max-width: 1040px; margin: 80px auto 0;
+  padding: 48px 48px 0;
+  border-top: 1px solid #1A1A1A;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.jp-closing-quote {
+  font-size: clamp(.9rem, 1.8vw, 1.1rem); font-weight: 300;
+  color: #444; line-height: 1.8; font-style: italic;
+}
+.jp-closing-quote strong { color: #888; font-weight: 400; font-style: normal; }
+.jp-closing-meta { display: flex; flex-direction: column; gap: 12px; }
+.jp-closing-row { border-top: 1px solid #1A1A1A; padding-top: 11px; }
+.jp-closing-lbl { font-size: .52rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #2E2E2E; margin-bottom: 3px; }
+.jp-closing-val { font-size: .74rem; font-weight: 300; color: #555; line-height: 1.5; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .jp-hero, .jp-section, .jp-closing { padding-left: 20px; padding-right: 20px; }
+  .jp-title { font-size: clamp(1.7rem, 7vw, 2.6rem); }
+  .jp-hero-grid, .jp-approach-grid, .jp-closing { grid-template-columns: 1fr; gap: 32px; }
+  .jp-contrib { grid-template-columns: 1fr; }
+  .jp-grid-2, .jp-grid-asym, .jp-grid-rasym { grid-template-columns: 1fr; }
+  .jp-grid-3 { grid-template-columns: 1fr 1fr; }
+}
+
+
+  /* Light theme override for dark pages */
+  .jp,.ftf,.eg { background:#F8F7F5 !important; color:#141414 !important; }
+  .jp-hero,.jp-section,.jp-closing,.ftf-hero,.ftf-section,.ftf-close,
+  .eg-hero,.eg-section,.eg-closing { background:#F8F7F5 !important; }
+  .jp-title,.ftf-hero-title,.eg-title { color:#141414 !important; }
+  .jp-title-sub,.eg-title-sub { color:#999 !important; }
+  .jp-meta-lbl,.eg-meta-lbl { color:#bbb !important; }
+  .jp-meta-val,.eg-meta-val { color:#555 !important; }
+  .jp-meta-val strong,.eg-meta-val strong { color:#141414 !important; }
+  .jp-contrib,.jp-design-els,.eg-contrib,.eg-locations,.eg-design-els {
+    background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+  .jp-contrib-cell,.jp-design-el,.eg-contrib-cell,.eg-location-cell,.eg-design-el {
+    background:#fff !important; }
+  .jp-contrib-cell:hover,.jp-design-el:hover,.eg-contrib-cell:hover,.eg-location-cell:hover,
+  .eg-design-el:hover { background:#FAFAF8 !important; }
+  .jp-contrib-num,.jp-location-tag,.eg-contrib-num,.eg-location-tag { color:#bbb !important; }
+  .jp-contrib-name,.jp-location-name,.eg-contrib-name,.eg-location-name {
+    color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+  .jp-contrib-desc,.jp-location-desc,.eg-contrib-desc,.eg-location-desc { color:#555 !important; }
+  .jp-act-num,.eg-act-num { color:#bbb !important; }
+  .jp-act-name,.eg-act-name { color:#555 !important; }
+  .jp-act-rule,.eg-act-rule { background:#E0DDD8 !important; }
+  .jp-img-slot,.eg-img-slot { background:#EDECEA !important; }
+  .jp-placeholder,.eg-placeholder { background:#EDECEA !important; }
+  .jp-placeholder span,.eg-placeholder span { color:#C0BDB8 !important; }
+  .jp-img-cap,.eg-img-cap { background:linear-gradient(transparent,rgba(0,0,0,.45)) !important; }
+  .jp-closing-quote,.eg-closing-quote { color:#777 !important; }
+  .jp-closing-quote strong,.eg-closing-quote strong { color:#141414 !important; font-weight:500 !important; }
+  .jp-closing-row,.eg-closing-row { border-top-color:#E0DDD8 !important; }
+  .jp-closing-lbl,.eg-closing-lbl { color:#bbb !important; }
+  .jp-closing-val,.eg-closing-val { color:#555 !important; }
+  .jp-lead,.eg-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+  .jp-pull,.eg-pull { color:#555 !important; }
+  .jp-pull strong,.eg-pull strong { color:#141414 !important; }
+  .jp-design-el-dot,.eg-design-el-dot { background:#C8C5C0 !important; }
+  .jp-design-el-text,.eg-design-el-text { color:#555 !important; }
+  .jp-design-el-text strong,.eg-design-el-text strong { color:#141414 !important; }
+  .jp-location-banner,.eg-location-banner {
+    background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+  .jp-banner-num,.eg-banner-num { color:#bbb !important; }
+  .jp-banner-title,.eg-banner-title { color:#141414 !important; }
+  .jp-banner-phases,.eg-banner-phases { color:#999 !important; }
+  .eg-approach-grid .eg-pull { color:#555 !important; }
+  .ftf-label { color:#bbb !important; }
+  .ftf-body { color:#555 !important; }
+  .ftf-cta { color:#141414 !important; border-bottom-color:#141414 !important; }
+  .ftf-cards-grid,.ftf-stats,.ftf-3col { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+  .ftf-card,.ftf-stat,.ftf-3col-cell { background:#fff !important; }
+  .ftf-section-num { color:#bbb !important; }
+  .ftf-section-title { color:#141414 !important; }
+  .ftf-section-desc { color:#555 !important; }
+
+
+</style>
+</head>
+<body>
+<script>
+if (sessionStorage.getItem('work_access') !== 'granted') {
+  window.location.replace('work-gate.html');
+}
+</script>
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Akshada Muley</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link">About</a>
+    <a href="work-gate.html" class="nav-link active">Work 🔒</a>
+    <a href="projects.html" class="nav-link">Projects</a>
+  </div>
+</nav>
+<a href="work.html" style="display:block;padding:20px 48px 0;max-width:1040px;margin:0 auto;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#999;text-decoration:none;">← Work</a>
+<div class="detail-wrap">
+
+
+<div class="jp">
+
+<!-- ══ HERO ══ -->
+<div class="jp-hero">
+  <div class="jp-eyebrow">Gensler · Architecture &amp; Interior Design · 2021–Present</div>
+  <h1 class="jp-title">JPMorgan Financial Center</h1>
+  <div class="jp-title-sub">Napa, California · Adaptive Reuse · Retail Banking</div>
+
+  <div class="jp-hero-grid">
+    <div>
+      <p class="jp-lead">
+        "JPMorgan's latest Financial Centers are redefining the in-person banking experience — reimagined as hospitality-driven environments for affluent clients through the strategic conversion of existing First Republic Bank locations."
+      </p>
+      <div class="jp-body">
+        <p>The Napa location exemplifies this transformation: an existing financial center converted into a warm, contemporary environment with a carefully curated palette of wood finishes, soft lighting, and lounge settings that create a welcoming, highly personalized atmosphere aligned with JPMorgan's evolving retail banking standards.</p>
+        <p>I contributed to this adaptive reuse project across schematic design, construction documentation, and permit drawing development — and supported construction administration to ensure design intent was maintained through execution, coordinating with consultants and stakeholders throughout delivery.</p>
+      </div>
+    </div>
+
+    <div class="jp-meta-stack">
+      <div>
+        <div class="jp-meta-lbl">Client</div>
+        <div class="jp-meta-val"><strong>JPMorgan Chase</strong></div>
+      </div>
+      <div>
+        <div class="jp-meta-lbl">Location</div>
+        <div class="jp-meta-val">Napa, California</div>
+      </div>
+      <div>
+        <div class="jp-meta-lbl">Project Type</div>
+        <div class="jp-meta-val">Adaptive Reuse · Retail Banking<br>Interior Design · Architecture</div>
+      </div>
+      <div>
+        <div class="jp-meta-lbl">Firm</div>
+        <div class="jp-meta-val">Gensler</div>
+      </div>
+      <div>
+        <div class="jp-meta-lbl">Role</div>
+        <div class="jp-meta-val">Designer</div>
+      </div>
+      <div>
+        <div class="jp-meta-lbl">Skills</div>
+        <div class="jp-meta-val">Concept Development · Construction Documentation · Construction Administration</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ROLE & CONTRIBUTIONS ══ -->
+<div class="jp-section">
+  <div class="jp-section-label">My Contributions</div>
+  <div class="jp-contrib">
+    <div class="jp-contrib-cell">
+      <div class="jp-contrib-num">Phase 01</div>
+      <div class="jp-contrib-name">Schematic Design</div>
+      <div class="jp-contrib-desc">Concept development and programming — translating JPMorgan's hospitality-driven banking vision into spatial layouts and material narratives for the Napa location.</div>
+    </div>
+    <div class="jp-contrib-cell">
+      <div class="jp-contrib-num">Phase 02</div>
+      <div class="jp-contrib-name">Construction Documentation</div>
+      <div class="jp-contrib-desc">Developing full permit and construction drawing sets — floor plans, reflected ceiling plans, elevations, and detail documentation for the conversion of the existing First Republic space.</div>
+    </div>
+    <div class="jp-contrib-cell">
+      <div class="jp-contrib-num">Phase 03</div>
+      <div class="jp-contrib-name">Construction Administration</div>
+      <div class="jp-contrib-desc">On-site and remote coordination to maintain design intent through execution — reviewing submittals, resolving field conditions, and aligning consultants and contractors with the design vision.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DESIGN APPROACH ══ -->
+<div class="jp-section" style="padding-top:48px">
+  <div class="jp-section-label">Design Approach</div>
+  <div class="jp-approach-grid">
+    <div>
+      <p class="jp-pull">Converting a bank branch into a <strong>hospitality-driven client experience</strong> — where every material and spatial decision reinforces a sense of welcome, warmth, and personalized service.</p>
+      <div class="jp-body">
+        <p>The conversion strategy focused on replacing the transactional character of a traditional bank branch with the warmth and intentionality of a private lounge. The program is organized around distinct zones — reception, social areas, transaction spaces, private offices, and a coffee bar — each designed to serve a different moment in the client journey.</p>
+        <p>Material choices were central to the transformation: wood finishes, soft lighting, and curated furnishings work together to signal departure from the institutional and arrival in something more personal — consistent with JPMorgan's evolving premium retail banking identity.</p>
+      </div>
+    </div>
+    <div>
+      <div class="jp-design-elements">
+        <div class="jp-design-el">
+          <div class="jp-design-el-dot"></div>
+          <div class="jp-design-el-text"><strong>Warm material palette</strong> — wood finishes, soft lighting, and curated lounge furniture replacing institutional bank aesthetics</div>
+        </div>
+        <div class="jp-design-el">
+          <div class="jp-design-el-dot"></div>
+          <div class="jp-design-el-text"><strong>Hospitality zoning</strong> — reception, social area, transaction zone, private offices, and coffee bar each given distinct spatial character</div>
+        </div>
+        <div class="jp-design-el">
+          <div class="jp-design-el-dot"></div>
+          <div class="jp-design-el-text"><strong>Adaptive reuse</strong> — working within the existing First Republic building shell while achieving a full transformation of the client experience</div>
+        </div>
+        <div class="jp-design-el">
+          <div class="jp-design-el-dot"></div>
+          <div class="jp-design-el-text"><strong>Brand alignment</strong> — design decisions calibrated to JPMorgan's evolving retail banking standards and affluent client expectations</div>
+        </div>
+        <div class="jp-design-el">
+          <div class="jp-design-el-dot"></div>
+          <div class="jp-design-el-text"><strong>Coffee bar integration</strong> — a hospitality amenity that reframes the waiting experience and reinforces the lounge atmosphere</div>
+        </div>
+        <div class="jp-design-el">
+          <div class="jp-design-el-dot"></div>
+          <div class="jp-design-el-text"><strong>Private office design</strong> — individual client meeting rooms with refined finishes for high-net-worth advisory conversations</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BUILT ENVIRONMENT — PHOTOGRAPHY ══ -->
+<div class="jp-section" style="padding-top:48px">
+  <div class="jp-act">
+    <div class="jp-act-num">Built Work</div>
+    <div class="jp-act-name">Reception, Social &amp; Transaction Areas</div>
+    <div class="jp-act-rule"></div>
+  </div>
+
+  <!-- Reception hero -->
+  <div class="jp-grid-full">
+    <div class="jp-img-slot wide">
+      <!--
+        REPLACE src with actual image URL.
+        To get URLs: open the page in Chrome, right-click image → Inspect → copy src from <img> tag.
+        Caption: Reception and Welcome Area
+      -->
+      <img src="REPLACE_WITH_IMAGE_URL_1"
+        alt="Reception and Welcome Area — JPMC Napa"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Reception &amp; Welcome Area<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Reception and Welcome Area — JPMC Napa, CA</div>
+    </div>
+  </div>
+
+  <!-- Social area 2-up -->
+  <div class="jp-grid-2">
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_2"
+        alt="Social Area — JPMC Napa"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Social Area 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Social Area — JPMC Napa, CA</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_3"
+        alt="Social Area — JPMC Napa"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Social Area 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Social Area — JPMC Napa, CA</div>
+    </div>
+  </div>
+
+  <!-- Transaction area 2-up -->
+  <div class="jp-grid-2">
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_4"
+        alt="Transaction Area — JPMC Napa"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Transaction Area 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Transaction Area — JPMC Napa, CA</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_5"
+        alt="Transaction Area — JPMC Napa"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Transaction Area 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Transaction Area — JPMC Napa, CA</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SCHEMATIC DESIGN ══ -->
+<div class="jp-section" style="padding-top:48px">
+  <div class="jp-act">
+    <div class="jp-act-num">Schematic Design</div>
+    <div class="jp-act-name">Programming &amp; Design Elements</div>
+    <div class="jp-act-rule"></div>
+  </div>
+
+  <div class="jp-grid-2">
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_6"
+        alt="Schematic Design and Programming"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Schematic Design &amp; Programming<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Schematic Design and Programming</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_7"
+        alt="Design Elements"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Design Elements<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Design Elements</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COFFEE BAR ══ -->
+<div class="jp-section" style="padding-top:48px">
+  <div class="jp-act">
+    <div class="jp-act-num">Feature Space</div>
+    <div class="jp-act-name">Coffee Bar — Design &amp; Renderings</div>
+    <div class="jp-act-rule"></div>
+  </div>
+
+  <div class="jp-grid-3">
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_8"
+        alt="Coffee Bar"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Coffee Bar 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Coffee Bar</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_9"
+        alt="Coffee Bar"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Coffee Bar 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Coffee Bar</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_10"
+        alt="Coffee Bar"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Coffee Bar 03<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Coffee Bar</div>
+    </div>
+  </div>
+
+  <div class="jp-grid-2">
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_11"
+        alt="Coffee Bar Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Coffee Bar Rendering 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Coffee Bar Rendering</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_12"
+        alt="Coffee Bar Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Coffee Bar Rendering 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Coffee Bar Rendering</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TRANSACTION AREA — DOCS + RENDERINGS ══ -->
+<div class="jp-section" style="padding-top:48px">
+  <div class="jp-act">
+    <div class="jp-act-num">Construction Documentation</div>
+    <div class="jp-act-name">Transaction Area</div>
+    <div class="jp-act-rule"></div>
+  </div>
+
+  <div class="jp-grid-2">
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_13"
+        alt="Construction Documentation — Transaction Area"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>CD — Transaction Area 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Construction Documentation — Transaction Area</div>
+    </div>
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_14"
+        alt="Construction Documentation — Transaction Area"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>CD — Transaction Area 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Construction Documentation — Transaction Area</div>
+    </div>
+  </div>
+
+  <div class="jp-grid-2">
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_15"
+        alt="Transaction Area"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Transaction Area 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Transaction Area</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_16"
+        alt="Transaction Area"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Transaction Area 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Transaction Area</div>
+    </div>
+  </div>
+
+  <div class="jp-grid-2">
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_17"
+        alt="Transaction Area Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Transaction Area Rendering 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Transaction Area Rendering</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_18"
+        alt="Transaction Area Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Transaction Area Rendering 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Transaction Area Rendering</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PRIVATE OFFICES + CONFERENCE ══ -->
+<div class="jp-section" style="padding-top:48px">
+  <div class="jp-act">
+    <div class="jp-act-num">Private Spaces</div>
+    <div class="jp-act-name">Offices &amp; Conference Room</div>
+    <div class="jp-act-rule"></div>
+  </div>
+
+  <!-- Additional CD set -->
+  <div class="jp-grid-2">
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_19"
+        alt="Construction Documentation"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Construction Documentation 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Construction Documentation</div>
+    </div>
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_20"
+        alt="Construction Documentation"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Construction Documentation 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Construction Documentation</div>
+    </div>
+  </div>
+
+  <!-- Private office renderings 2-up -->
+  <div class="jp-grid-2">
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_21"
+        alt="Private Offices Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Private Offices Rendering 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Private Offices Rendering</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_22"
+        alt="Private Offices Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Private Offices Rendering 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Private Offices Rendering</div>
+    </div>
+  </div>
+
+  <!-- Conference + private office 3-up -->
+  <div class="jp-grid-3">
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_23"
+        alt="Conference Room Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Conference Room Rendering<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Conference Room Rendering</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_24"
+        alt="Conference Room Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Conference Room Rendering 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Conference Room Rendering</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_25"
+        alt="Private Office Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Private Office Rendering<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Private Office Rendering</div>
+    </div>
+  </div>
+
+  <!-- Final private offices renderings -->
+  <div class="jp-grid-2">
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_26"
+        alt="Private Offices Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Private Offices Rendering 03<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Private Offices Rendering</div>
+    </div>
+    <div class="jp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_27"
+        alt="Private Offices Rendering"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Private Offices Rendering 04<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Private Offices Rendering</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DRAWING SET ══ -->
+<div class="jp-section" style="padding-top:48px">
+  <div class="jp-act">
+    <div class="jp-act-num">Drawing Set</div>
+    <div class="jp-act-name">Site Plan · Floor Plan · RCP · Elevations</div>
+    <div class="jp-act-rule"></div>
+  </div>
+
+  <div class="jp-grid-2">
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_28"
+        alt="Site Plan"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Site Plan 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Site Plan</div>
+    </div>
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_29"
+        alt="Site Plan"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Site Plan 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Site Plan</div>
+    </div>
+  </div>
+
+  <div class="jp-grid-2">
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_30"
+        alt="Floor Plan"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Floor Plan 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Floor Plan</div>
+    </div>
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_31"
+        alt="Floor Plan"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Floor Plan 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Floor Plan</div>
+    </div>
+  </div>
+
+  <div class="jp-grid-2">
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_32"
+        alt="Reflected Ceiling Plan"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Reflected Ceiling Plan 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Reflected Ceiling Plan</div>
+    </div>
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_33"
+        alt="Reflected Ceiling Plan"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Reflected Ceiling Plan 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Reflected Ceiling Plan</div>
+    </div>
+  </div>
+
+  <div class="jp-grid-2">
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_34"
+        alt="Elevations"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Elevations 01<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Elevations</div>
+    </div>
+    <div class="jp-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_35"
+        alt="Elevations"
+        onerror="this.parentElement.innerHTML='<div class=\'jp-placeholder\'><span>Elevations 02<br>Replace src with image URL</span></div>'">
+      <div class="jp-img-cap">Elevations</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CLOSING ══ -->
+<div class="jp-closing">
+  <div class="jp-closing-quote">
+    "Designing a bank that doesn't feel like a bank — where <strong>every material, every threshold, and every moment of waiting</strong> is an opportunity to express care, warmth, and the quality of service that follows."
+  </div>
+  <div class="jp-closing-meta">
+    <div class="jp-closing-row">
+      <div class="jp-closing-lbl">Project</div>
+      <div class="jp-closing-val">JPMorgan Financial Center — Napa, CA</div>
+    </div>
+    <div class="jp-closing-row">
+      <div class="jp-closing-lbl">Client</div>
+      <div class="jp-closing-val">JPMorgan Chase</div>
+    </div>
+    <div class="jp-closing-row">
+      <div class="jp-closing-lbl">Firm</div>
+      <div class="jp-closing-val">Gensler</div>
+    </div>
+    <div class="jp-closing-row">
+      <div class="jp-closing-lbl">Project Type</div>
+      <div class="jp-closing-val">Adaptive Reuse · Retail Banking · Interior Design</div>
+    </div>
+    <div class="jp-closing-row">
+      <div class="jp-closing-lbl">Phases</div>
+      <div class="jp-closing-val">Schematic Design · Construction Documentation · Construction Administration</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+<footer class="site-footer">
+  <div class="footer-copy">© 2020–2026 by Akshada Muley</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/akshada-muley-assoc-aia-25b37b153" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+    <a href="https://drive.google.com/uc?export=download&id=1GJ8jZrhRk_v8KWGUJh4Qr4XcrbVuQSlw" target="_blank" rel="noopener" class="footer-link">Resume</a>
+  </div>
+</footer>
+</body>
+</html>

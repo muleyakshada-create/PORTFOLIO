@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshada Muley — (Pic.)Perfect</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+.pp * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.pp {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #0D0D0D;
+  color: #E8E6E2;
+  width: 100%;
+  padding-bottom: 96px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── SHARED UTILITIES ── */
+.pp-rule { border: none; border-top: 1px solid #1E1E1E; margin: 0; }
+.pp-eyebrow {
+  font-size: .56rem; font-weight: 600; letter-spacing: .26em;
+  text-transform: uppercase; color: #444; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.pp-eyebrow::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: #222; }
+.pp-section-label {
+  font-size: .54rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: #3A3A3A; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.pp-section-label::after { content: ''; flex: 1; height: 1px; background: #1A1A1A; }
+.pp-body {
+  font-size: .82rem; font-weight: 300; color: #666; line-height: 1.85;
+}
+.pp-body p { margin-bottom: 14px; }
+.pp-body p:last-child { margin-bottom: 0; }
+
+/* ── SECTION WRAPPER ── */
+.pp-section {
+  max-width: 1040px; margin: 0 auto; padding: 64px 48px 0;
+}
+
+/* ── HERO ── */
+.pp-hero {
+  max-width: 1040px; margin: 0 auto;
+  padding: 80px 48px 72px;
+  border-bottom: 1px solid #1A1A1A;
+}
+.pp-title {
+  font-size: clamp(2.8rem, 8vw, 5.6rem); font-weight: 700;
+  letter-spacing: -.04em; line-height: .9; color: #E8E6E2;
+  margin-bottom: 32px;
+}
+.pp-title em { font-style: normal; color: #333; }
+.pp-hero-grid {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px;
+  padding-top: 32px; border-top: 1px solid #1A1A1A;
+  align-items: start;
+}
+.pp-hero-text {}
+.pp-lead {
+  font-size: clamp(.95rem, 1.8vw, 1.1rem); font-weight: 300;
+  color: #999; line-height: 1.7; margin-bottom: 20px; font-style: italic;
+  padding-left: 16px; border-left: 1px solid #333;
+}
+.pp-meta-stack { display: flex; flex-direction: column; gap: 18px; }
+.pp-meta-row {}
+.pp-meta-lbl {
+  font-size: .54rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #383838; margin-bottom: 4px;
+}
+.pp-meta-val { font-size: .78rem; font-weight: 300; color: #777; line-height: 1.55; }
+.pp-meta-val strong { color: #bbb; font-weight: 500; }
+
+/* ── CONCEPT SPLIT ── */
+.pp-concept-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.pp-pull {
+  font-size: clamp(1.05rem, 2vw, 1.25rem); font-weight: 300;
+  color: #bbb; line-height: 1.65; margin-bottom: 22px; letter-spacing: -.01em;
+}
+.pp-pull strong { color: #E8E6E2; font-weight: 500; }
+
+/* Themes list */
+.pp-themes {
+  display: flex; flex-direction: column; gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.pp-theme {
+  background: #0D0D0D; padding: 18px 18px;
+  display: flex; align-items: flex-start; gap: 14px;
+  transition: background .2s;
+}
+.pp-theme:hover { background: #111; }
+.pp-theme-num {
+  font-size: .56rem; font-weight: 700; letter-spacing: .1em;
+  color: #2A2A2A; flex-shrink: 0; padding-top: 2px; width: 18px;
+}
+.pp-theme-name {
+  font-size: .8rem; font-weight: 600; color: #bbb;
+  letter-spacing: .04em; text-transform: uppercase; margin-bottom: 3px;
+}
+.pp-theme-desc { font-size: .74rem; font-weight: 300; color: #4A4A4A; line-height: 1.6; }
+
+/* ── TECHNIQUE CALLOUT ── */
+.pp-technique {
+  background: #111; border: 1px solid #1E1E1E;
+  padding: 28px 24px; margin-top: 0;
+}
+.pp-technique-label {
+  font-size: .54rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #3A3A3A; margin-bottom: 12px;
+}
+.pp-technique-steps {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.pp-technique-step {
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.pp-step-num {
+  font-size: .62rem; font-weight: 700; color: #2A2A2A;
+  flex-shrink: 0; padding-top: 1px; width: 16px;
+}
+.pp-step-text { font-size: .78rem; font-weight: 300; color: #666; line-height: 1.6; }
+.pp-step-text strong { color: #999; font-weight: 500; }
+
+/* ── IMAGE GRID SYSTEM ── */
+.pp-img-slot {
+  position: relative; overflow: hidden; background: #111;
+}
+.pp-img-slot img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+.pp-img-slot:hover img { transform: scale(1.025); }
+.pp-img-slot.wide { aspect-ratio: 16/9; }
+.pp-img-slot.cinema { aspect-ratio: 21/9; }
+.pp-img-slot.sq { aspect-ratio: 1/1; }
+.pp-img-slot.tall { aspect-ratio: 3/4; }
+.pp-img-slot.med { aspect-ratio: 4/3; }
+
+.pp-img-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.8));
+  padding: 28px 14px 12px;
+  font-size: .6rem; font-weight: 400; color: rgba(255,255,255,.5);
+  opacity: 0; transition: opacity .3s ease; line-height: 1.4;
+}
+.pp-img-slot:hover .pp-img-cap { opacity: 1; }
+
+/* Placeholder for missing images */
+.pp-placeholder {
+  width: 100%; height: 100%; min-height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  background: #0F0F0F; flex-direction: column; gap: 8px;
+}
+.pp-placeholder-text {
+  font-size: .58rem; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: #222; text-align: center; padding: 0 14px;
+  line-height: 1.7;
+}
+
+/* Grid layouts */
+.pp-grid-full { width: 100%; margin-bottom: 2px; }
+.pp-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.pp-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.pp-grid-asymL { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2px; margin-bottom: 2px; }
+.pp-grid-asymR { display: grid; grid-template-columns: 1fr 1.6fr; gap: 2px; margin-bottom: 2px; }
+
+/* Act header */
+.pp-act {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px;
+}
+.pp-act-num {
+  font-size: .54rem; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: #2A2A2A;
+}
+.pp-act-name {
+  font-size: .8rem; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: #666;
+}
+.pp-act-rule { flex: 1; height: 1px; background: #1A1A1A; }
+
+/* ── STORYBOARD SECTION ── */
+.pp-story-intro {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  align-items: start; margin-bottom: 28px;
+}
+.pp-story-text {}
+
+/* ── CLOSING ── */
+.pp-closing {
+  max-width: 1040px; margin: 80px auto 0;
+  padding: 48px 48px 0;
+  border-top: 1px solid #1A1A1A;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.pp-closing-quote {
+  font-size: clamp(.95rem, 1.8vw, 1.15rem); font-weight: 300;
+  color: #555; line-height: 1.75; font-style: italic; letter-spacing: -.01em;
+}
+.pp-closing-quote strong { color: #999; font-weight: 400; font-style: normal; }
+.pp-closing-meta { display: flex; flex-direction: column; gap: 12px; }
+.pp-closing-row { border-top: 1px solid #1A1A1A; padding-top: 11px; }
+.pp-closing-lbl {
+  font-size: .52rem; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: #2E2E2E; margin-bottom: 3px;
+}
+.pp-closing-val { font-size: .74rem; font-weight: 300; color: #555; line-height: 1.5; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .pp-hero, .pp-section, .pp-closing { padding-left: 20px; padding-right: 20px; }
+  .pp-title { font-size: clamp(2.2rem, 10vw, 3.4rem); }
+  .pp-hero-grid, .pp-concept-grid, .pp-story-intro,
+  .pp-closing { grid-template-columns: 1fr; gap: 32px; }
+  .pp-grid-2, .pp-grid-asymL, .pp-grid-asymR { grid-template-columns: 1fr; }
+  .pp-grid-3 { grid-template-columns: 1fr 1fr; }
+}
+
+
+    /* Light theme override */
+    .fvr,.pp,.sy,.tr,.ei,.cr { background:#F8F7F5 !important; color:#141414 !important; }
+    .fvr-hero,.fvr-section,.fvr-gallery,.fvr-process,.fvr-closing,
+    .fvr-concept,.fvr-contribution,.pp-hero,.pp-section,.pp-closing,
+    .sy-hero,.sy-section,.sy-closing,.tr-hero,.tr-section,.tr-closing,
+    .ei-hero,.ei-section,.ei-closing,.cr-hero,.cr-section,.cr-closing { background:#F8F7F5 !important; }
+    .fvr-title,.pp-title,.sy-title,.tr-title,.ei-title,.cr-title { color:#141414 !important; }
+    .fvr-title span,.fvr-title em,.pp-title em,.tr-title em { color:#C8C5C0 !important; }
+    .fvr-title-sub,.pp-title-sub,.sy-title-sub,.tr-title-sub,.ei-title-sub,.cr-title-sub { color:#888 !important; }
+    .fvr-eyebrow,.pp-eyebrow,.sy-eyebrow,.tr-eyebrow,.ei-eyebrow,.cr-eyebrow { color:#999 !important; }
+    .fvr-eyebrow::after,.pp-eyebrow::after,.sy-eyebrow::after,.tr-eyebrow::after,.ei-eyebrow::after,.cr-eyebrow::after { background:#D8D5D0 !important; }
+    .fvr-section-label,.pp-section-label,.sy-section-label,.tr-section-label,.ei-section-label,.cr-section-label { color:#999 !important; }
+    .fvr-section-label::after,.pp-section-label::after,.sy-section-label::after,.tr-section-label::after,.ei-section-label::after,.cr-section-label::after { background:#E0DDD8 !important; }
+    .fvr-body,.pp-body,.sy-body,.tr-body { color:#555 !important; }
+    .fvr-lead,.pp-lead,.sy-lead,.tr-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-tagline { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-concept-pull,.pp-pull,.sy-pull,.tr-pull { color:#555 !important; }
+    .fvr-concept-pull strong,.pp-pull strong,.sy-pull strong,.tr-pull strong { color:#141414 !important; }
+    .fvr-meta-lbl,.pp-meta-lbl,.sy-meta-lbl,.tr-meta-lbl,.ei-meta-lbl,.cr-meta-lbl { color:#bbb !important; }
+    .fvr-meta-val,.pp-meta-val,.sy-meta-val,.tr-meta-val,.ei-meta-val,.cr-meta-val { color:#555 !important; }
+    .fvr-meta-val strong,.pp-meta-val strong { color:#141414 !important; }
+    .fvr-scales,.pp-themes,.sy-ideas,.tr-surfaces,.tr-strat-grid,.tr-tech-grid,
+    .ei-principles,.ei-program,.ei-sensory,.ei-edu-grid,.cr-interventions { background:#E0DDD8 !important; }
+    .fvr-scale,.pp-theme,.sy-idea,.tr-surface,.tr-strat-cell,.tr-tech-cell,
+    .ei-principle,.ei-program-group,.ei-sensory-cell,.ei-edu-cell,.cr-intervention,
+    .cr-principle,.cr-int-desc-block { background:#fff !important; border-color:#E0DDD8 !important; }
+    .fvr-scale-num,.pp-theme-num,.sy-idea-num,.tr-surface-num { color:#C8C5C0 !important; }
+    .fvr-scale-name,.pp-theme-name,.sy-idea-name,.tr-surface-name { color:#141414 !important; }
+    .fvr-scale-desc,.pp-theme-desc,.sy-idea-desc,.tr-surface-desc { color:#666 !important; }
+    .fvr-act-num,.pp-act-num,.sy-act-num,.tr-act-num,.ei-act-num,.cr-act-num { color:#bbb !important; }
+    .fvr-act-name,.pp-act-name,.sy-act-name,.tr-act-name,.ei-act-name,.cr-act-name { color:#555 !important; }
+    .fvr-act-rule,.pp-act-rule,.sy-act-rule,.tr-act-rule,.ei-act-rule,.cr-act-rule { background:#E0DDD8 !important; }
+    .fvr-img-slot,.pp-img-slot,.sy-img-slot,.tr-img-slot,.ei-img-slot,.cr-img-slot { background:#EDECEA !important; }
+    .fvr-placeholder,.pp-placeholder,.sy-placeholder,.tr-placeholder,.ei-placeholder,.cr-placeholder { background:#EDECEA !important; }
+    .fvr-placeholder span,.pp-placeholder span,.sy-placeholder span,.tr-placeholder span,.ei-placeholder span,.cr-placeholder span { color:#C0BDB8 !important; }
+    .fvr-img-cap,.pp-img-cap,.sy-img-cap,.tr-img-cap,.ei-img-cap,.cr-img-cap { background:linear-gradient(transparent,rgba(0,0,0,.45)) !important; }
+    .fvr-closing-quote,.pp-closing-quote,.sy-closing-quote,.tr-closing-quote { color:#777 !important; }
+    .fvr-closing-quote strong,.pp-closing-quote strong,.sy-closing-quote strong,.tr-closing-quote strong { color:#141414 !important; font-weight:500 !important; }
+    .fvr-closing-row,.pp-closing-row,.sy-closing-row,.tr-closing-row,.ei-closing-row,.cr-closing-row { border-top-color:#E0DDD8 !important; }
+    .fvr-closing-lbl,.pp-closing-lbl,.sy-closing-lbl,.tr-closing-lbl,.ei-closing-lbl,.cr-closing-lbl { color:#bbb !important; }
+    .fvr-closing-val,.pp-closing-val,.sy-closing-val,.tr-closing-val,.ei-closing-val,.cr-closing-val { color:#555 !important; }
+    .fvr-world-grid,.sy-world-grid { background:#E0DDD8 !important; }
+    .fvr-world-cell,.sy-world-cell { background:#fff !important; }
+    .fvr-world-cell-lbl,.sy-world-cell-lbl { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .fvr-world-cell-text,.sy-world-cell-text { color:#555 !important; }
+    .fvr-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-col { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-head { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .sy-analogy-item { color:#555 !important; border-left-color:#D0CDC8 !important; }
+    .sy-analogy-item strong { color:#141414 !important; }
+    .sy-analogy-eq { color:#C8C5C0 !important; }
+    .fvr-pipeline { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .tr-pipeline-step { background:#fff !important; }
+    .tr-step-num { color:#C8C5C0 !important; }
+    .tr-step-text { color:#555 !important; }
+    .tr-step-text strong { color:#141414 !important; }
+    .tr-pipeline-step::after { color:#C8C5C0 !important; }
+    .fvr-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique-label { color:#999 !important; }
+    .pp-step-num { color:#C8C5C0 !important; }
+    .pp-step-text { color:#555 !important; }
+    .pp-step-text strong { color:#888 !important; }
+    .fvr-flow-svg line,.fvr-flow-svg polygon,.pp-flow-svg line,.pp-flow-svg polygon { stroke:#C8C5C0 !important; fill:#C8C5C0 !important; }
+    .pp-flow-sub .pp-fch { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .pp-fchip { border-color:#D0CDC8 !important; color:#555 !important; background:#F8F7F5 !important; }
+    .pp-fchip:hover { background:#F2F0EC !important; }
+    .pp-fpivot { border-color:#D0CDC8 !important; color:#888 !important; background:#F8F7F5 !important; }
+    .ei-stat { background:#fff !important; }
+    .ei-stat-val { color:#141414 !important; }
+    .ei-stat-lbl { color:#888 !important; }
+    .ei-stats { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .cr-approach-grid .cr-principles { background:#E0DDD8 !important; }
+    .cr-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .cr-banner-num { color:#bbb !important; }
+    .cr-banner-title { color:#141414 !important; }
+    .cr-banner-phases { color:#999 !important; }
+    .cr-int-header-num { color:#bbb !important; }
+    .cr-int-header-name { color:#555 !important; }
+    .cr-int-header-rule { background:#E0DDD8 !important; }
+    .cr-int-desc-block { background:#F2F0EC !important; border-color:#E0DDD8 !important; color:#555 !important; }
+    .cr-int-num { color:#bbb !important; }
+    .cr-int-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .cr-int-desc { color:#555 !important; }
+    .cr-location-tag { color:#bbb !important; }
+    .cr-location-name { color:#141414 !important; }
+    .cr-location-phases { color:#999 !important; }
+    .cr-location-desc { color:#555 !important; }
+    .cr-principle-text { color:#555 !important; }
+    .cr-principle-text strong { color:#141414 !important; }
+    .jp,.ftf { background:#F8F7F5 !important; color:#141414 !important; }
+    .jp-hero,.jp-section,.jp-closing,.ftf-hero,.ftf-section,.ftf-close { background:#F8F7F5 !important; }
+    .jp-title,.ftf-hero-title { color:#141414 !important; }
+    .jp-title-sub,.ftf-header-eyebrow { color:#999 !important; }
+    .jp-meta-lbl,.ftf-meta-label { color:#bbb !important; }
+    .jp-meta-val,.ftf-meta-val { color:#555 !important; }
+    .jp-meta-val strong { color:#141414 !important; }
+    .jp-contrib,.jp-locations,.jp-design-els,
+    .ftf-cards-grid,.ftf-stats,.ftf-3col { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .jp-contrib-cell,.jp-location-cell,.jp-design-el,
+    .ftf-card,.ftf-stat,.ftf-3col-cell { background:#fff !important; }
+    .jp-contrib-cell:hover,.jp-location-cell:hover,.jp-design-el:hover { background:#FAFAF8 !important; }
+    .jp-contrib-num,.jp-location-tag { color:#bbb !important; }
+    .jp-contrib-name,.jp-location-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .jp-contrib-desc,.jp-location-desc { color:#555 !important; }
+    .jp-act-num { color:#bbb !important; }
+    .jp-act-name { color:#555 !important; }
+    .jp-act-rule { background:#E0DDD8 !important; }
+    .jp-img-slot { background:#EDECEA !important; }
+    .jp-placeholder { background:#EDECEA !important; }
+    .jp-placeholder span { color:#C0BDB8 !important; }
+    .jp-closing-quote { color:#777 !important; }
+    .jp-closing-quote strong { color:#141414 !important; }
+    .jp-closing-row { border-top-color:#E0DDD8 !important; }
+    .jp-closing-lbl { color:#bbb !important; }
+    .jp-closing-val { color:#555 !important; }
+    .jp-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .jp-pull { color:#555 !important; }
+    .jp-pull strong { color:#141414 !important; }
+    .jp-design-el-dot { background:#C8C5C0 !important; }
+    .jp-design-el-text { color:#555 !important; }
+    .jp-design-el-text strong { color:#141414 !important; }
+    .jp-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .jp-banner-num { color:#bbb !important; }
+    .jp-banner-title { color:#141414 !important; }
+    .jp-banner-phases { color:#999 !important; }
+    /* Finance the future extra */
+    .ftf-label { color:#bbb !important; }
+    .ftf-body { color:#555 !important; }
+    .ftf-cta { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .ftf-cta svg path { stroke:#141414 !important; }
+    
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Akshada Muley</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link ">About</a>
+    <a href="work.html" class="nav-link ">Work</a>
+    <a href="projects.html" class="nav-link active">Projects</a>
+  </div>
+</nav>
+<a href="projects.html" class="back-link" style="display:block;padding:20px 48px 0;max-width:1040px;margin:0 auto;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#999;text-decoration:none;">← Projects</a>
+<div class="detail-wrap">
+
+
+<div class="pp">
+
+<!-- ══ HERO ══ -->
+<div class="pp-hero">
+  <div class="pp-eyebrow">UCLA Entertainment Studio · 2019</div>
+  <h1 class="pp-title"><em>(</em>Pic.<em>)</em>Perfect</h1>
+  <div class="pp-hero-grid">
+
+    <div class="pp-hero-text">
+      <p class="pp-lead">
+        "The line between real and fiction which was once so crisp — now seems to be blurring out. WHERE IS IT TAKING US?"
+      </p>
+      <div class="pp-body">
+        <p>As newcomers to LA, we became fascinated by the city's ambiguity — a place that embraces millennial screen culture while remaining deeply rooted in its street art traditions. These murals, so often used as mere backdrops for photographs, are worlds unto themselves.</p>
+        <p>With the hyper-real pressure to curate a perfect social image, we asked: what if these flat 2D street artworks could be re-imagined as full 3D spatial experiences? What if the fiction working its way into reality could be made visible — and navigable?</p>
+      </div>
+    </div>
+
+    <div class="pp-meta-stack">
+      <div class="pp-meta-row">
+        <div class="pp-meta-lbl">Medium</div>
+        <div class="pp-meta-val">Animated Film · AR Concept ·<br>Motion Tracking · Projection Mapping</div>
+      </div>
+      <div class="pp-meta-row">
+        <div class="pp-meta-lbl">Studio</div>
+        <div class="pp-meta-val">UCLA Architecture &amp; Urban Design</div>
+      </div>
+      <div class="pp-meta-row">
+        <div class="pp-meta-lbl">Software</div>
+        <div class="pp-meta-val">Cinema 4D · Motion Tracking ·<br>Projection Mapping</div>
+      </div>
+      <div class="pp-meta-row">
+        <div class="pp-meta-lbl">Instructors</div>
+        <div class="pp-meta-val">Natasha Sandmeir · Nathan Su</div>
+      </div>
+      <div class="pp-meta-row">
+        <div class="pp-meta-lbl">Team</div>
+        <div class="pp-meta-val"><strong>Akshada Muley</strong> · Neha Oswal</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ CONCEPT ══ -->
+<div class="pp-section">
+  <div class="pp-section-label">The Concept</div>
+  <div class="pp-concept-grid">
+    <div>
+      <p class="pp-pull">LA's street art as a portal — <strong>2D murals reimagined as 3D spatial worlds</strong> in a hyper-real, screen-obsessed city.</p>
+      <div class="pp-body">
+        <p>An anecdote of the LA story — an experience navigating the streets of the Arts District in a hyper-real world where the quest is to take the perfect picture, and these murals become something far greater than static backdrops.</p>
+        <p>The project explores how augmented reality and spatial visualization could transform the relationship between viewer, image, and city — turning each mural into a doorway into its own narrative world.</p>
+      </div>
+    </div>
+    <div>
+      <div class="pp-themes">
+        <div class="pp-theme">
+          <div class="pp-theme-num">01</div>
+          <div>
+            <div class="pp-theme-name">Hyper-Reality</div>
+            <div class="pp-theme-desc">The blurring line between physical and digital experience in contemporary urban life — and the obsession with the perfect image.</div>
+          </div>
+        </div>
+        <div class="pp-theme">
+          <div class="pp-theme-num">02</div>
+          <div>
+            <div class="pp-theme-name">Street Art as World</div>
+            <div class="pp-theme-desc">Each mural in LA's Arts District contains its own universe. The project asks what happens when we step through, not just in front of it.</div>
+          </div>
+        </div>
+        <div class="pp-theme">
+          <div class="pp-theme-num">03</div>
+          <div>
+            <div class="pp-theme-name">2D → 3D Space</div>
+            <div class="pp-theme-desc">Using motion tracking and projection mapping to transform flat painted surfaces into navigable, inhabitable three-dimensional environments.</div>
+          </div>
+        </div>
+        <div class="pp-theme">
+          <div class="pp-theme-num">04</div>
+          <div>
+            <div class="pp-theme-name">The AR Interface</div>
+            <div class="pp-theme-desc">A speculative app that guides users to the perfect picture — predicting compositions, suggesting hashtags, and revealing hidden spatial dimensions of each mural.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ TECHNIQUE ══ -->
+<div class="pp-section" style="padding-top:48px">
+  <div class="pp-section-label">Technical Approach</div>
+  <div class="pp-technique">
+    <div class="pp-technique-label">Process</div>
+    <div class="pp-technique-steps">
+      <div class="pp-technique-step">
+        <div class="pp-step-num">01</div>
+        <div class="pp-step-text"><strong>Live footage capture</strong> — filming on location in LA's Arts District, documenting murals in their urban context</div>
+      </div>
+      <div class="pp-technique-step">
+        <div class="pp-step-num">02</div>
+        <div class="pp-step-text"><strong>Motion tracking in Cinema 4D</strong> — tracking the live footage frame-by-frame to lock 3D geometry to the physical wall surface</div>
+      </div>
+      <div class="pp-technique-step">
+        <div class="pp-step-num">03</div>
+        <div class="pp-step-text"><strong>Projection mapping</strong> — superimposing a single mural frame as a spatial projection, seamlessly blending the 2D artwork into a 3D environment</div>
+      </div>
+      <div class="pp-technique-step">
+        <div class="pp-step-num">04</div>
+        <div class="pp-step-text"><strong>Spatial character extraction</strong> — the mural's own visual language becomes the geometry, texture, and spatial logic of the 3D world it generates</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ KEY IMAGE ══ -->
+<div class="pp-section" style="padding-top:48px">
+  <div class="pp-act">
+    <div class="pp-act-num">Key Visual</div>
+    <div class="pp-act-name">The Power of Visualization</div>
+    <div class="pp-act-rule"></div>
+  </div>
+
+  <div class="pp-grid-full">
+    <div class="pp-img-slot cinema">
+      <!--
+        REPLACE src with actual CDN URL.
+        Caption: "The power of visualization — the mural as streetscape, the camera as obsession,
+        and how each individual sees a different aspect of the picture."
+      -->
+      <img src="REPLACE_WITH_IMAGE_URL_1"
+        alt="The power of visualization — mural, camera, individual perspective"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Key visual — power of visualization<br>Replace src with CDN URL</div></div>'">
+      <div class="pp-img-cap">The power of visualization — the mural as streetscape, the camera as obsession, and how each individual sees a different aspect of the picture.</div>
+    </div>
+  </div>
+
+  <!-- Scene — mural turning 3D -->
+  <div class="pp-grid-full" style="margin-top:2px">
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_2"
+        alt="From flat mural to 3D space — scene from the film"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Mural turning into 3D space — film scene<br>Replace src with CDN URL</div></div>'">
+      <div class="pp-img-cap">From where we stand today — a flat mural bridges the gap between real and unreal worlds, stepping into a 3D space.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FILM STILLS ══ -->
+<div class="pp-section" style="padding-top:48px">
+  <div class="pp-act">
+    <div class="pp-act-num">Act 01</div>
+    <div class="pp-act-name">The Street — Arts District, Los Angeles</div>
+    <div class="pp-act-rule"></div>
+  </div>
+
+  <div class="pp-grid-3">
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_3"
+        alt="Street scene — Arts District"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Street scene 01<br>Replace src with CDN URL</div></div>'">
+    </div>
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_4"
+        alt="Mural backdrop — Arts District"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Mural scene 02<br>Replace src with CDN URL</div></div>'">
+    </div>
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_5"
+        alt="Motion tracking — Cinema 4D"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Motion tracking scene<br>Replace src with CDN URL</div></div>'">
+    </div>
+  </div>
+
+  <div class="pp-grid-asymL">
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_6"
+        alt="2D mural as 3D spatial character"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>2D → 3D transformation<br>Replace src with CDN URL</div></div>'">
+      <div class="pp-img-cap">Motion-tracking live footage in Cinema 4D — superimposing projection mapping to turn a 2D mural into a bizarre 3D spatial character.</div>
+    </div>
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_7"
+        alt="Spatial character of mural"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Spatial character<br>Replace src with CDN URL</div></div>'">
+    </div>
+  </div>
+</div>
+
+<!-- ══ AR INTERFACE ══ -->
+<div class="pp-section" style="padding-top:48px">
+  <div class="pp-act">
+    <div class="pp-act-num">Act 02</div>
+    <div class="pp-act-name">The AR Interface — Navigating the Hyper-Real</div>
+    <div class="pp-act-rule"></div>
+  </div>
+
+  <div class="pp-grid-2">
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_8"
+        alt="AR interface — perfect picture guide"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>AR interface — picture guide<br>Replace src with CDN URL</div></div>'">
+    </div>
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_9"
+        alt="Augmented hyper-real interface"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Hyper-real interface<br>Replace src with CDN URL</div></div>'">
+    </div>
+  </div>
+
+  <div class="pp-grid-3">
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_10"
+        alt="Digital realm — mural as world"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Digital realm 01<br>Replace src with CDN URL</div></div>'">
+    </div>
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_11"
+        alt="3D world extraction from mural"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>3D world 02<br>Replace src with CDN URL</div></div>'">
+    </div>
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_12"
+        alt="Spatial narrative from street art"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Spatial narrative 03<br>Replace src with CDN URL</div></div>'">
+    </div>
+  </div>
+</div>
+
+<!-- ══ STORYBOARD ══ -->
+<div class="pp-section" style="padding-top:48px">
+  <div class="pp-section-label">Process — Storyboard</div>
+
+  <div class="pp-story-intro">
+    <div class="pp-body">
+      <p>The story sets out on the streets of Los Angeles — the mural capital of the world. These streets prove to be a great backdrop for navigating a hyper-real world where an augmented AR app guides the viewer toward the perfect picture, complete with future predictions and optimal hashtags.</p>
+      <p>Each flat 2D artwork is re-imagined as a 3D world — because each one encompasses its own story and spatial logic waiting to be inhabited.</p>
+    </div>
+    <div class="pp-body" style="color:#3A3A3A;font-size:.72rem">
+      The storyboard represents the preliminary draft — a sketch-based pre-visualization of the film's narrative arc, from street encounter to spatial immersion to digital exit.
+    </div>
+  </div>
+
+  <div class="pp-grid-2">
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_STORYBOARD_URL_1"
+        alt="Storyboard — page 1"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Storyboard — Page 1<br>Replace src with CDN URL</div></div>'">
+      <div class="pp-img-cap">Storyboard — Preliminary draft, page 1</div>
+    </div>
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_STORYBOARD_URL_2"
+        alt="Storyboard — page 2"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Storyboard — Page 2<br>Replace src with CDN URL</div></div>'">
+      <div class="pp-img-cap">Storyboard — Preliminary draft, page 2</div>
+    </div>
+  </div>
+
+  <!-- Additional storyboard / process images -->
+  <div class="pp-grid-3" style="margin-top:2px">
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_13"
+        alt="Process image"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Process image 01<br>Replace src with CDN URL</div></div>'">
+    </div>
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_14"
+        alt="Process image"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Process image 02<br>Replace src with CDN URL</div></div>'">
+    </div>
+    <div class="pp-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_15"
+        alt="Process image"
+        onerror="this.parentElement.innerHTML='<div class=\'pp-placeholder\'><div class=\'pp-placeholder-text\'>Process image 03<br>Replace src with CDN URL</div></div>'">
+    </div>
+  </div>
+</div>
+
+<!-- ══ CLOSING ══ -->
+<div class="pp-closing">
+  <div class="pp-closing-quote">
+    "Isn't the fiction working its way towards <strong>seamlessly stepping into reality?</strong> We look at these walls as just backdrops — but they're so much more than that today. Every piece is a world in itself."
+  </div>
+  <div class="pp-closing-meta">
+    <div class="pp-closing-row">
+      <div class="pp-closing-lbl">Project</div>
+      <div class="pp-closing-val">(Pic.)Perfect</div>
+    </div>
+    <div class="pp-closing-row">
+      <div class="pp-closing-lbl">Institution</div>
+      <div class="pp-closing-val">UCLA Architecture &amp; Urban Design</div>
+    </div>
+    <div class="pp-closing-row">
+      <div class="pp-closing-lbl">Year</div>
+      <div class="pp-closing-val">2019</div>
+    </div>
+    <div class="pp-closing-row">
+      <div class="pp-closing-lbl">Software</div>
+      <div class="pp-closing-val">Cinema 4D · Motion Tracking · Projection Mapping</div>
+    </div>
+    <div class="pp-closing-row">
+      <div class="pp-closing-lbl">Team</div>
+      <div class="pp-closing-val">Akshada Muley · Neha Oswal</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshada Muley — Early Intervention Center</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+.ei * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.ei {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #0D0D0D;
+  color: #E8E6E2;
+  width: 100%;
+  padding-bottom: 96px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── UTILITIES ── */
+.ei-rule { border: none; border-top: 1px solid #1E1E1E; }
+.ei-eyebrow {
+  font-size: .56rem; font-weight: 600; letter-spacing: .26em;
+  text-transform: uppercase; color: #444; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.ei-eyebrow::after { content:''; flex:1; max-width:60px; height:1px; background:#222; }
+.ei-section-label {
+  font-size: .54rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: #3A3A3A; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.ei-section-label::after { content:''; flex:1; height:1px; background:#1A1A1A; }
+.ei-body {
+  font-size: .82rem; font-weight: 300; color: #666; line-height: 1.85;
+}
+.ei-body p { margin-bottom: 14px; }
+.ei-body p:last-child { margin-bottom: 0; }
+
+/* ── SECTION ── */
+.ei-section { max-width: 1040px; margin: 0 auto; padding: 64px 48px 0; }
+
+/* ── HERO ── */
+.ei-hero {
+  max-width: 1040px; margin: 0 auto;
+  padding: 80px 48px 72px;
+  border-bottom: 1px solid #1A1A1A;
+}
+.ei-title {
+  font-size: clamp(2rem, 5.5vw, 4rem); font-weight: 700;
+  letter-spacing: -.03em; line-height: .92; color: #E8E6E2;
+  margin-bottom: 10px;
+}
+.ei-title-sub {
+  font-size: .76rem; font-weight: 300; color: #333;
+  letter-spacing: .06em; text-transform: uppercase; margin-bottom: 36px;
+}
+.ei-hero-grid {
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px;
+  padding-top: 32px; border-top: 1px solid #1A1A1A; align-items: start;
+}
+.ei-lead {
+  font-size: clamp(.88rem, 1.6vw, 1rem); font-weight: 300;
+  color: #777; line-height: 1.8; margin-bottom: 20px;
+  font-style: italic; padding-left: 16px; border-left: 1px solid #2E2E2E;
+}
+.ei-meta-stack { display: flex; flex-direction: column; gap: 18px; }
+.ei-meta-lbl {
+  font-size: .54rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #333; margin-bottom: 4px;
+}
+.ei-meta-val { font-size: .78rem; font-weight: 300; color: #666; line-height: 1.55; }
+.ei-meta-val strong { color: #bbb; font-weight: 500; }
+
+/* ── CONTEXT STATS ── */
+.ei-stats {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.ei-stat { background: #0D0D0D; padding: 22px 18px 24px; transition: background .2s; }
+.ei-stat:hover { background: #111; }
+.ei-stat-val {
+  font-size: 1.9rem; font-weight: 700; letter-spacing: -.03em;
+  line-height: 1; color: #E8E6E2; margin-bottom: 6px;
+}
+.ei-stat-lbl { font-size: .68rem; font-weight: 300; color: #444; line-height: 1.45; }
+
+/* ── DESIGN PRINCIPLES ── */
+.ei-principles {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.ei-principle { background: #0D0D0D; padding: 22px 18px 26px; transition: background .2s; }
+.ei-principle:hover { background: #111; }
+.ei-principle-num {
+  font-size: .52rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: #2A2A2A; margin-bottom: 8px;
+}
+.ei-principle-name {
+  font-size: .78rem; font-weight: 600; color: #999;
+  text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px;
+  padding-bottom: 8px; border-bottom: 1px solid #1A1A1A;
+}
+.ei-principle-desc { font-size: .73rem; font-weight: 300; color: #444; line-height: 1.6; }
+
+/* ── PROGRAM LIST ── */
+.ei-program {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.ei-program-group { background: #0D0D0D; padding: 20px 18px 24px; }
+.ei-program-head {
+  font-size: .56rem; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: #333; margin-bottom: 12px;
+  padding-bottom: 8px; border-bottom: 1px solid #1A1A1A;
+}
+.ei-program-items { display: flex; flex-direction: column; gap: 5px; }
+.ei-program-item {
+  font-size: .74rem; font-weight: 300; color: #555; line-height: 1.5;
+  padding-left: 10px; position: relative;
+}
+.ei-program-item::before { content: '–'; position: absolute; left: 0; color: #2A2A2A; }
+
+/* ── SENSORY AREAS ── */
+.ei-sensory {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A; margin-bottom: 28px;
+}
+.ei-sensory-cell { background: #0D0D0D; padding: 20px 16px 22px; transition: background .2s; }
+.ei-sensory-cell:hover { background: #111; }
+.ei-sensory-lbl {
+  font-size: .54rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: #2E2E2E; margin-bottom: 6px;
+}
+.ei-sensory-name { font-size: .8rem; font-weight: 600; color: #999; margin-bottom: 5px; }
+.ei-sensory-desc { font-size: .72rem; font-weight: 300; color: #444; line-height: 1.55; }
+
+/* ── IMAGE SYSTEM ── */
+.ei-img-slot {
+  position: relative; overflow: hidden; background: #111;
+}
+.ei-img-slot img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+.ei-img-slot:hover img { transform: scale(1.025); }
+.ei-img-slot.wide   { aspect-ratio: 16/9; }
+.ei-img-slot.cinema { aspect-ratio: 21/9; }
+.ei-img-slot.sq     { aspect-ratio: 1/1; }
+.ei-img-slot.tall   { aspect-ratio: 3/4; }
+.ei-img-slot.med    { aspect-ratio: 4/3; }
+.ei-img-slot.plan   { aspect-ratio: 3/2; }
+
+.ei-img-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.82));
+  padding: 28px 14px 12px;
+  font-size: .6rem; font-weight: 400; color: rgba(255,255,255,.45);
+  opacity: 0; transition: opacity .3s; line-height: 1.4;
+}
+.ei-img-slot:hover .ei-img-cap { opacity: 1; }
+
+.ei-placeholder {
+  width: 100%; height: 100%; min-height: 200px;
+  display: flex; align-items: center; justify-content: center; background: #0F0F0F;
+}
+.ei-placeholder span {
+  font-size: .56rem; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: #1E1E1E; text-align: center;
+  padding: 0 14px; line-height: 1.7;
+}
+
+.ei-grid-full  { width: 100%; margin-bottom: 2px; }
+.ei-grid-2     { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.ei-grid-3     { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.ei-grid-asym  { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2px; margin-bottom: 2px; }
+.ei-grid-rasym { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2px; margin-bottom: 2px; }
+
+.ei-act {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px;
+}
+.ei-act-num  { font-size: .54rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #2A2A2A; }
+.ei-act-name { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #555; }
+.ei-act-rule { flex: 1; height: 1px; background: #1A1A1A; }
+
+/* ── CLOSING ── */
+.ei-closing {
+  max-width: 1040px; margin: 80px auto 0;
+  padding: 48px 48px 0;
+  border-top: 1px solid #1A1A1A;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.ei-closing-quote {
+  font-size: clamp(.9rem, 1.8vw, 1.1rem); font-weight: 300;
+  color: #444; line-height: 1.8; font-style: italic;
+}
+.ei-closing-quote strong { color: #888; font-weight: 400; font-style: normal; }
+.ei-closing-meta { display: flex; flex-direction: column; gap: 12px; }
+.ei-closing-row { border-top: 1px solid #1A1A1A; padding-top: 11px; }
+.ei-closing-lbl { font-size: .52rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #2E2E2E; margin-bottom: 3px; }
+.ei-closing-val { font-size: .74rem; font-weight: 300; color: #555; line-height: 1.5; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .ei-hero, .ei-section, .ei-closing { padding-left: 20px; padding-right: 20px; }
+  .ei-title { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+  .ei-hero-grid, .ei-closing { grid-template-columns: 1fr; gap: 32px; }
+  .ei-stats, .ei-principles { grid-template-columns: 1fr; }
+  .ei-program, .ei-sensory { grid-template-columns: 1fr; }
+  .ei-grid-2, .ei-grid-asym, .ei-grid-rasym { grid-template-columns: 1fr; }
+  .ei-grid-3 { grid-template-columns: 1fr 1fr; }
+}
+
+
+    /* Light theme override */
+    .fvr,.pp,.sy,.tr,.ei,.cr { background:#F8F7F5 !important; color:#141414 !important; }
+    .fvr-hero,.fvr-section,.fvr-gallery,.fvr-process,.fvr-closing,
+    .fvr-concept,.fvr-contribution,.pp-hero,.pp-section,.pp-closing,
+    .sy-hero,.sy-section,.sy-closing,.tr-hero,.tr-section,.tr-closing,
+    .ei-hero,.ei-section,.ei-closing,.cr-hero,.cr-section,.cr-closing { background:#F8F7F5 !important; }
+    .fvr-title,.pp-title,.sy-title,.tr-title,.ei-title,.cr-title { color:#141414 !important; }
+    .fvr-title span,.fvr-title em,.pp-title em,.tr-title em { color:#C8C5C0 !important; }
+    .fvr-title-sub,.pp-title-sub,.sy-title-sub,.tr-title-sub,.ei-title-sub,.cr-title-sub { color:#888 !important; }
+    .fvr-eyebrow,.pp-eyebrow,.sy-eyebrow,.tr-eyebrow,.ei-eyebrow,.cr-eyebrow { color:#999 !important; }
+    .fvr-eyebrow::after,.pp-eyebrow::after,.sy-eyebrow::after,.tr-eyebrow::after,.ei-eyebrow::after,.cr-eyebrow::after { background:#D8D5D0 !important; }
+    .fvr-section-label,.pp-section-label,.sy-section-label,.tr-section-label,.ei-section-label,.cr-section-label { color:#999 !important; }
+    .fvr-section-label::after,.pp-section-label::after,.sy-section-label::after,.tr-section-label::after,.ei-section-label::after,.cr-section-label::after { background:#E0DDD8 !important; }
+    .fvr-body,.pp-body,.sy-body,.tr-body { color:#555 !important; }
+    .fvr-lead,.pp-lead,.sy-lead,.tr-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-tagline { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-concept-pull,.pp-pull,.sy-pull,.tr-pull { color:#555 !important; }
+    .fvr-concept-pull strong,.pp-pull strong,.sy-pull strong,.tr-pull strong { color:#141414 !important; }
+    .fvr-meta-lbl,.pp-meta-lbl,.sy-meta-lbl,.tr-meta-lbl,.ei-meta-lbl,.cr-meta-lbl { color:#bbb !important; }
+    .fvr-meta-val,.pp-meta-val,.sy-meta-val,.tr-meta-val,.ei-meta-val,.cr-meta-val { color:#555 !important; }
+    .fvr-meta-val strong,.pp-meta-val strong { color:#141414 !important; }
+    .fvr-scales,.pp-themes,.sy-ideas,.tr-surfaces,.tr-strat-grid,.tr-tech-grid,
+    .ei-principles,.ei-program,.ei-sensory,.ei-edu-grid,.cr-interventions { background:#E0DDD8 !important; }
+    .fvr-scale,.pp-theme,.sy-idea,.tr-surface,.tr-strat-cell,.tr-tech-cell,
+    .ei-principle,.ei-program-group,.ei-sensory-cell,.ei-edu-cell,.cr-intervention,
+    .cr-principle,.cr-int-desc-block { background:#fff !important; border-color:#E0DDD8 !important; }
+    .fvr-scale-num,.pp-theme-num,.sy-idea-num,.tr-surface-num { color:#C8C5C0 !important; }
+    .fvr-scale-name,.pp-theme-name,.sy-idea-name,.tr-surface-name { color:#141414 !important; }
+    .fvr-scale-desc,.pp-theme-desc,.sy-idea-desc,.tr-surface-desc { color:#666 !important; }
+    .fvr-act-num,.pp-act-num,.sy-act-num,.tr-act-num,.ei-act-num,.cr-act-num { color:#bbb !important; }
+    .fvr-act-name,.pp-act-name,.sy-act-name,.tr-act-name,.ei-act-name,.cr-act-name { color:#555 !important; }
+    .fvr-act-rule,.pp-act-rule,.sy-act-rule,.tr-act-rule,.ei-act-rule,.cr-act-rule { background:#E0DDD8 !important; }
+    .fvr-img-slot,.pp-img-slot,.sy-img-slot,.tr-img-slot,.ei-img-slot,.cr-img-slot { background:#EDECEA !important; }
+    .fvr-placeholder,.pp-placeholder,.sy-placeholder,.tr-placeholder,.ei-placeholder,.cr-placeholder { background:#EDECEA !important; }
+    .fvr-placeholder span,.pp-placeholder span,.sy-placeholder span,.tr-placeholder span,.ei-placeholder span,.cr-placeholder span { color:#C0BDB8 !important; }
+    .fvr-img-cap,.pp-img-cap,.sy-img-cap,.tr-img-cap,.ei-img-cap,.cr-img-cap { background:linear-gradient(transparent,rgba(0,0,0,.45)) !important; }
+    .fvr-closing-quote,.pp-closing-quote,.sy-closing-quote,.tr-closing-quote { color:#777 !important; }
+    .fvr-closing-quote strong,.pp-closing-quote strong,.sy-closing-quote strong,.tr-closing-quote strong { color:#141414 !important; font-weight:500 !important; }
+    .fvr-closing-row,.pp-closing-row,.sy-closing-row,.tr-closing-row,.ei-closing-row,.cr-closing-row { border-top-color:#E0DDD8 !important; }
+    .fvr-closing-lbl,.pp-closing-lbl,.sy-closing-lbl,.tr-closing-lbl,.ei-closing-lbl,.cr-closing-lbl { color:#bbb !important; }
+    .fvr-closing-val,.pp-closing-val,.sy-closing-val,.tr-closing-val,.ei-closing-val,.cr-closing-val { color:#555 !important; }
+    .fvr-world-grid,.sy-world-grid { background:#E0DDD8 !important; }
+    .fvr-world-cell,.sy-world-cell { background:#fff !important; }
+    .fvr-world-cell-lbl,.sy-world-cell-lbl { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .fvr-world-cell-text,.sy-world-cell-text { color:#555 !important; }
+    .fvr-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-col { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-head { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .sy-analogy-item { color:#555 !important; border-left-color:#D0CDC8 !important; }
+    .sy-analogy-item strong { color:#141414 !important; }
+    .sy-analogy-eq { color:#C8C5C0 !important; }
+    .fvr-pipeline { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .tr-pipeline-step { background:#fff !important; }
+    .tr-step-num { color:#C8C5C0 !important; }
+    .tr-step-text { color:#555 !important; }
+    .tr-step-text strong { color:#141414 !important; }
+    .tr-pipeline-step::after { color:#C8C5C0 !important; }
+    .fvr-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique-label { color:#999 !important; }
+    .pp-step-num { color:#C8C5C0 !important; }
+    .pp-step-text { color:#555 !important; }
+    .pp-step-text strong { color:#888 !important; }
+    .fvr-flow-svg line,.fvr-flow-svg polygon,.pp-flow-svg line,.pp-flow-svg polygon { stroke:#C8C5C0 !important; fill:#C8C5C0 !important; }
+    .pp-flow-sub .pp-fch { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .pp-fchip { border-color:#D0CDC8 !important; color:#555 !important; background:#F8F7F5 !important; }
+    .pp-fchip:hover { background:#F2F0EC !important; }
+    .pp-fpivot { border-color:#D0CDC8 !important; color:#888 !important; background:#F8F7F5 !important; }
+    .ei-stat { background:#fff !important; }
+    .ei-stat-val { color:#141414 !important; }
+    .ei-stat-lbl { color:#888 !important; }
+    .ei-stats { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .cr-approach-grid .cr-principles { background:#E0DDD8 !important; }
+    .cr-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .cr-banner-num { color:#bbb !important; }
+    .cr-banner-title { color:#141414 !important; }
+    .cr-banner-phases { color:#999 !important; }
+    .cr-int-header-num { color:#bbb !important; }
+    .cr-int-header-name { color:#555 !important; }
+    .cr-int-header-rule { background:#E0DDD8 !important; }
+    .cr-int-desc-block { background:#F2F0EC !important; border-color:#E0DDD8 !important; color:#555 !important; }
+    .cr-int-num { color:#bbb !important; }
+    .cr-int-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .cr-int-desc { color:#555 !important; }
+    .cr-location-tag { color:#bbb !important; }
+    .cr-location-name { color:#141414 !important; }
+    .cr-location-phases { color:#999 !important; }
+    .cr-location-desc { color:#555 !important; }
+    .cr-principle-text { color:#555 !important; }
+    .cr-principle-text strong { color:#141414 !important; }
+    .jp,.ftf { background:#F8F7F5 !important; color:#141414 !important; }
+    .jp-hero,.jp-section,.jp-closing,.ftf-hero,.ftf-section,.ftf-close { background:#F8F7F5 !important; }
+    .jp-title,.ftf-hero-title { color:#141414 !important; }
+    .jp-title-sub,.ftf-header-eyebrow { color:#999 !important; }
+    .jp-meta-lbl,.ftf-meta-label { color:#bbb !important; }
+    .jp-meta-val,.ftf-meta-val { color:#555 !important; }
+    .jp-meta-val strong { color:#141414 !important; }
+    .jp-contrib,.jp-locations,.jp-design-els,
+    .ftf-cards-grid,.ftf-stats,.ftf-3col { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .jp-contrib-cell,.jp-location-cell,.jp-design-el,
+    .ftf-card,.ftf-stat,.ftf-3col-cell { background:#fff !important; }
+    .jp-contrib-cell:hover,.jp-location-cell:hover,.jp-design-el:hover { background:#FAFAF8 !important; }
+    .jp-contrib-num,.jp-location-tag { color:#bbb !important; }
+    .jp-contrib-name,.jp-location-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .jp-contrib-desc,.jp-location-desc { color:#555 !important; }
+    .jp-act-num { color:#bbb !important; }
+    .jp-act-name { color:#555 !important; }
+    .jp-act-rule { background:#E0DDD8 !important; }
+    .jp-img-slot { background:#EDECEA !important; }
+    .jp-placeholder { background:#EDECEA !important; }
+    .jp-placeholder span { color:#C0BDB8 !important; }
+    .jp-closing-quote { color:#777 !important; }
+    .jp-closing-quote strong { color:#141414 !important; }
+    .jp-closing-row { border-top-color:#E0DDD8 !important; }
+    .jp-closing-lbl { color:#bbb !important; }
+    .jp-closing-val { color:#555 !important; }
+    .jp-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .jp-pull { color:#555 !important; }
+    .jp-pull strong { color:#141414 !important; }
+    .jp-design-el-dot { background:#C8C5C0 !important; }
+    .jp-design-el-text { color:#555 !important; }
+    .jp-design-el-text strong { color:#141414 !important; }
+    .jp-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .jp-banner-num { color:#bbb !important; }
+    .jp-banner-title { color:#141414 !important; }
+    .jp-banner-phases { color:#999 !important; }
+    /* Finance the future extra */
+    .ftf-label { color:#bbb !important; }
+    .ftf-body { color:#555 !important; }
+    .ftf-cta { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .ftf-cta svg path { stroke:#141414 !important; }
+    
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Akshada Muley</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link ">About</a>
+    <a href="work.html" class="nav-link ">Work</a>
+    <a href="projects.html" class="nav-link active">Projects</a>
+  </div>
+</nav>
+<a href="projects.html" class="back-link" style="display:block;padding:20px 48px 0;max-width:1040px;margin:0 auto;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#999;text-decoration:none;">← Projects</a>
+<div class="detail-wrap">
+
+
+<div class="ei">
+
+<!-- ══ HERO ══ -->
+<div class="ei-hero">
+  <div class="ei-eyebrow">Design Dissertation · Sir JJ College of Architecture · 2018</div>
+  <h1 class="ei-title">Early Intervention Center</h1>
+  <div class="ei-title-sub">Aurangabad, India · Solo Project</div>
+
+  <div class="ei-hero-grid">
+    <div>
+      <p class="ei-lead">
+        "A trans-disciplinary center to provide the correct positive environment for early intervention services, special education, and stimulus — through visual perception of form and space — for children to optimize their development."
+      </p>
+      <div class="ei-body">
+        <p>With an annual birth cohort of almost 27 million, India is expected to have the largest number of infants born with birth defects globally. Developmental impairment affects approximately 10% of the childhood population — yet specialized early intervention infrastructure remains critically under-resourced.</p>
+        <p>This project responds to that gap: a purpose-designed facility in Aurangabad targeting children with special needs under India's Rashtriya Bal Swasthya Karyakram (RBSK) healthcare scheme. The design foregrounds sensory experience, therapeutic space, and child-centered spatial logic as its primary design drivers.</p>
+      </div>
+    </div>
+
+    <div class="ei-meta-stack">
+      <div>
+        <div class="ei-meta-lbl">Project Type</div>
+        <div class="ei-meta-val">Design Dissertation · Solo Project</div>
+      </div>
+      <div>
+        <div class="ei-meta-lbl">Location</div>
+        <div class="ei-meta-val">Aurangabad, Maharashtra, India</div>
+      </div>
+      <div>
+        <div class="ei-meta-lbl">Institution</div>
+        <div class="ei-meta-val">Sir JJ College of Architecture, Mumbai</div>
+      </div>
+      <div>
+        <div class="ei-meta-lbl">Guide</div>
+        <div class="ei-meta-val">Parul Kumtha</div>
+      </div>
+      <div>
+        <div class="ei-meta-lbl">Year</div>
+        <div class="ei-meta-val">2018</div>
+      </div>
+      <div>
+        <div class="ei-meta-lbl">Deliverables</div>
+        <div class="ei-meta-val">Site Plan · Sections · Sensory Design · Detail Plans · Physical Model · Aerial View</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTEXT STATS ══ -->
+<div class="ei-section">
+  <div class="ei-section-label">The Need</div>
+  <div class="ei-stats">
+    <div class="ei-stat">
+      <div class="ei-stat-val">27M</div>
+      <div class="ei-stat-lbl">Annual birth cohort in India — largest in the world</div>
+    </div>
+    <div class="ei-stat">
+      <div class="ei-stat-val">10%</div>
+      <div class="ei-stat-lbl">Of children experience developmental impairment</div>
+    </div>
+    <div class="ei-stat">
+      <div class="ei-stat-val">RBSK</div>
+      <div class="ei-stat-lbl">National program advancing child healthcare — the policy context for this facility</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DESIGN PRINCIPLES ══ -->
+<div class="ei-section" style="padding-top:48px">
+  <div class="ei-section-label">Design Principles</div>
+  <div class="ei-principles">
+    <div class="ei-principle">
+      <div class="ei-principle-num">01</div>
+      <div class="ei-principle-name">Sensory Environment</div>
+      <div class="ei-principle-desc">Every space calibrated for sensory experience — light, shadow, texture, sound, and scale tuned to the developmental needs of the primary user: the child.</div>
+    </div>
+    <div class="ei-principle">
+      <div class="ei-principle-num">02</div>
+      <div class="ei-principle-name">Courtyard Logic</div>
+      <div class="ei-principle-desc">Internal courtyards as the organizational spine — providing natural light, outdoor play, and sensory variety within a protected, legible campus structure.</div>
+    </div>
+    <div class="ei-principle">
+      <div class="ei-principle-num">03</div>
+      <div class="ei-principle-name">Child-Scaled Detail</div>
+      <div class="ei-principle-desc">Windows, thresholds, and fixtures designed to the height and reach of children — the building reads and functions differently for its youngest users.</div>
+    </div>
+    <div class="ei-principle">
+      <div class="ei-principle-num">04</div>
+      <div class="ei-principle-name">Trans-disciplinary Program</div>
+      <div class="ei-principle-desc">Therapy, education, and assessment co-located in a single facility — enabling multi-disciplinary care without the child moving between distant institutions.</div>
+    </div>
+    <div class="ei-principle">
+      <div class="ei-principle-num">05</div>
+      <div class="ei-principle-name">Connecting Roof</div>
+      <div class="ei-principle-desc">A single roof plane that links the internal building blocks — creating spatial continuity, shared identity, and a unifying shelter across the campus.</div>
+    </div>
+    <div class="ei-principle">
+      <div class="ei-principle-num">06</div>
+      <div class="ei-principle-name">Form &amp; Space as Stimulus</div>
+      <div class="ei-principle-desc">Visual perception of form and space as an active therapeutic tool — the architecture itself is part of the intervention program.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROGRAM ══ -->
+<div class="ei-section" style="padding-top:48px">
+  <div class="ei-section-label">Program</div>
+  <div class="ei-program">
+    <div class="ei-program-group">
+      <div class="ei-program-head">Therapeutic Services</div>
+      <div class="ei-program-items">
+        <div class="ei-program-item">Multi-sensory learning rooms</div>
+        <div class="ei-program-item">Neuro-developmental therapy</div>
+        <div class="ei-program-item">Psycho-educational assessment</div>
+        <div class="ei-program-item">Interventional services</div>
+        <div class="ei-program-item">Day care center</div>
+        <div class="ei-program-item">Therapy room clusters</div>
+      </div>
+    </div>
+    <div class="ei-program-group">
+      <div class="ei-program-head">Education &amp; Outdoor</div>
+      <div class="ei-program-items">
+        <div class="ei-program-item">Special education classrooms</div>
+        <div class="ei-program-item">Sensory garden</div>
+        <div class="ei-program-item">Sensory play area</div>
+        <div class="ei-program-item">Sensory pool area</div>
+        <div class="ei-program-item">Tree house</div>
+        <div class="ei-program-item">Internal courtyards</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SITE PLAN + SECTION ══ -->
+<div class="ei-section" style="padding-top:48px">
+  <div class="ei-act">
+    <div class="ei-act-num">Drawing Set 01</div>
+    <div class="ei-act-name">Site Plan &amp; Sections</div>
+    <div class="ei-act-rule"></div>
+  </div>
+
+  <div class="ei-grid-full">
+    <div class="ei-img-slot plan">
+      <!-- REPLACE src with CDN URL. Caption: Site Plan -->
+      <img src="REPLACE_WITH_IMAGE_URL_1"
+        alt="Site Plan — Early Intervention Center, Aurangabad"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Site Plan<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Site Plan — Early Intervention Center, Aurangabad, India</div>
+    </div>
+  </div>
+
+  <div class="ei-grid-2">
+    <div class="ei-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_2"
+        alt="Site section"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Site Section<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Site section</div>
+    </div>
+    <div class="ei-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_3"
+        alt="Section through blocks of EIC"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Section through EIC blocks<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Section through blocks of the Early Intervention Center</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ COURTYARDS + PROCESS ══ -->
+<div class="ei-section" style="padding-top:48px">
+  <div class="ei-act">
+    <div class="ei-act-num">Drawing Set 02</div>
+    <div class="ei-act-name">Courtyards &amp; Design Evolution</div>
+    <div class="ei-act-rule"></div>
+  </div>
+
+  <div class="ei-grid-asym">
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_4"
+        alt="View of the courtyards — shadow play and sensory areas"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Courtyard views — shadow &amp; sensory<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">View of the courtyards — play of shadow using roof, and sensory areas created in each courtyard.</div>
+    </div>
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_5"
+        alt="Process of design evolution"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Design evolution process<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Process of design evolution</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SENSORY GARDEN ══ -->
+<div class="ei-section" style="padding-top:48px">
+  <div class="ei-act">
+    <div class="ei-act-num">Drawing Set 03</div>
+    <div class="ei-act-name">Sensory Garden &amp; Outdoor Areas</div>
+    <div class="ei-act-rule"></div>
+  </div>
+
+  <div class="ei-sensory">
+    <div class="ei-sensory-cell">
+      <div class="ei-sensory-lbl">Outdoor Area 01</div>
+      <div class="ei-sensory-name">Sensory Garden</div>
+      <div class="ei-sensory-desc">Planted landscape designed to stimulate smell, touch, and sight — a therapeutic outdoor environment integrated into the building's courtyard network.</div>
+    </div>
+    <div class="ei-sensory-cell">
+      <div class="ei-sensory-lbl">Outdoor Area 02</div>
+      <div class="ei-sensory-name">Sensory Play Area</div>
+      <div class="ei-sensory-desc">Active play spaces designed with varied surface textures, heights, and spatial challenges calibrated to the developmental needs of children with special needs.</div>
+    </div>
+    <div class="ei-sensory-cell">
+      <div class="ei-sensory-lbl">Outdoor Area 03</div>
+      <div class="ei-sensory-name">Tree House</div>
+      <div class="ei-sensory-desc">An elevated play structure offering a change of perspective and spatial exploration — encouraging confidence, motor development, and imaginative play.</div>
+    </div>
+  </div>
+
+  <div class="ei-grid-2">
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_6"
+        alt="Sensory Garden Design"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Sensory Garden Design<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Sensory Garden Design</div>
+    </div>
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_7"
+        alt="Sensory garden — additional view"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Sensory Garden — additional view<br>Replace src with CDN URL</span></div>'">
+    </div>
+  </div>
+
+  <div class="ei-grid-3">
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_8"
+        alt="Sensory Play Area"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Sensory Play Area<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Sensory Play Area</div>
+    </div>
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_9"
+        alt="Sensory Pool Area"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Sensory Pool Area<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Sensory Pool Area</div>
+    </div>
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_10"
+        alt="Sensory Play Area — Tree House"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Sensory Play Area — Tree House<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Sensory Play Area — Tree House</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ RENDERED VIEWS ══ -->
+<div class="ei-section" style="padding-top:48px">
+  <div class="ei-act">
+    <div class="ei-act-num">Renderings</div>
+    <div class="ei-act-name">Exterior &amp; Interior Views</div>
+    <div class="ei-act-rule"></div>
+  </div>
+
+  <!-- Axonometric — full width -->
+  <div class="ei-grid-full">
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_11"
+        alt="Axonometric view — different parts of the building"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Axonometric view<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Axonometric view showing the different parts of the building and their spatial relationship.</div>
+    </div>
+  </div>
+
+  <!-- 3-up exterior views -->
+  <div class="ei-grid-3">
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_12"
+        alt="View of internal courtyard"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Internal Courtyard View<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">View of internal courtyard</div>
+    </div>
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_13"
+        alt="Exterior View"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Exterior View<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Exterior View</div>
+    </div>
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_14"
+        alt="Exterior View overlooking internal courtyard"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Exterior View — overlooking courtyard<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Exterior View overlooking internal courtyard</div>
+    </div>
+  </div>
+
+  <!-- Corridor + courtyard -->
+  <div class="ei-grid-3">
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_15"
+        alt="Exterior View"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Exterior View<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Exterior View</div>
+    </div>
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_16"
+        alt="Corridor and Pathway View"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Corridor &amp; Pathway<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Corridor and Pathway View</div>
+    </div>
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_17"
+        alt="Internal Courtyard View"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Internal Courtyard View<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Internal Courtyard View</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ DETAIL DRAWINGS ══ -->
+<div class="ei-section" style="padding-top:48px">
+  <div class="ei-act">
+    <div class="ei-act-num">Drawing Set 04</div>
+    <div class="ei-act-name">Detail Plans &amp; Construction</div>
+    <div class="ei-act-rule"></div>
+  </div>
+
+  <div class="ei-grid-2">
+    <div class="ei-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_18"
+        alt="Detail plan — organisation of therapy rooms"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Detail Plan — Therapy Rooms<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Detail plan showing the organisation of the therapy rooms</div>
+    </div>
+    <div class="ei-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_19"
+        alt="Detailed Plan of the Day Care Center"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Day Care Center Plan<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Detailed Plan of the Day Care Center</div>
+    </div>
+  </div>
+
+  <div class="ei-grid-2">
+    <div class="ei-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_20"
+        alt="Design of the special education classrooms"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Special Education Classrooms<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Design of the special education classrooms</div>
+    </div>
+    <div class="ei-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_21"
+        alt="Window design as per the age and height of children"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Window Design — Child Scale<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Window design calibrated to the age and height of children — the primary user of the building.</div>
+    </div>
+  </div>
+
+  <div class="ei-grid-rasym">
+    <div class="ei-img-slot plan">
+      <img src="REPLACE_WITH_IMAGE_URL_22"
+        alt="End wall section"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>End Wall Section<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">End wall section</div>
+    </div>
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_23"
+        alt="Understanding the roof connecting all internal buildings"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Roof — connecting all buildings<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Understanding the roof that connects all the internal buildings — the unifying element of the campus.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PHYSICAL MODEL ══ -->
+<div class="ei-section" style="padding-top:48px">
+  <div class="ei-act">
+    <div class="ei-act-num">Physical Model</div>
+    <div class="ei-act-name">Model &amp; Aerial View</div>
+    <div class="ei-act-rule"></div>
+  </div>
+
+  <div class="ei-grid-2">
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_24"
+        alt="Physical Model — view 1"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Physical Model 01<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Physical Model</div>
+    </div>
+    <div class="ei-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_25"
+        alt="Physical Model — view 2"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Physical Model 02<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Physical Model</div>
+    </div>
+  </div>
+
+  <div class="ei-grid-full">
+    <div class="ei-img-slot cinema">
+      <img src="REPLACE_WITH_IMAGE_URL_26"
+        alt="Aerial View of the site"
+        onerror="this.parentElement.innerHTML='<div class=\'ei-placeholder\'><span>Aerial View of the Site<br>Replace src with CDN URL</span></div>'">
+      <div class="ei-img-cap">Aerial View of the site — showing the full campus organisation, courtyard network, and connecting roof.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CLOSING ══ -->
+<div class="ei-closing">
+  <div class="ei-closing-quote">
+    "A building designed not for how it looks from the outside, but for <strong>how it feels from a child's eye level</strong> — where every threshold, window, and courtyard is a considered act of spatial care."
+  </div>
+  <div class="ei-closing-meta">
+    <div class="ei-closing-row">
+      <div class="ei-closing-lbl">Project</div>
+      <div class="ei-closing-val">Early Intervention Center</div>
+    </div>
+    <div class="ei-closing-row">
+      <div class="ei-closing-lbl">Location</div>
+      <div class="ei-closing-val">Aurangabad, Maharashtra, India</div>
+    </div>
+    <div class="ei-closing-row">
+      <div class="ei-closing-lbl">Institution</div>
+      <div class="ei-closing-val">Sir JJ College of Architecture, Mumbai</div>
+    </div>
+    <div class="ei-closing-row">
+      <div class="ei-closing-lbl">Type</div>
+      <div class="ei-closing-val">Design Dissertation · Solo Project</div>
+    </div>
+    <div class="ei-closing-row">
+      <div class="ei-closing-lbl">Year</div>
+      <div class="ei-closing-val">2018</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

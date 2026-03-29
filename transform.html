@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshada Muley — Trans(re)form.surface</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+.tr * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.tr {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #0D0D0D;
+  color: #E8E6E2;
+  width: 100%;
+  padding-bottom: 96px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── UTILITIES ── */
+.tr-rule { border: none; border-top: 1px solid #1E1E1E; }
+.tr-eyebrow {
+  font-size: .56rem; font-weight: 600; letter-spacing: .26em;
+  text-transform: uppercase; color: #444; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.tr-eyebrow::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: #222; }
+.tr-section-label {
+  font-size: .54rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: #3A3A3A; margin-bottom: 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.tr-section-label::after { content: ''; flex: 1; height: 1px; background: #1A1A1A; }
+.tr-body {
+  font-size: .82rem; font-weight: 300; color: #666; line-height: 1.85;
+}
+.tr-body p { margin-bottom: 14px; }
+.tr-body p:last-child { margin-bottom: 0; }
+
+/* ── SECTION ── */
+.tr-section { max-width: 1040px; margin: 0 auto; padding: 64px 48px 0; }
+
+/* ── HERO ── */
+.tr-hero {
+  max-width: 1040px; margin: 0 auto;
+  padding: 80px 48px 72px;
+  border-bottom: 1px solid #1A1A1A;
+}
+.tr-title {
+  font-size: clamp(2rem, 6vw, 4.2rem); font-weight: 700;
+  letter-spacing: -.03em; line-height: .92; color: #E8E6E2;
+  margin-bottom: 10px;
+}
+.tr-title em { font-style: normal; color: #333; }
+.tr-title-sub {
+  font-size: .78rem; font-weight: 300; color: #333;
+  letter-spacing: .06em; text-transform: uppercase; margin-bottom: 36px;
+}
+.tr-hero-grid {
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px;
+  padding-top: 32px; border-top: 1px solid #1A1A1A; align-items: start;
+}
+.tr-lead {
+  font-size: clamp(.9rem, 1.7vw, 1.05rem); font-weight: 300;
+  color: #888; line-height: 1.75; margin-bottom: 20px;
+  font-style: italic; padding-left: 16px; border-left: 1px solid #2E2E2E;
+}
+.tr-meta-stack { display: flex; flex-direction: column; gap: 18px; }
+.tr-meta-lbl {
+  font-size: .54rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase; color: #333; margin-bottom: 4px;
+}
+.tr-meta-val { font-size: .78rem; font-weight: 300; color: #666; line-height: 1.55; }
+.tr-meta-val strong { color: #bbb; font-weight: 500; }
+
+/* ── PROCESS PIPELINE ── */
+.tr-pipeline {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+  position: relative;
+}
+.tr-pipeline-step {
+  background: #0D0D0D; padding: 18px 14px 20px;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: background .2s; cursor: default;
+  position: relative;
+}
+.tr-pipeline-step:hover { background: #111; }
+.tr-pipeline-step::after {
+  content: '→';
+  position: absolute; right: -9px; top: 50%; transform: translateY(-50%);
+  font-size: .65rem; color: #222; z-index: 1;
+}
+.tr-pipeline-step:last-child::after { display: none; }
+.tr-step-num {
+  font-size: .52rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: #2A2A2A;
+}
+.tr-step-name {
+  font-size: .7rem; font-weight: 600; color: #888;
+  text-transform: uppercase; letter-spacing: .04em; line-height: 1.2;
+}
+.tr-step-desc { font-size: .65rem; font-weight: 300; color: #3A3A3A; line-height: 1.5; }
+
+/* ── CONCEPT GRID ── */
+.tr-concept-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;
+}
+.tr-pull {
+  font-size: clamp(1.05rem, 2vw, 1.22rem); font-weight: 300;
+  color: #bbb; line-height: 1.65; margin-bottom: 22px; letter-spacing: -.01em;
+}
+.tr-pull strong { color: #E8E6E2; font-weight: 500; }
+
+/* Surface types */
+.tr-surfaces {
+  display: flex; flex-direction: column; gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.tr-surface {
+  background: #0D0D0D; padding: 16px 16px;
+  display: flex; align-items: flex-start; gap: 12px;
+  transition: background .2s;
+}
+.tr-surface:hover { background: #111; }
+.tr-surface-num {
+  font-size: .54rem; font-weight: 700; letter-spacing: .1em;
+  color: #2A2A2A; flex-shrink: 0; padding-top: 2px; width: 18px;
+}
+.tr-surface-name {
+  font-size: .76rem; font-weight: 600; color: #aaa;
+  letter-spacing: .06em; text-transform: uppercase; margin-bottom: 2px;
+}
+.tr-surface-desc { font-size: .72rem; font-weight: 300; color: #444; line-height: 1.55; }
+
+/* ── MORPHOLOGY STRATEGIES ── */
+.tr-strat-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.tr-strat-cell {
+  background: #0D0D0D; padding: 18px 14px 20px;
+  transition: background .2s; cursor: default;
+}
+.tr-strat-cell:hover { background: #111; }
+.tr-strat-name {
+  font-size: .7rem; font-weight: 600; color: #888;
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: 5px;
+}
+.tr-strat-desc { font-size: .7rem; font-weight: 300; color: #3A3A3A; line-height: 1.55; }
+
+/* ── AR/VR GRID ── */
+.tr-tech-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: #1A1A1A; border: 1px solid #1A1A1A; margin-bottom: 28px;
+}
+.tr-tech-cell {
+  background: #0D0D0D; padding: 22px 18px 24px;
+  transition: background .2s;
+}
+.tr-tech-cell:hover { background: #111; }
+.tr-tech-lbl {
+  font-size: .54rem; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: #2E2E2E; margin-bottom: 8px;
+  padding-bottom: 8px; border-bottom: 1px solid #1A1A1A;
+}
+.tr-tech-name {
+  font-size: .85rem; font-weight: 600; color: #bbb; margin-bottom: 6px;
+}
+.tr-tech-desc { font-size: .75rem; font-weight: 300; color: #4A4A4A; line-height: 1.6; }
+
+/* ── IMAGE SYSTEM ── */
+.tr-img-slot {
+  position: relative; overflow: hidden; background: #111;
+}
+.tr-img-slot img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .5s ease;
+}
+.tr-img-slot:hover img { transform: scale(1.025); }
+.tr-img-slot.wide   { aspect-ratio: 16/9; }
+.tr-img-slot.cinema { aspect-ratio: 21/9; }
+.tr-img-slot.sq     { aspect-ratio: 1/1; }
+.tr-img-slot.tall   { aspect-ratio: 3/4; }
+.tr-img-slot.med    { aspect-ratio: 4/3; }
+.tr-img-slot.short  { aspect-ratio: 3/1; }
+
+.tr-img-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.82));
+  padding: 28px 14px 12px;
+  font-size: .6rem; font-weight: 400; color: rgba(255,255,255,.45);
+  opacity: 0; transition: opacity .3s; line-height: 1.4;
+}
+.tr-img-slot:hover .tr-img-cap { opacity: 1; }
+
+.tr-placeholder {
+  width: 100%; height: 100%; min-height: 200px;
+  display: flex; align-items: center; justify-content: center; background: #0F0F0F;
+}
+.tr-placeholder span {
+  font-size: .56rem; font-weight: 500; letter-spacing: .1em;
+  text-transform: uppercase; color: #1E1E1E; text-align: center;
+  padding: 0 14px; line-height: 1.7;
+}
+
+.tr-grid-full { width: 100%; margin-bottom: 2px; }
+.tr-grid-2    { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.tr-grid-3    { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; margin-bottom: 2px; }
+.tr-grid-asym { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2px; margin-bottom: 2px; }
+.tr-grid-rasym { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2px; margin-bottom: 2px; }
+
+.tr-act {
+  display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px;
+}
+.tr-act-num  { font-size: .54rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #2A2A2A; }
+.tr-act-name { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #555; }
+.tr-act-rule { flex: 1; height: 1px; background: #1A1A1A; }
+
+/* ── CLOSING ── */
+.tr-closing {
+  max-width: 1040px; margin: 80px auto 0;
+  padding: 48px 48px 0;
+  border-top: 1px solid #1A1A1A;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.tr-closing-quote {
+  font-size: clamp(.95rem, 1.8vw, 1.12rem); font-weight: 300;
+  color: #444; line-height: 1.75; font-style: italic;
+}
+.tr-closing-quote strong { color: #888; font-weight: 400; font-style: normal; }
+.tr-closing-meta { display: flex; flex-direction: column; gap: 12px; }
+.tr-closing-row { border-top: 1px solid #1A1A1A; padding-top: 11px; }
+.tr-closing-lbl { font-size: .52rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #2E2E2E; margin-bottom: 3px; }
+.tr-closing-val { font-size: .74rem; font-weight: 300; color: #555; line-height: 1.5; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .tr-hero, .tr-section, .tr-closing { padding-left: 20px; padding-right: 20px; }
+  .tr-title { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+  .tr-hero-grid, .tr-concept-grid, .tr-closing { grid-template-columns: 1fr; gap: 32px; }
+  .tr-pipeline { grid-template-columns: 1fr 1fr; }
+  .tr-pipeline-step::after { display: none; }
+  .tr-strat-grid { grid-template-columns: 1fr 1fr; }
+  .tr-tech-grid { grid-template-columns: 1fr; }
+  .tr-grid-2, .tr-grid-asym, .tr-grid-rasym { grid-template-columns: 1fr; }
+  .tr-grid-3 { grid-template-columns: 1fr 1fr; }
+}
+
+
+    /* Light theme override */
+    .fvr,.pp,.sy,.tr,.ei,.cr { background:#F8F7F5 !important; color:#141414 !important; }
+    .fvr-hero,.fvr-section,.fvr-gallery,.fvr-process,.fvr-closing,
+    .fvr-concept,.fvr-contribution,.pp-hero,.pp-section,.pp-closing,
+    .sy-hero,.sy-section,.sy-closing,.tr-hero,.tr-section,.tr-closing,
+    .ei-hero,.ei-section,.ei-closing,.cr-hero,.cr-section,.cr-closing { background:#F8F7F5 !important; }
+    .fvr-title,.pp-title,.sy-title,.tr-title,.ei-title,.cr-title { color:#141414 !important; }
+    .fvr-title span,.fvr-title em,.pp-title em,.tr-title em { color:#C8C5C0 !important; }
+    .fvr-title-sub,.pp-title-sub,.sy-title-sub,.tr-title-sub,.ei-title-sub,.cr-title-sub { color:#888 !important; }
+    .fvr-eyebrow,.pp-eyebrow,.sy-eyebrow,.tr-eyebrow,.ei-eyebrow,.cr-eyebrow { color:#999 !important; }
+    .fvr-eyebrow::after,.pp-eyebrow::after,.sy-eyebrow::after,.tr-eyebrow::after,.ei-eyebrow::after,.cr-eyebrow::after { background:#D8D5D0 !important; }
+    .fvr-section-label,.pp-section-label,.sy-section-label,.tr-section-label,.ei-section-label,.cr-section-label { color:#999 !important; }
+    .fvr-section-label::after,.pp-section-label::after,.sy-section-label::after,.tr-section-label::after,.ei-section-label::after,.cr-section-label::after { background:#E0DDD8 !important; }
+    .fvr-body,.pp-body,.sy-body,.tr-body { color:#555 !important; }
+    .fvr-lead,.pp-lead,.sy-lead,.tr-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-tagline { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-concept-pull,.pp-pull,.sy-pull,.tr-pull { color:#555 !important; }
+    .fvr-concept-pull strong,.pp-pull strong,.sy-pull strong,.tr-pull strong { color:#141414 !important; }
+    .fvr-meta-lbl,.pp-meta-lbl,.sy-meta-lbl,.tr-meta-lbl,.ei-meta-lbl,.cr-meta-lbl { color:#bbb !important; }
+    .fvr-meta-val,.pp-meta-val,.sy-meta-val,.tr-meta-val,.ei-meta-val,.cr-meta-val { color:#555 !important; }
+    .fvr-meta-val strong,.pp-meta-val strong { color:#141414 !important; }
+    .fvr-scales,.pp-themes,.sy-ideas,.tr-surfaces,.tr-strat-grid,.tr-tech-grid,
+    .ei-principles,.ei-program,.ei-sensory,.ei-edu-grid,.cr-interventions { background:#E0DDD8 !important; }
+    .fvr-scale,.pp-theme,.sy-idea,.tr-surface,.tr-strat-cell,.tr-tech-cell,
+    .ei-principle,.ei-program-group,.ei-sensory-cell,.ei-edu-cell,.cr-intervention,
+    .cr-principle,.cr-int-desc-block { background:#fff !important; border-color:#E0DDD8 !important; }
+    .fvr-scale-num,.pp-theme-num,.sy-idea-num,.tr-surface-num { color:#C8C5C0 !important; }
+    .fvr-scale-name,.pp-theme-name,.sy-idea-name,.tr-surface-name { color:#141414 !important; }
+    .fvr-scale-desc,.pp-theme-desc,.sy-idea-desc,.tr-surface-desc { color:#666 !important; }
+    .fvr-act-num,.pp-act-num,.sy-act-num,.tr-act-num,.ei-act-num,.cr-act-num { color:#bbb !important; }
+    .fvr-act-name,.pp-act-name,.sy-act-name,.tr-act-name,.ei-act-name,.cr-act-name { color:#555 !important; }
+    .fvr-act-rule,.pp-act-rule,.sy-act-rule,.tr-act-rule,.ei-act-rule,.cr-act-rule { background:#E0DDD8 !important; }
+    .fvr-img-slot,.pp-img-slot,.sy-img-slot,.tr-img-slot,.ei-img-slot,.cr-img-slot { background:#EDECEA !important; }
+    .fvr-placeholder,.pp-placeholder,.sy-placeholder,.tr-placeholder,.ei-placeholder,.cr-placeholder { background:#EDECEA !important; }
+    .fvr-placeholder span,.pp-placeholder span,.sy-placeholder span,.tr-placeholder span,.ei-placeholder span,.cr-placeholder span { color:#C0BDB8 !important; }
+    .fvr-img-cap,.pp-img-cap,.sy-img-cap,.tr-img-cap,.ei-img-cap,.cr-img-cap { background:linear-gradient(transparent,rgba(0,0,0,.45)) !important; }
+    .fvr-closing-quote,.pp-closing-quote,.sy-closing-quote,.tr-closing-quote { color:#777 !important; }
+    .fvr-closing-quote strong,.pp-closing-quote strong,.sy-closing-quote strong,.tr-closing-quote strong { color:#141414 !important; font-weight:500 !important; }
+    .fvr-closing-row,.pp-closing-row,.sy-closing-row,.tr-closing-row,.ei-closing-row,.cr-closing-row { border-top-color:#E0DDD8 !important; }
+    .fvr-closing-lbl,.pp-closing-lbl,.sy-closing-lbl,.tr-closing-lbl,.ei-closing-lbl,.cr-closing-lbl { color:#bbb !important; }
+    .fvr-closing-val,.pp-closing-val,.sy-closing-val,.tr-closing-val,.ei-closing-val,.cr-closing-val { color:#555 !important; }
+    .fvr-world-grid,.sy-world-grid { background:#E0DDD8 !important; }
+    .fvr-world-cell,.sy-world-cell { background:#fff !important; }
+    .fvr-world-cell-lbl,.sy-world-cell-lbl { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .fvr-world-cell-text,.sy-world-cell-text { color:#555 !important; }
+    .fvr-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-col { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-head { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .sy-analogy-item { color:#555 !important; border-left-color:#D0CDC8 !important; }
+    .sy-analogy-item strong { color:#141414 !important; }
+    .sy-analogy-eq { color:#C8C5C0 !important; }
+    .fvr-pipeline { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .tr-pipeline-step { background:#fff !important; }
+    .tr-step-num { color:#C8C5C0 !important; }
+    .tr-step-text { color:#555 !important; }
+    .tr-step-text strong { color:#141414 !important; }
+    .tr-pipeline-step::after { color:#C8C5C0 !important; }
+    .fvr-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique-label { color:#999 !important; }
+    .pp-step-num { color:#C8C5C0 !important; }
+    .pp-step-text { color:#555 !important; }
+    .pp-step-text strong { color:#888 !important; }
+    .fvr-flow-svg line,.fvr-flow-svg polygon,.pp-flow-svg line,.pp-flow-svg polygon { stroke:#C8C5C0 !important; fill:#C8C5C0 !important; }
+    .pp-flow-sub .pp-fch { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .pp-fchip { border-color:#D0CDC8 !important; color:#555 !important; background:#F8F7F5 !important; }
+    .pp-fchip:hover { background:#F2F0EC !important; }
+    .pp-fpivot { border-color:#D0CDC8 !important; color:#888 !important; background:#F8F7F5 !important; }
+    .ei-stat { background:#fff !important; }
+    .ei-stat-val { color:#141414 !important; }
+    .ei-stat-lbl { color:#888 !important; }
+    .ei-stats { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .cr-approach-grid .cr-principles { background:#E0DDD8 !important; }
+    .cr-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .cr-banner-num { color:#bbb !important; }
+    .cr-banner-title { color:#141414 !important; }
+    .cr-banner-phases { color:#999 !important; }
+    .cr-int-header-num { color:#bbb !important; }
+    .cr-int-header-name { color:#555 !important; }
+    .cr-int-header-rule { background:#E0DDD8 !important; }
+    .cr-int-desc-block { background:#F2F0EC !important; border-color:#E0DDD8 !important; color:#555 !important; }
+    .cr-int-num { color:#bbb !important; }
+    .cr-int-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .cr-int-desc { color:#555 !important; }
+    .cr-location-tag { color:#bbb !important; }
+    .cr-location-name { color:#141414 !important; }
+    .cr-location-phases { color:#999 !important; }
+    .cr-location-desc { color:#555 !important; }
+    .cr-principle-text { color:#555 !important; }
+    .cr-principle-text strong { color:#141414 !important; }
+    .jp,.ftf { background:#F8F7F5 !important; color:#141414 !important; }
+    .jp-hero,.jp-section,.jp-closing,.ftf-hero,.ftf-section,.ftf-close { background:#F8F7F5 !important; }
+    .jp-title,.ftf-hero-title { color:#141414 !important; }
+    .jp-title-sub,.ftf-header-eyebrow { color:#999 !important; }
+    .jp-meta-lbl,.ftf-meta-label { color:#bbb !important; }
+    .jp-meta-val,.ftf-meta-val { color:#555 !important; }
+    .jp-meta-val strong { color:#141414 !important; }
+    .jp-contrib,.jp-locations,.jp-design-els,
+    .ftf-cards-grid,.ftf-stats,.ftf-3col { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .jp-contrib-cell,.jp-location-cell,.jp-design-el,
+    .ftf-card,.ftf-stat,.ftf-3col-cell { background:#fff !important; }
+    .jp-contrib-cell:hover,.jp-location-cell:hover,.jp-design-el:hover { background:#FAFAF8 !important; }
+    .jp-contrib-num,.jp-location-tag { color:#bbb !important; }
+    .jp-contrib-name,.jp-location-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .jp-contrib-desc,.jp-location-desc { color:#555 !important; }
+    .jp-act-num { color:#bbb !important; }
+    .jp-act-name { color:#555 !important; }
+    .jp-act-rule { background:#E0DDD8 !important; }
+    .jp-img-slot { background:#EDECEA !important; }
+    .jp-placeholder { background:#EDECEA !important; }
+    .jp-placeholder span { color:#C0BDB8 !important; }
+    .jp-closing-quote { color:#777 !important; }
+    .jp-closing-quote strong { color:#141414 !important; }
+    .jp-closing-row { border-top-color:#E0DDD8 !important; }
+    .jp-closing-lbl { color:#bbb !important; }
+    .jp-closing-val { color:#555 !important; }
+    .jp-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .jp-pull { color:#555 !important; }
+    .jp-pull strong { color:#141414 !important; }
+    .jp-design-el-dot { background:#C8C5C0 !important; }
+    .jp-design-el-text { color:#555 !important; }
+    .jp-design-el-text strong { color:#141414 !important; }
+    .jp-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .jp-banner-num { color:#bbb !important; }
+    .jp-banner-title { color:#141414 !important; }
+    .jp-banner-phases { color:#999 !important; }
+    /* Finance the future extra */
+    .ftf-label { color:#bbb !important; }
+    .ftf-body { color:#555 !important; }
+    .ftf-cta { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .ftf-cta svg path { stroke:#141414 !important; }
+    
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Akshada Muley</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link ">About</a>
+    <a href="work.html" class="nav-link ">Work</a>
+    <a href="projects.html" class="nav-link active">Projects</a>
+  </div>
+</nav>
+<a href="projects.html" class="back-link" style="display:block;padding:20px 48px 0;max-width:1040px;margin:0 auto;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#999;text-decoration:none;">← Projects</a>
+<div class="detail-wrap">
+
+
+<div class="tr">
+
+<!-- ══ HERO ══ -->
+<div class="tr-hero">
+  <div class="tr-eyebrow">UCLA Summer Studio · 2019</div>
+  <h1 class="tr-title">Trans<em>(</em>re<em>)</em>form<em>.</em>surface</h1>
+  <div class="tr-title-sub">Surface · Solid · Morphology · AR / VR · Fabrication</div>
+
+  <div class="tr-hero-grid">
+    <div>
+      <p class="tr-lead">
+        "Exploring the different patterns on surfaces — iso-curve, grid, contours — and using the surface as an interactive element to analyze the relation between surface and solid geometries."
+      </p>
+      <div class="tr-body">
+        <p>Starting with four famous sculptures by contemporary artists, each team member precisely remodeled their assigned piece. These models were then fragmented — disassembled according to the nature of each sculpture — to generate a matrix of parts. From that matrix, a kit-bashed object was built, which became the base of the morphological study.</p>
+        <p>Morphologies were created through strategies of proliferation, scale, rotation, and volume transformation. The chosen morphology was animated, rendered with multiple color strategies, physically fabricated, and extended into AR and VR experiences — then finally documented using robotic cameras.</p>
+      </div>
+    </div>
+
+    <div class="tr-meta-stack">
+      <div>
+        <div class="tr-meta-lbl">Medium</div>
+        <div class="tr-meta-val">3D Modeling · Physical Fabrication · AR · VR · Robotic Documentation</div>
+      </div>
+      <div>
+        <div class="tr-meta-lbl">Studio</div>
+        <div class="tr-meta-val">UCLA Architecture &amp; Urban Design<br>Summer Studio</div>
+      </div>
+      <div>
+        <div class="tr-meta-lbl">Instructor</div>
+        <div class="tr-meta-val">Kaiho Yu</div>
+      </div>
+      <div>
+        <div class="tr-meta-lbl">Team</div>
+        <div class="tr-meta-val"><strong>Akshada Muley</strong> · Ali Hakami<br>Yueshi Min · Lecan Li</div>
+      </div>
+      <div>
+        <div class="tr-meta-lbl">Software</div>
+        <div class="tr-meta-val">Rhino · Grasshopper · Unity (AR/VR)<br>Robotic Camera Rig</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROCESS PIPELINE ══ -->
+<div class="tr-section">
+  <div class="tr-section-label">7-Step Process</div>
+  <div class="tr-pipeline">
+    <div class="tr-pipeline-step">
+      <div class="tr-step-num">01</div>
+      <div class="tr-step-name">Sculpture</div>
+      <div class="tr-step-desc">4 contemporary sculptures precisely remodeled</div>
+    </div>
+    <div class="tr-pipeline-step">
+      <div class="tr-step-num">02</div>
+      <div class="tr-step-name">Fragment</div>
+      <div class="tr-step-desc">Each model disassembled using unique strategies</div>
+    </div>
+    <div class="tr-pipeline-step">
+      <div class="tr-step-num">03</div>
+      <div class="tr-step-name">Matrix</div>
+      <div class="tr-step-desc">All parts pooled into a shared matrix</div>
+    </div>
+    <div class="tr-pipeline-step">
+      <div class="tr-step-num">04</div>
+      <div class="tr-step-name">Kit-Bash</div>
+      <div class="tr-step-desc">Parts combined into a new composite object</div>
+    </div>
+    <div class="tr-pipeline-step">
+      <div class="tr-step-num">05</div>
+      <div class="tr-step-name">Morphology</div>
+      <div class="tr-step-desc">16 variations via scale, rotation, proliferation</div>
+    </div>
+    <div class="tr-pipeline-step">
+      <div class="tr-step-num">06</div>
+      <div class="tr-step-name">Fabricate</div>
+      <div class="tr-step-desc">Physical model built and color-tested</div>
+    </div>
+    <div class="tr-pipeline-step">
+      <div class="tr-step-num">07</div>
+      <div class="tr-step-name">AR / VR</div>
+      <div class="tr-step-desc">Experiences built in Unity + robot documentation</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONCEPT ══ -->
+<div class="tr-section" style="padding-top:48px">
+  <div class="tr-section-label">The Concept</div>
+  <div class="tr-concept-grid">
+    <div>
+      <p class="tr-pull">Surface as <strong>active participant</strong> — not a boundary between inside and outside, but a generator of form, pattern, and spatial logic.</p>
+      <div class="tr-body">
+        <p>The project investigates how different surface patterns — iso-curves, grids, contours — create distinct spatial behaviors when applied to geometry. By using the surface as an interactive analytical tool, the project probes the relationship between the membrane and the mass it defines.</p>
+        <p>The kit-bashing strategy was not arbitrary: it preserved the DNA of each original sculpture while generating something entirely new — a hybrid object whose parts are traceable to their sources but whose whole belongs to none of them.</p>
+      </div>
+    </div>
+    <div>
+      <div class="tr-surfaces">
+        <div class="tr-surface">
+          <div class="tr-surface-num">01</div>
+          <div>
+            <div class="tr-surface-name">Iso-Curve</div>
+            <div class="tr-surface-desc">Lines of equal value tracing the topology of a surface — revealing curvature and flow as spatial information.</div>
+          </div>
+        </div>
+        <div class="tr-surface">
+          <div class="tr-surface-num">02</div>
+          <div>
+            <div class="tr-surface-name">Grid</div>
+            <div class="tr-surface-desc">A rational overlay on an irrational surface — the tension between regularity and organic form made visible.</div>
+          </div>
+        </div>
+        <div class="tr-surface">
+          <div class="tr-surface-num">03</div>
+          <div>
+            <div class="tr-surface-name">Contour</div>
+            <div class="tr-surface-desc">Horizontal slices through a 3D body — abstracting three-dimensional form into stacked two-dimensional information.</div>
+          </div>
+        </div>
+        <div class="tr-surface">
+          <div class="tr-surface-num">04</div>
+          <div>
+            <div class="tr-surface-name">Point Library</div>
+            <div class="tr-surface-desc">A localization strategy applied to the main surface — identifying curve movement and establishing spatial coordinates.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MORPHOLOGY STRATEGIES ══ -->
+<div class="tr-section" style="padding-top:48px">
+  <div class="tr-section-label">Morphology Strategies</div>
+  <div class="tr-strat-grid">
+    <div class="tr-strat-cell">
+      <div class="tr-strat-name">Proliferation</div>
+      <div class="tr-strat-desc">Multiplying elements across the object's surface — density as a design variable.</div>
+    </div>
+    <div class="tr-strat-cell">
+      <div class="tr-strat-name">Scale</div>
+      <div class="tr-strat-desc">Proportional transformations of the kit-bashed object — exploring how size changes spatial reading.</div>
+    </div>
+    <div class="tr-strat-cell">
+      <div class="tr-strat-name">Rotation</div>
+      <div class="tr-strat-desc">Angular transformations that reveal new orientations and shadow relationships within the form.</div>
+    </div>
+    <div class="tr-strat-cell">
+      <div class="tr-strat-name">Volume Form</div>
+      <div class="tr-strat-desc">Modifying the volumetric character — pushing between solid mass and open lattice.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STEP 01–02: SCULPTURE + FRAGMENT ══ -->
+<div class="tr-section" style="padding-top:48px">
+  <div class="tr-act">
+    <div class="tr-act-num">Steps 01–02</div>
+    <div class="tr-act-name">Sculpture Modeling &amp; Fragmentation</div>
+    <div class="tr-act-rule"></div>
+  </div>
+
+  <div class="tr-grid-2">
+    <div class="tr-img-slot wide">
+      <!--
+        REPLACE src with actual CDN URL from your page.
+        Caption: "Four famous sculptures modeled as-is"
+      -->
+      <img src="REPLACE_WITH_IMAGE_URL_1"
+        alt="Four famous sculptures modeled as-is"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Four sculptures modeled as-is<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">Four famous sculptures modeled precisely as-is — the raw material for the project.</div>
+    </div>
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_2"
+        alt="Models separated using altering and disassembling strategies"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Fragmentation strategies<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">Each model separated using different altering and disassembling strategies.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STEP 03: MATRIX ══ -->
+<div class="tr-section" style="padding-top:48px">
+  <div class="tr-act">
+    <div class="tr-act-num">Step 03</div>
+    <div class="tr-act-name">The Matrix of Parts</div>
+    <div class="tr-act-rule"></div>
+  </div>
+
+  <div class="tr-grid-asym">
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_3"
+        alt="Matrix — all parts pooled together"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Matrix of parts<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">A pool of all parts put together in the form of the Matrix — the shared inventory from all four sculptures.</div>
+    </div>
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_4"
+        alt="Diagrams representing key thesis points — understanding surfaces"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Surface thesis diagrams<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">Diagrams representing the key thesis points of understanding surfaces.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STEP 04: KIT-BASH ══ -->
+<div class="tr-section" style="padding-top:48px">
+  <div class="tr-act">
+    <div class="tr-act-num">Step 04</div>
+    <div class="tr-act-name">Kit-Bashing Strategy</div>
+    <div class="tr-act-rule"></div>
+  </div>
+
+  <div class="tr-grid-full">
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_5"
+        alt="Kit-bashing strategy diagram"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Kit-bashing strategy<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">Kit-bashing strategy — indicating supporting members, connections between legs, attaching ends, and integrating surfaces with solids.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STEP 05: MORPHOLOGY ══ -->
+<div class="tr-section" style="padding-top:48px">
+  <div class="tr-act">
+    <div class="tr-act-num">Step 05</div>
+    <div class="tr-act-name">16 Morphologies · Final Selection</div>
+    <div class="tr-act-rule"></div>
+  </div>
+
+  <div class="tr-grid-2">
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_6"
+        alt="16 morphologies created by scale, rotation, proliferation"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>16 morphologies<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">The kit-bashed object morphed into 16 variations using proliferation, scale, rotation, and volume transformation.</div>
+    </div>
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_7"
+        alt="Final chosen morphology — three surfaces and few solids"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Final morphology<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">The final chosen morphology — built using three surfaces and a few solids.</div>
+    </div>
+  </div>
+
+  <!-- Representation drawing -->
+  <div class="tr-grid-full">
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_8"
+        alt="Representation drawing — morphology fragmented into parts"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Representation drawing<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">Representation drawing — the morphology fragmented back into its parts, each traced to its original sculpture.</div>
+    </div>
+  </div>
+
+  <!-- Localization / point library -->
+  <div class="tr-grid-full">
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_9"
+        alt="Point library localization strategy on main surface"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Point library — surface localization<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">Localization strategy applied to the main surface — a point library established to identify surface curves and understand surface movement.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STEP 06: FABRICATION ══ -->
+<div class="tr-section" style="padding-top:48px">
+  <div class="tr-act">
+    <div class="tr-act-num">Step 06</div>
+    <div class="tr-act-name">Physical Fabrication &amp; Color Studies</div>
+    <div class="tr-act-rule"></div>
+  </div>
+
+  <div class="tr-grid-2">
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_10"
+        alt="Physical fabricated model"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Physical fabricated model<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">Physical fabricated model.</div>
+    </div>
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_11"
+        alt="Physical fabricated model — different color strategy and materials"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Physical model — color &amp; material studies<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">Physical fabricated model exploring different color strategies and materials.</div>
+    </div>
+  </div>
+
+  <div class="tr-grid-2">
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_12"
+        alt="Color, texture and gradation tests — monochrome, contrast, gradient"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Color &amp; texture tests<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">Color, texture &amp; gradation tests — Monochrome · Contrast · Gradient · Solid · Translucent · Matte · Metallic</div>
+    </div>
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_13"
+        alt="Gradient tests using different color schemes"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Gradient color tests<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">Gradient tests across different color schemes.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STEP 07: AR / VR ══ -->
+<div class="tr-section" style="padding-top:48px">
+  <div class="tr-act">
+    <div class="tr-act-num">Step 07</div>
+    <div class="tr-act-name">AR, VR &amp; Robotic Documentation</div>
+    <div class="tr-act-rule"></div>
+  </div>
+
+  <div class="tr-tech-grid">
+    <div class="tr-tech-cell">
+      <div class="tr-tech-lbl">AR — Physical Model</div>
+      <div class="tr-tech-name">Augmented Reality on Physical Model</div>
+      <div class="tr-tech-desc">Built in Unity — detects the physical fabricated model and overlays an animated transformation effect directly onto it in real space.</div>
+    </div>
+    <div class="tr-tech-cell">
+      <div class="tr-tech-lbl">AR — Painting</div>
+      <div class="tr-tech-name">AR on Hieronymus Bosch</div>
+      <div class="tr-tech-desc">Detects the model blended into The Garden of Earthly Delights by Hieronymus Bosch — showing different textures mapped onto the painting's surface.</div>
+    </div>
+    <div class="tr-tech-cell">
+      <div class="tr-tech-lbl">VR Experience</div>
+      <div class="tr-tech-name">First Person &amp; Third Person View</div>
+      <div class="tr-tech-desc">A full VR environment built in Unity allowing the viewer to inhabit and navigate the morphology — experienced both from within and from outside.</div>
+    </div>
+    <div class="tr-tech-cell">
+      <div class="tr-tech-lbl">Robotic Documentation</div>
+      <div class="tr-tech-name">Robot Camera Rig</div>
+      <div class="tr-tech-desc">The physical model documented using robotic cameras — various key project elements integrated into the robot footage as a final composite presentation.</div>
+    </div>
+  </div>
+
+  <div class="tr-grid-2">
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_14"
+        alt="AR Application on Physical Model"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>AR Application — Physical Model<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">AR Application — detecting the physical model and showing animation effect overlaid in real space.</div>
+    </div>
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_15"
+        alt="AR Application built on Painting — Hieronymus Bosch"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>AR Application — Painting<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">AR Application — detecting the model blended into Bosch's Garden of Earthly Delights, showing different textures on the painting.</div>
+    </div>
+  </div>
+
+  <div class="tr-grid-2">
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_16"
+        alt="VR Experience — First Person and Third Person View"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>VR Experience — Unity<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">VR Experience created in Unity — first person and third person view of the morphology.</div>
+    </div>
+    <div class="tr-img-slot wide">
+      <img src="REPLACE_WITH_IMAGE_URL_17"
+        alt="Robotic documentation — integrating key project elements"
+        onerror="this.parentElement.innerHTML='<div class=\'tr-placeholder\'><span>Robotic Documentation<br>Replace src with CDN URL</span></div>'">
+      <div class="tr-img-cap">Documenting the model with robotic cameras — integrating various key project elements into the robot footage.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CLOSING ══ -->
+<div class="tr-closing">
+  <div class="tr-closing-quote">
+    "The surface is not a boundary — it is a <strong>generator.</strong> The iso-curve, grid, and contour are not decoration, but instruments for reading form, movement, and the relationship between skin and mass."
+  </div>
+  <div class="tr-closing-meta">
+    <div class="tr-closing-row">
+      <div class="tr-closing-lbl">Project</div>
+      <div class="tr-closing-val">Trans(re)form.surface</div>
+    </div>
+    <div class="tr-closing-row">
+      <div class="tr-closing-lbl">Institution</div>
+      <div class="tr-closing-val">UCLA Architecture &amp; Urban Design</div>
+    </div>
+    <div class="tr-closing-row">
+      <div class="tr-closing-lbl">Year</div>
+      <div class="tr-closing-val">2019</div>
+    </div>
+    <div class="tr-closing-row">
+      <div class="tr-closing-lbl">Deliverables</div>
+      <div class="tr-closing-val">3D Model · Physical Fabrication · Animation · AR · VR · Robotic Documentation</div>
+    </div>
+    <div class="tr-closing-row">
+      <div class="tr-closing-lbl">Team</div>
+      <div class="tr-closing-val">Akshada Muley · Ali Hakami · Yueshi Min · Lecan Li</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>

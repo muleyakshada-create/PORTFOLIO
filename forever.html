@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshada Muley — F.O.R.E.V.E.R</title>
+<link rel="stylesheet" href="style.css">
+<style>
+
+.fvr * { box-sizing: border-box; margin: 0; padding: 0; }
+
+.fvr {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #0D0D0D;
+  color: #E8E6E2;
+  width: 100%;
+  padding-bottom: 96px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── RULES ── */
+.fvr-rule { border: none; border-top: 1px solid #2A2A2A; margin: 0; }
+
+/* ── HERO ── */
+.fvr-hero {
+  padding: 80px 48px 72px;
+  max-width: 1040px;
+  margin: 0 auto;
+  border-bottom: 1px solid #2A2A2A;
+}
+.fvr-eyebrow {
+  font-size: .58rem; font-weight: 600; letter-spacing: .28em;
+  text-transform: uppercase; color: #555; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 16px;
+}
+.fvr-eyebrow::after {
+  content: ''; flex: 1; max-width: 80px; height: 1px; background: #333;
+}
+.fvr-title {
+  font-size: clamp(3rem, 8vw, 6rem); font-weight: 700;
+  letter-spacing: -.03em; line-height: .9; color: #E8E6E2;
+  margin-bottom: 32px;
+}
+.fvr-title span { color: #444; }
+.fvr-tagline {
+  font-size: clamp(.95rem, 2vw, 1.15rem); font-weight: 300;
+  color: #888; line-height: 1.65; max-width: 560px;
+  font-style: italic; padding-left: 16px; border-left: 1px solid #444;
+  margin-bottom: 40px;
+}
+
+/* Meta row */
+.fvr-meta {
+  display: grid; grid-template-columns: repeat(4, auto); gap: 40px;
+  justify-content: start; padding-top: 32px; border-top: 1px solid #222;
+}
+.fvr-meta-item {}
+.fvr-meta-label { font-size: .54rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: #444; margin-bottom: 4px; }
+.fvr-meta-val { font-size: .78rem; font-weight: 300; color: #888; line-height: 1.5; }
+.fvr-meta-val strong { color: #ccc; font-weight: 500; }
+
+/* ── VIDEO SECTION ── */
+.fvr-video-wrap {
+  max-width: 1040px; margin: 0 auto; padding: 64px 48px 0;
+}
+.fvr-section-label {
+  font-size: .54rem; font-weight: 600; letter-spacing: .2em;
+  text-transform: uppercase; color: #444; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.fvr-section-label::after { content: ''; flex: 1; height: 1px; background: #222; }
+.fvr-video-container {
+  position: relative; width: 100%; padding-bottom: 56.25%;
+  background: #111; overflow: hidden;
+}
+.fvr-video-container iframe {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  border: none;
+}
+.fvr-video-caption {
+  font-size: .72rem; font-weight: 300; color: #555;
+  margin-top: 10px; font-style: italic;
+}
+
+/* ── CONCEPT SECTION ── */
+.fvr-concept {
+  max-width: 1040px; margin: 0 auto; padding: 64px 48px 0;
+}
+.fvr-concept-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
+}
+.fvr-concept-text {}
+.fvr-concept-pull {
+  font-size: clamp(1.1rem, 2vw, 1.35rem); font-weight: 300;
+  color: #ccc; line-height: 1.6; margin-bottom: 24px;
+  letter-spacing: -.01em;
+}
+.fvr-concept-pull strong { color: #E8E6E2; font-weight: 500; }
+.fvr-body { font-size: .82rem; font-weight: 300; color: #666; line-height: 1.8; }
+.fvr-body p { margin-bottom: 14px; }
+.fvr-body p:last-child { margin-bottom: 0; }
+
+.fvr-scales {
+  display: flex; flex-direction: column; gap: 1px; background: #1A1A1A;
+  border: 1px solid #1A1A1A;
+}
+.fvr-scale {
+  background: #0D0D0D; padding: 22px 20px; display: flex;
+  align-items: flex-start; gap: 16px;
+  transition: background .2s;
+}
+.fvr-scale:hover { background: #141414; }
+.fvr-scale-num {
+  font-size: .6rem; font-weight: 700; letter-spacing: .12em;
+  color: #333; flex-shrink: 0; padding-top: 2px; width: 20px;
+}
+.fvr-scale-content {}
+.fvr-scale-name {
+  font-size: .82rem; font-weight: 600; color: #ccc;
+  text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px;
+}
+.fvr-scale-desc { font-size: .76rem; font-weight: 300; color: #555; line-height: 1.6; }
+
+/* ── CONTRIBUTION CALLOUT ── */
+.fvr-contribution {
+  max-width: 1040px; margin: 0 auto; padding: 64px 48px 0;
+}
+.fvr-contrib-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: #1A1A1A; border: 1px solid #1A1A1A;
+}
+.fvr-contrib-cell {
+  background: #0D0D0D; padding: 24px 20px;
+  transition: background .2s;
+}
+.fvr-contrib-cell:hover { background: #111; }
+.fvr-contrib-role {
+  font-size: .56rem; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; color: #444; margin-bottom: 8px;
+}
+.fvr-contrib-name {
+  font-size: .85rem; font-weight: 500; color: #ccc; margin-bottom: 8px; line-height: 1.2;
+}
+.fvr-contrib-items { display: flex; flex-direction: column; gap: 4px; }
+.fvr-contrib-item {
+  font-size: .72rem; font-weight: 300; color: #555; line-height: 1.5;
+  padding-left: 10px; position: relative;
+}
+.fvr-contrib-item::before { content: '—'; position: absolute; left: 0; color: #333; }
+.fvr-contrib-item.highlight { color: #999; }
+.fvr-contrib-item.highlight::before { color: #555; }
+
+/* ── STILLS GALLERY ── */
+.fvr-gallery {
+  max-width: 1040px; margin: 0 auto; padding: 64px 48px 0;
+}
+
+/* Act header */
+.fvr-act-header {
+  display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px;
+}
+.fvr-act-num {
+  font-size: .56rem; font-weight: 700; letter-spacing: .18em;
+  text-transform: uppercase; color: #333;
+}
+.fvr-act-name {
+  font-size: .82rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: #888;
+}
+.fvr-act-rule { flex: 1; height: 1px; background: #1A1A1A; }
+
+/* Image grid */
+.fvr-img-grid-2 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+  margin-bottom: 2px;
+}
+.fvr-img-grid-3 {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px;
+  margin-bottom: 2px;
+}
+.fvr-img-full { width: 100%; margin-bottom: 2px; }
+
+.fvr-img-slot {
+  position: relative; overflow: hidden;
+  background: #111;
+}
+.fvr-img-slot img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .4s ease;
+}
+.fvr-img-slot:hover img { transform: scale(1.02); }
+.fvr-img-slot.aspect-wide { aspect-ratio: 16/9; }
+.fvr-img-slot.aspect-sq { aspect-ratio: 1/1; }
+.fvr-img-slot.aspect-tall { aspect-ratio: 3/4; }
+
+/* Caption overlay on hover */
+.fvr-img-cap {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.75));
+  padding: 24px 14px 12px;
+  font-size: .62rem; font-weight: 400; color: rgba(255,255,255,.65);
+  opacity: 0; transition: opacity .3s ease;
+  line-height: 1.4;
+}
+.fvr-img-slot:hover .fvr-img-cap { opacity: 1; }
+
+/* Placeholder for missing images */
+.fvr-img-placeholder {
+  width: 100%; height: 100%; min-height: 200px;
+  display: flex; align-items: center; justify-content: center;
+  background: #111; flex-direction: column; gap: 8px;
+}
+.fvr-img-placeholder span {
+  font-size: .6rem; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; color: #2A2A2A; text-align: center;
+  padding: 0 16px;
+}
+
+/* ── STORYBOARD ── */
+.fvr-process {
+  max-width: 1040px; margin: 0 auto; padding: 64px 48px 0;
+}
+.fvr-process-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+}
+
+/* ── CLOSING ── */
+.fvr-closing {
+  max-width: 1040px; margin: 80px auto 0;
+  padding: 48px 48px 0;
+  border-top: 1px solid #1A1A1A;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+}
+.fvr-closing-quote {
+  font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 300;
+  color: #666; line-height: 1.7; font-style: italic;
+  letter-spacing: -.01em;
+}
+.fvr-closing-quote strong { color: #aaa; font-weight: 400; }
+.fvr-closing-meta { display: flex; flex-direction: column; gap: 14px; }
+.fvr-closing-row { border-top: 1px solid #1A1A1A; padding-top: 12px; }
+.fvr-closing-lbl { font-size: .54rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: #333; margin-bottom: 3px; }
+.fvr-closing-val { font-size: .75rem; font-weight: 300; color: #666; line-height: 1.5; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .fvr-hero, .fvr-video-wrap, .fvr-concept,
+  .fvr-contribution, .fvr-gallery, .fvr-process,
+  .fvr-closing { padding-left: 20px; padding-right: 20px; }
+  .fvr-title { font-size: clamp(2.4rem, 12vw, 3.6rem); }
+  .fvr-meta { grid-template-columns: 1fr 1fr; gap: 20px; }
+  .fvr-concept-grid, .fvr-img-grid-2,
+  .fvr-process-grid, .fvr-closing { grid-template-columns: 1fr; }
+  .fvr-img-grid-3 { grid-template-columns: 1fr 1fr; }
+  .fvr-contrib-grid { grid-template-columns: 1fr; }
+}
+
+
+    /* Light theme override */
+    .fvr,.pp,.sy,.tr,.ei,.cr { background:#F8F7F5 !important; color:#141414 !important; }
+    .fvr-hero,.fvr-section,.fvr-gallery,.fvr-process,.fvr-closing,
+    .fvr-concept,.fvr-contribution,.pp-hero,.pp-section,.pp-closing,
+    .sy-hero,.sy-section,.sy-closing,.tr-hero,.tr-section,.tr-closing,
+    .ei-hero,.ei-section,.ei-closing,.cr-hero,.cr-section,.cr-closing { background:#F8F7F5 !important; }
+    .fvr-title,.pp-title,.sy-title,.tr-title,.ei-title,.cr-title { color:#141414 !important; }
+    .fvr-title span,.fvr-title em,.pp-title em,.tr-title em { color:#C8C5C0 !important; }
+    .fvr-title-sub,.pp-title-sub,.sy-title-sub,.tr-title-sub,.ei-title-sub,.cr-title-sub { color:#888 !important; }
+    .fvr-eyebrow,.pp-eyebrow,.sy-eyebrow,.tr-eyebrow,.ei-eyebrow,.cr-eyebrow { color:#999 !important; }
+    .fvr-eyebrow::after,.pp-eyebrow::after,.sy-eyebrow::after,.tr-eyebrow::after,.ei-eyebrow::after,.cr-eyebrow::after { background:#D8D5D0 !important; }
+    .fvr-section-label,.pp-section-label,.sy-section-label,.tr-section-label,.ei-section-label,.cr-section-label { color:#999 !important; }
+    .fvr-section-label::after,.pp-section-label::after,.sy-section-label::after,.tr-section-label::after,.ei-section-label::after,.cr-section-label::after { background:#E0DDD8 !important; }
+    .fvr-body,.pp-body,.sy-body,.tr-body { color:#555 !important; }
+    .fvr-lead,.pp-lead,.sy-lead,.tr-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-tagline { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .fvr-concept-pull,.pp-pull,.sy-pull,.tr-pull { color:#555 !important; }
+    .fvr-concept-pull strong,.pp-pull strong,.sy-pull strong,.tr-pull strong { color:#141414 !important; }
+    .fvr-meta-lbl,.pp-meta-lbl,.sy-meta-lbl,.tr-meta-lbl,.ei-meta-lbl,.cr-meta-lbl { color:#bbb !important; }
+    .fvr-meta-val,.pp-meta-val,.sy-meta-val,.tr-meta-val,.ei-meta-val,.cr-meta-val { color:#555 !important; }
+    .fvr-meta-val strong,.pp-meta-val strong { color:#141414 !important; }
+    .fvr-scales,.pp-themes,.sy-ideas,.tr-surfaces,.tr-strat-grid,.tr-tech-grid,
+    .ei-principles,.ei-program,.ei-sensory,.ei-edu-grid,.cr-interventions { background:#E0DDD8 !important; }
+    .fvr-scale,.pp-theme,.sy-idea,.tr-surface,.tr-strat-cell,.tr-tech-cell,
+    .ei-principle,.ei-program-group,.ei-sensory-cell,.ei-edu-cell,.cr-intervention,
+    .cr-principle,.cr-int-desc-block { background:#fff !important; border-color:#E0DDD8 !important; }
+    .fvr-scale-num,.pp-theme-num,.sy-idea-num,.tr-surface-num { color:#C8C5C0 !important; }
+    .fvr-scale-name,.pp-theme-name,.sy-idea-name,.tr-surface-name { color:#141414 !important; }
+    .fvr-scale-desc,.pp-theme-desc,.sy-idea-desc,.tr-surface-desc { color:#666 !important; }
+    .fvr-act-num,.pp-act-num,.sy-act-num,.tr-act-num,.ei-act-num,.cr-act-num { color:#bbb !important; }
+    .fvr-act-name,.pp-act-name,.sy-act-name,.tr-act-name,.ei-act-name,.cr-act-name { color:#555 !important; }
+    .fvr-act-rule,.pp-act-rule,.sy-act-rule,.tr-act-rule,.ei-act-rule,.cr-act-rule { background:#E0DDD8 !important; }
+    .fvr-img-slot,.pp-img-slot,.sy-img-slot,.tr-img-slot,.ei-img-slot,.cr-img-slot { background:#EDECEA !important; }
+    .fvr-placeholder,.pp-placeholder,.sy-placeholder,.tr-placeholder,.ei-placeholder,.cr-placeholder { background:#EDECEA !important; }
+    .fvr-placeholder span,.pp-placeholder span,.sy-placeholder span,.tr-placeholder span,.ei-placeholder span,.cr-placeholder span { color:#C0BDB8 !important; }
+    .fvr-img-cap,.pp-img-cap,.sy-img-cap,.tr-img-cap,.ei-img-cap,.cr-img-cap { background:linear-gradient(transparent,rgba(0,0,0,.45)) !important; }
+    .fvr-closing-quote,.pp-closing-quote,.sy-closing-quote,.tr-closing-quote { color:#777 !important; }
+    .fvr-closing-quote strong,.pp-closing-quote strong,.sy-closing-quote strong,.tr-closing-quote strong { color:#141414 !important; font-weight:500 !important; }
+    .fvr-closing-row,.pp-closing-row,.sy-closing-row,.tr-closing-row,.ei-closing-row,.cr-closing-row { border-top-color:#E0DDD8 !important; }
+    .fvr-closing-lbl,.pp-closing-lbl,.sy-closing-lbl,.tr-closing-lbl,.ei-closing-lbl,.cr-closing-lbl { color:#bbb !important; }
+    .fvr-closing-val,.pp-closing-val,.sy-closing-val,.tr-closing-val,.ei-closing-val,.cr-closing-val { color:#555 !important; }
+    .fvr-world-grid,.sy-world-grid { background:#E0DDD8 !important; }
+    .fvr-world-cell,.sy-world-cell { background:#fff !important; }
+    .fvr-world-cell-lbl,.sy-world-cell-lbl { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .fvr-world-cell-text,.sy-world-cell-text { color:#555 !important; }
+    .fvr-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-col { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .sy-analogy-head { color:#999 !important; border-bottom-color:#E0DDD8 !important; }
+    .sy-analogy-item { color:#555 !important; border-left-color:#D0CDC8 !important; }
+    .sy-analogy-item strong { color:#141414 !important; }
+    .sy-analogy-eq { color:#C8C5C0 !important; }
+    .fvr-pipeline { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .tr-pipeline-step { background:#fff !important; }
+    .tr-step-num { color:#C8C5C0 !important; }
+    .tr-step-text { color:#555 !important; }
+    .tr-step-text strong { color:#141414 !important; }
+    .tr-pipeline-step::after { color:#C8C5C0 !important; }
+    .fvr-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .pp-technique-label { color:#999 !important; }
+    .pp-step-num { color:#C8C5C0 !important; }
+    .pp-step-text { color:#555 !important; }
+    .pp-step-text strong { color:#888 !important; }
+    .fvr-flow-svg line,.fvr-flow-svg polygon,.pp-flow-svg line,.pp-flow-svg polygon { stroke:#C8C5C0 !important; fill:#C8C5C0 !important; }
+    .pp-flow-sub .pp-fch { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .pp-fchip { border-color:#D0CDC8 !important; color:#555 !important; background:#F8F7F5 !important; }
+    .pp-fchip:hover { background:#F2F0EC !important; }
+    .pp-fpivot { border-color:#D0CDC8 !important; color:#888 !important; background:#F8F7F5 !important; }
+    .ei-stat { background:#fff !important; }
+    .ei-stat-val { color:#141414 !important; }
+    .ei-stat-lbl { color:#888 !important; }
+    .ei-stats { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .cr-approach-grid .cr-principles { background:#E0DDD8 !important; }
+    .cr-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .cr-banner-num { color:#bbb !important; }
+    .cr-banner-title { color:#141414 !important; }
+    .cr-banner-phases { color:#999 !important; }
+    .cr-int-header-num { color:#bbb !important; }
+    .cr-int-header-name { color:#555 !important; }
+    .cr-int-header-rule { background:#E0DDD8 !important; }
+    .cr-int-desc-block { background:#F2F0EC !important; border-color:#E0DDD8 !important; color:#555 !important; }
+    .cr-int-num { color:#bbb !important; }
+    .cr-int-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .cr-int-desc { color:#555 !important; }
+    .cr-location-tag { color:#bbb !important; }
+    .cr-location-name { color:#141414 !important; }
+    .cr-location-phases { color:#999 !important; }
+    .cr-location-desc { color:#555 !important; }
+    .cr-principle-text { color:#555 !important; }
+    .cr-principle-text strong { color:#141414 !important; }
+    .jp,.ftf { background:#F8F7F5 !important; color:#141414 !important; }
+    .jp-hero,.jp-section,.jp-closing,.ftf-hero,.ftf-section,.ftf-close { background:#F8F7F5 !important; }
+    .jp-title,.ftf-hero-title { color:#141414 !important; }
+    .jp-title-sub,.ftf-header-eyebrow { color:#999 !important; }
+    .jp-meta-lbl,.ftf-meta-label { color:#bbb !important; }
+    .jp-meta-val,.ftf-meta-val { color:#555 !important; }
+    .jp-meta-val strong { color:#141414 !important; }
+    .jp-contrib,.jp-locations,.jp-design-els,
+    .ftf-cards-grid,.ftf-stats,.ftf-3col { background:#E0DDD8 !important; border-color:#E0DDD8 !important; }
+    .jp-contrib-cell,.jp-location-cell,.jp-design-el,
+    .ftf-card,.ftf-stat,.ftf-3col-cell { background:#fff !important; }
+    .jp-contrib-cell:hover,.jp-location-cell:hover,.jp-design-el:hover { background:#FAFAF8 !important; }
+    .jp-contrib-num,.jp-location-tag { color:#bbb !important; }
+    .jp-contrib-name,.jp-location-name { color:#141414 !important; border-bottom-color:#E0DDD8 !important; }
+    .jp-contrib-desc,.jp-location-desc { color:#555 !important; }
+    .jp-act-num { color:#bbb !important; }
+    .jp-act-name { color:#555 !important; }
+    .jp-act-rule { background:#E0DDD8 !important; }
+    .jp-img-slot { background:#EDECEA !important; }
+    .jp-placeholder { background:#EDECEA !important; }
+    .jp-placeholder span { color:#C0BDB8 !important; }
+    .jp-closing-quote { color:#777 !important; }
+    .jp-closing-quote strong { color:#141414 !important; }
+    .jp-closing-row { border-top-color:#E0DDD8 !important; }
+    .jp-closing-lbl { color:#bbb !important; }
+    .jp-closing-val { color:#555 !important; }
+    .jp-lead { color:#777 !important; border-left-color:#D0CDC8 !important; }
+    .jp-pull { color:#555 !important; }
+    .jp-pull strong { color:#141414 !important; }
+    .jp-design-el-dot { background:#C8C5C0 !important; }
+    .jp-design-el-text { color:#555 !important; }
+    .jp-design-el-text strong { color:#141414 !important; }
+    .jp-location-banner { background:#F2F0EC !important; border-color:#E0DDD8 !important; }
+    .jp-banner-num { color:#bbb !important; }
+    .jp-banner-title { color:#141414 !important; }
+    .jp-banner-phases { color:#999 !important; }
+    /* Finance the future extra */
+    .ftf-label { color:#bbb !important; }
+    .ftf-body { color:#555 !important; }
+    .ftf-cta { color:#141414 !important; border-bottom-color:#141414 !important; }
+    .ftf-cta svg path { stroke:#141414 !important; }
+    
+</style>
+</head>
+<body>
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">Akshada Muley</a>
+  <div class="nav-links">
+    <a href="about.html" class="nav-link ">About</a>
+    <a href="work.html" class="nav-link ">Work</a>
+    <a href="projects.html" class="nav-link active">Projects</a>
+  </div>
+</nav>
+<a href="projects.html" class="back-link" style="display:block;padding:20px 48px 0;max-width:1040px;margin:0 auto;font-size:.6rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#999;text-decoration:none;">← Projects</a>
+<div class="detail-wrap">
+
+
+<div class="fvr">
+
+<!-- ══ HERO ══ -->
+<div class="fvr-hero">
+  <div class="fvr-eyebrow">UCLA Entertainment Studio · 2020</div>
+  <h1 class="fvr-title">F<span>.</span>O<span>.</span>R<span>.</span>E<span>.</span>V<span>.</span>E<span>.</span>R</h1>
+  <p class="fvr-tagline">
+    "Plastic appears here as an active collective: gathering, moving, and asserting itself against the urban environments that produced and abandoned it."
+  </p>
+  <div class="fvr-meta">
+    <div class="fvr-meta-item">
+      <div class="fvr-meta-label">Medium</div>
+      <div class="fvr-meta-val">Animated Film &amp;<br>Speculative Narrative</div>
+    </div>
+    <div class="fvr-meta-item">
+      <div class="fvr-meta-label">Studio</div>
+      <div class="fvr-meta-val">UCLA Architecture<br>&amp; Urban Design</div>
+    </div>
+    <div class="fvr-meta-item">
+      <div class="fvr-meta-label">Instructors</div>
+      <div class="fvr-meta-val">Natasha Sandmeir<br>Nathan Su</div>
+    </div>
+    <div class="fvr-meta-item">
+      <div class="fvr-meta-label">Team</div>
+      <div class="fvr-meta-val">Neha Oswal<br>Aishwarya Rajasekar<br><strong>Akshada Muley</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ VIDEO ══ -->
+<div class="fvr-video-wrap">
+  <div class="fvr-section-label">Film Teaser</div>
+  <!--
+    INSTRUCTIONS: Replace the src below with your actual video embed URL.
+    If hosted on Vimeo: https://player.vimeo.com/video/YOUR_VIDEO_ID
+    If hosted on YouTube: https://www.youtube.com/embed/YOUR_VIDEO_ID
+    If Adobe Portfolio has a video block, keep that block above this embed
+    and remove this iframe section.
+  -->
+  <div class="fvr-video-container">
+    <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;position:absolute;top:0;left:0;">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#2A2A2A" stroke-width="1.5"/><path d="M20 16l14 8-14 8V16z" fill="#333"/></svg>
+      <span style="font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#333;font-weight:600">
+        Replace with your video embed URL — see comment above
+      </span>
+    </div>
+  </div>
+  <div class="fvr-video-caption">F.O.R.E.V.E.R — Our very own creation, PLASTIC, is on a mission.</div>
+</div>
+
+<!-- ══ CONCEPT ══ -->
+<div class="fvr-concept">
+  <div class="fvr-section-label">The Concept</div>
+  <div class="fvr-concept-grid">
+    <div class="fvr-concept-text">
+      <p class="fvr-concept-pull">A counter-narrative to the anthropocentric city — what if <strong>plastic is not waste, but protagonist?</strong></p>
+      <div class="fvr-body">
+        <p>FOREVER offers a counter-narrative to the anthropocentric lens through which we typically understand the city. It proposes that urban environments are not solely shaped by human life, but are shared with a range of non-human entities — each with their own tendencies, behaviors, and forms of presence.</p>
+        <p>This film treats that condition as an opportunity to reframe our relationship with plastic: not as one defined by guilt or disposability, but as one that demands empathy, responsibility, and a more conscious form of cohabitation.</p>
+        <p>By attributing intention and movement to an inanimate body, the film reveals hidden urban realities and prompts a renewed reflection on the afterlife of our own creations.</p>
+      </div>
+    </div>
+    <div>
+      <div class="fvr-scales">
+        <div class="fvr-scale">
+          <div class="fvr-scale-num">01</div>
+          <div class="fvr-scale-content">
+            <div class="fvr-scale-name">The Supermarket</div>
+            <div class="fvr-scale-desc">Where plastic is born — shelved, packaged, purchased. The origin point of excess and disposability.</div>
+          </div>
+        </div>
+        <div class="fvr-scale">
+          <div class="fvr-scale-num">02</div>
+          <div class="fvr-scale-content">
+            <div class="fvr-scale-name">The Street</div>
+            <div class="fvr-scale-desc">Where plastic escapes — drifting, accumulating, asserting presence in the everyday urban fabric.</div>
+          </div>
+        </div>
+        <div class="fvr-scale">
+          <div class="fvr-scale-num">03</div>
+          <div class="fvr-scale-content">
+            <div class="fvr-scale-name">The City</div>
+            <div class="fvr-scale-desc">Where plastic organizes — migrating, mobilizing, and staging its exit from the systems that produced it.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTRIBUTIONS ══ -->
+<div class="fvr-contribution">
+  <div class="fvr-section-label">Team Contributions</div>
+  <div class="fvr-contrib-grid">
+    <div class="fvr-contrib-cell">
+      <div class="fvr-contrib-role">Designer</div>
+      <div class="fvr-contrib-name">Akshada Muley</div>
+      <div class="fvr-contrib-items">
+        <div class="fvr-contrib-item highlight">Scene design &amp; composition</div>
+        <div class="fvr-contrib-item highlight">Elements, texturing &amp; lighting</div>
+        <div class="fvr-contrib-item highlight">Animation (selected scenes)</div>
+        <div class="fvr-contrib-item highlight">Freeway &amp; city-scale scenes</div>
+        <div class="fvr-contrib-item highlight">Plastic bag sequence</div>
+      </div>
+    </div>
+    <div class="fvr-contrib-cell">
+      <div class="fvr-contrib-role">Designer</div>
+      <div class="fvr-contrib-name">Aishwarya Rajasekar</div>
+      <div class="fvr-contrib-items">
+        <div class="fvr-contrib-item">Scene design &amp; composition</div>
+        <div class="fvr-contrib-item">Elements, texturing &amp; lighting</div>
+        <div class="fvr-contrib-item">Animation (selected scenes)</div>
+        <div class="fvr-contrib-item">Street-level scenes</div>
+      </div>
+    </div>
+    <div class="fvr-contrib-cell">
+      <div class="fvr-contrib-role">Designer</div>
+      <div class="fvr-contrib-name">Neha Oswal</div>
+      <div class="fvr-contrib-items">
+        <div class="fvr-contrib-item">Animation direction</div>
+        <div class="fvr-contrib-item">Narrative structure</div>
+        <div class="fvr-contrib-item">Supermarket scenes</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ACT 01: THE STREET ══ -->
+<div class="fvr-gallery">
+  <div class="fvr-act-header">
+    <div class="fvr-act-num">Act 01</div>
+    <div class="fvr-act-name">The Street</div>
+    <div class="fvr-act-rule"></div>
+  </div>
+
+  <!-- Full-width hero still -->
+  <div class="fvr-img-slot fvr-img-full aspect-wide" style="margin-bottom:2px">
+    <!--
+      REPLACE src BELOW with your actual image URL.
+      Right-click image on your live page → Inspect → find src in <img> tag → copy URL
+      Caption: "Freeway on the outskirts of the city | Scene by Akshada Muley"
+    -->
+    <img src="REPLACE_WITH_IMAGE_URL_1" alt="Freeway on the outskirts of the city — Scene by Akshada Muley" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Freeway — outskirts of city<br>Scene by Akshada Muley<br><br>Replace src with CDN URL</span></div>'">
+    <div class="fvr-img-cap">Freeway on the outskirts of the city — Scene by Akshada Muley</div>
+  </div>
+
+  <!-- 2-up grid -->
+  <div class="fvr-img-grid-2">
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_2" alt="Scene by Akshada Muley & Aishwarya Rajasekar" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Scene by Akshada Muley<br>&amp; Aishwarya Rajasekar<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Scene by Akshada Muley &amp; Aishwarya Rajasekar</div>
+    </div>
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_3" alt="Scene by Aishwarya Rajasekar" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Scene by Aishwarya Rajasekar<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Scene by Aishwarya Rajasekar</div>
+    </div>
+  </div>
+
+  <!-- 3-up grid -->
+  <div class="fvr-img-grid-3">
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_4" alt="Elements, Texturing & Lighting — Akshada Muley · Animation — Aishwarya Rajasekar" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Texturing — Akshada<br>Animation — Aishwarya<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Elements, Texturing &amp; Lighting — Akshada Muley · Animation — Aishwarya Rajasekar</div>
+    </div>
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_5" alt="Scene by Akshada Muley" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Scene by Akshada Muley<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Scene by Akshada Muley</div>
+    </div>
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_6" alt="Scene by Aishwarya Rajasekar" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Scene by Aishwarya Rajasekar<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Scene by Aishwarya Rajasekar</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ACT 02: THE CITY ══ -->
+<div class="fvr-gallery" style="padding-top:48px">
+  <div class="fvr-act-header">
+    <div class="fvr-act-num">Act 02</div>
+    <div class="fvr-act-name">The City</div>
+    <div class="fvr-act-rule"></div>
+  </div>
+
+  <div class="fvr-img-grid-2">
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_7" alt="Elements, Texturing & Lighting — Akshada Muley · Animation — Neha Oswal" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Texturing — Akshada<br>Animation — Neha<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Elements, Texturing &amp; Lighting — Akshada Muley · Animation — Neha Oswal</div>
+    </div>
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_8" alt="Elements, Texturing & Lighting — Aishwarya Rajasekar · Animation — Neha Oswal" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Texturing — Aishwarya<br>Animation — Neha<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Elements, Texturing &amp; Lighting — Aishwarya Rajasekar · Animation — Neha Oswal</div>
+    </div>
+  </div>
+
+  <div class="fvr-img-grid-3" style="margin-top:2px">
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_9" alt="Scene by Akshada Muley" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Scene by Akshada Muley<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Scene by Akshada Muley</div>
+    </div>
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_10" alt="Scene by Akshada Muley" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Scene by Akshada Muley<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Scene by Akshada Muley</div>
+    </div>
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_11" alt="Scene by Akshada Muley" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Scene by Akshada Muley<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Scene by Akshada Muley</div>
+    </div>
+  </div>
+
+  <!-- Plastic bag sequence — full width -->
+  <div class="fvr-img-slot fvr-img-full aspect-wide" style="margin-top:2px">
+    <img src="REPLACE_WITH_IMAGE_URL_12" alt="Plastic bag swooshing past — United in feat · Elements, Texturing & Lighting — Akshada Muley · Animation — Aishwarya Rajasekar" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Plastic bag swooshing past — United in feat<br>Texturing — Akshada · Animation — Aishwarya<br><br>Replace src with CDN URL</span></div>'">
+    <div class="fvr-img-cap">Plastic bag swooshing past — United in feat · Elements, Texturing &amp; Lighting — Akshada Muley · Animation — Aishwarya Rajasekar</div>
+  </div>
+
+  <!-- Animation still -->
+  <div class="fvr-img-slot fvr-img-full aspect-wide" style="margin-top:2px">
+    <img src="REPLACE_WITH_IMAGE_URL_13" alt="Elements, Texturing & Lighting — Akshada Muley · Animation — Neha Oswal, Akshada Muley" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Texturing — Akshada<br>Animation — Neha, Akshada<br><br>Replace src with CDN URL</span></div>'">
+    <div class="fvr-img-cap">Elements, Texturing &amp; Lighting — Akshada Muley · Animation — Neha Oswal, Akshada Muley</div>
+  </div>
+</div>
+
+<!-- ══ ACT 03: EXIT ══ -->
+<div class="fvr-gallery" style="padding-top:48px">
+  <div class="fvr-act-header">
+    <div class="fvr-act-num">Act 03</div>
+    <div class="fvr-act-name">The Exit</div>
+    <div class="fvr-act-rule"></div>
+  </div>
+
+  <div class="fvr-img-grid-2">
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_14" alt="The affluenza world full of objects — indicating the exit of plastic from the city · Scene by Akshada Muley" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Affluenza world — exit scene<br>Scene by Akshada Muley<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">The affluenza world full of objects — indicating the exit of plastic from the city · Scene by Akshada Muley</div>
+    </div>
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_IMAGE_URL_15" alt="The plastic on a mission — Exit from the cities · Scene by Akshada Muley" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Plastic on a mission — Exit from the cities<br>Scene by Akshada Muley<br><br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">The plastic on a mission — Exit from the cities · Scene by Akshada Muley</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PROCESS: STORYBOARD ══ -->
+<div class="fvr-process">
+  <div class="fvr-section-label">Process — Storyboard</div>
+  <div class="fvr-process-grid">
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_STORYBOARD_URL_1" alt="Storyboard — preliminary draft, page 1" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Storyboard — Page 1<br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Storyboard — Preliminary draft of film in sketch form</div>
+    </div>
+    <div class="fvr-img-slot aspect-wide">
+      <img src="REPLACE_WITH_STORYBOARD_URL_2" alt="Storyboard — preliminary draft, page 2" onerror="this.parentElement.innerHTML='<div class=\'fvr-img-placeholder\'><span>Storyboard — Page 2<br>Replace src with CDN URL</span></div>'">
+      <div class="fvr-img-cap">Storyboard — Preliminary draft of film in sketch form</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CLOSING ══ -->
+<div class="fvr-closing">
+  <div class="fvr-closing-quote">
+    "FOREVER is ultimately a meditation on <strong>permanence, neglect, and coexistence.</strong> It asks what it means to live among materials that outlast us, evade disappearance, and begin to claim a life and a world of their own."
+  </div>
+  <div class="fvr-closing-meta">
+    <div class="fvr-closing-row">
+      <div class="fvr-closing-lbl">Project</div>
+      <div class="fvr-closing-val">F.O.R.E.V.E.R</div>
+    </div>
+    <div class="fvr-closing-row">
+      <div class="fvr-closing-lbl">Institution</div>
+      <div class="fvr-closing-val">UCLA Architecture &amp; Urban Design</div>
+    </div>
+    <div class="fvr-closing-row">
+      <div class="fvr-closing-lbl">Year</div>
+      <div class="fvr-closing-val">2020</div>
+    </div>
+    <div class="fvr-closing-row">
+      <div class="fvr-closing-lbl">Team</div>
+      <div class="fvr-closing-val">Neha Oswal · Aishwarya Rajasekar · Akshada Muley</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+</body>
+</html>
